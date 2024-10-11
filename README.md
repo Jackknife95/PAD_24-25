@@ -2,6 +2,7 @@
 
 <h1>Estructura del git</h1>
 <h2>Carpetas</h2>
+<h3>Practica 2</h3>
 <dl>
   <dt>Prácticas</dt>
   <dd>En esta carpeta subiremos el código</dd>
