@@ -1,4 +1,4 @@
-package com.example.practica2;
+package es.ucm.fdi.advancedcalculator;
 
 import org.junit.Test;
 

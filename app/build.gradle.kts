@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.practica2"
+    namespace = "es.ucm.fdi.advancedcalculator"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.practica2"
+        applicationId = "es.ucm.fdi.advancedcalculator"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
