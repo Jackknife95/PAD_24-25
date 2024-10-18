@@ -1,4 +1,4 @@
-package com.example.practica2;
+package es.ucm.fdi.googlebooksclient;
 
 import org.junit.Test;
 

@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Practica2"
+rootProject.name = "GoogleBooksClient"
 include(":app")
  
