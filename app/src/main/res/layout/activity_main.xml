@@ -48,14 +48,28 @@
             android:text="Revista" />
     </RadioGroup>
 
-    <!-- Campo de texto para ingresar el título o autor -->
+    <!-- Campo de texto para ingresar el título -->
     <EditText
-        android:id="@+id/etBusqueda"
+        android:id="@+id/etTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Ingrese título o autor"
+        android:hint="Ingrese título"
         android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Campo de texto para ingresar el autor (solo visible para libros) -->
+    <EditText
+        android:id="@+id/etAutor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese autor"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/etTitulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
@@ -68,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Buscar"
-        app:layout_constraintTop_toBottomOf="@id/etBusqueda"
+        app:layout_constraintTop_toBottomOf="@id/etAutor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
