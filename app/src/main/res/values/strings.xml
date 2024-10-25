@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GoogleBooksClient</string>
+    <string name="google_books_api_key">AIzaSyC5rify634w-w9N7kz8fhOImsM5t2foPDQ</string>
 </resources>
