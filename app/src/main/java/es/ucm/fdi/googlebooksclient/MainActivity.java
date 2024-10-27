@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rvBooks = findViewById(R.id.rvBooks);
         adapter = new BooksResultListAdapter();
         rvBooks.setAdapter(adapter);
+        rvBooks.setLayoutManager(new LinearLayoutManager(this));
 
         // Inicializar el loader y los callbacks
         bookLoaderCallbacks = new BookLoaderCallbacks(this);
