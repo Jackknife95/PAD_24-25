@@ -12,7 +12,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buscar Libros y Revistas"
+        android:text="@string/explicacion"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
@@ -37,7 +37,7 @@
             android:id="@+id/rbLibro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Libro"
+            android:text="@string/libro"
             android:checked="true" />
 
         <!-- RadioButton para seleccionar revista -->
@@ -45,7 +45,14 @@
             android:id="@+id/rbRevista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Revista" />
+            android:text="@string/revista" />
+
+        <!-- RadioButton para seleccionar ambos -->
+        <RadioButton
+            android:id="@+id/rbAmbos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ambos" />
     </RadioGroup>
 
     <!-- Campo de texto para ingresar el título -->
@@ -53,7 +60,7 @@
         android:id="@+id/etTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Ingrese título"
+        android:hint="@string/introducir_titulo"
         android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/radioGroup"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +74,7 @@
         android:id="@+id/etAutor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Ingrese autor"
+        android:hint="@string/introducir_autor"
         android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/etTitulo"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +88,7 @@
         android:id="@+id/btnBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buscar"
+        android:text="@string/botonBuscar"
         app:layout_constraintTop_toBottomOf="@id/etAutor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

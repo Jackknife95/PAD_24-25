@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         // Configuración para mostrar o no el campo de autor (depende si es libro o revista)
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            if (checkedId == R.id.rbLibro) {
+            if (checkedId == R.id.rbLibro || checkedId==R.id.rbAmbos) {
                 etAutor.setVisibility(View.VISIBLE);
             } else {
                 etAutor.setVisibility(View.GONE);

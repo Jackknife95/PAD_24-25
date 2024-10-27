@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">GoogleBooksClient</string>
     <string name="google_books_api_key">AIzaSyC5rify634w-w9N7kz8fhOImsM5t2foPDQ</string>
+    <string name="explicacion">"Buscar libros, revistas o ambos "</string>
+    <string name="libro">Libro</string>
+    <string name="revista">Revista</string>
+    <string name="ambos">Libros y revistas</string>
+    <string name="introducir_titulo">Introduzca título</string>
+    <string name="introducir_autor">Introduzca autor/es</string>
+    <string name="botonBuscar">Buscar</string>
 </resources>
