@@ -20,11 +20,14 @@ public class BookInfo {
             if (items != null) {
                 for (int i = 0; i < items.length(); i++) {
                     JSONObject bookObject = items.getJSONObject(i).optJSONObject("volumeInfo");
-                    BookInfo book = new BookInfo();
-                    book.title = bookObject.optString("title");
-                    book.authors = bookObject.optJSONArray("authors") != null ? bookObject.optJSONArray("authors").join(", ") : "Unknown";
-                    book.infoLink = bookObject.optString("infoLink");
-                    books.add(book);
+                    if (bookObject != null) {
+                        BookInfo book = new BookInfo();
+                        book.title = bookObject.optString("title", "Sin título");
+                        book.authors = bookObject.optJSONArray("authors") != null ?
+                                bookObject.optJSONArray("authors").join(", ") : "Autor desconocido";
+                        book.infoLink = bookObject.optString("infoLink", "No disponible");
+                        books.add(book);
+                    }
                 }
             }
         } catch (Exception e) {
@@ -32,4 +35,5 @@ public class BookInfo {
         }
         return books;
     }
+
 }

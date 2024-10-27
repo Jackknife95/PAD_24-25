@@ -12,21 +12,22 @@ import java.util.List;
 
 public class BookLoaderCallbacks implements LoaderManager.LoaderCallbacks<List<BookInfo>> {
 
-    public static final String EXTRA_QUERY = "query";
+    public static final String EXTRA_TITULO = "titulo";
+    public static final String EXTRA_AUTOR = "autor";
     public static final String EXTRA_PRINT_TYPE = "printType";
-    private Context context; // Campo para el contexto
     private MainActivity mainActivity;
 
     // Constructor para pasar el contexto
-    public BookLoaderCallbacks(Context context) {
-        this.context = context;
+    public BookLoaderCallbacks(MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
     }
 
     @Override
     public Loader<List<BookInfo>> onCreateLoader(int id, Bundle args) {
-        String queryString = args.getString(EXTRA_QUERY);
+        String tituloString = args.getString(EXTRA_TITULO);
+        String authorString = args.getString(EXTRA_AUTOR);
         String printType = args.getString(EXTRA_PRINT_TYPE);
-        return new BookLoader(context, queryString, printType); // Usa el contexto aquí
+        return new BookLoader(mainActivity, tituloString, authorString, printType); // Usa el contexto aquí
     }
 
     @Override
@@ -43,6 +44,4 @@ public class BookLoaderCallbacks implements LoaderManager.LoaderCallbacks<List<B
             Log.d("BookLoaderCallbacks", "No se encontraron resultados.");
         }
     }
-
-
 }
