@@ -69,8 +69,16 @@ public class MainActivity extends AppCompatActivity {
     public void searchBooks(View view) {
         String tituloString = etTitulo.getText().toString().trim();
         String autorString = etAutor.getText().toString().trim();
-        String printType = (rbLibro.isChecked()) ? "books" : "magazines";
-
+        String printType;
+        if(rbLibro.isChecked()){
+            printType = "books";
+        }
+        else if(rbRevista.isChecked()){
+            printType= "magazines";
+        }
+        else{
+            printType = "all";
+        }
         // Se verifica si los campos de título y autor están vacíos
         if (tituloString.isEmpty() && autorString.isEmpty()) {
             Toast.makeText(this, "Introduce un título o autor para buscar", Toast.LENGTH_SHORT).show();
