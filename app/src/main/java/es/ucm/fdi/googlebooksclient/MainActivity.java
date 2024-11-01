@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(rbRevista.isChecked()){
             printType= "magazines";
+            autorString ="";
         }
         else{
             printType = "all";

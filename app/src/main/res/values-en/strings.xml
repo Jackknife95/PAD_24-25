@@ -1,0 +1,9 @@
+<resources>
+    <string name="libro">Book</string>
+    <string name="revista">Magazine</string>
+    <string name="ambos">Books and magazines</string>
+    <string name="introducir_titulo">Insert title</string>
+    <string name="introducir_autor">Insert author</string>
+    <string name="botonBuscar">Search</string>
+    <string name="explicacion">Search books, magazines or both</string>
+</resources>
