@@ -1,5 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Color de fondo de la actividad principal -->
+    <color name="backgroundColor">#DCC9FD</color>
+
+    <!-- Color del texto principal -->
+    <color name="textColorPrimary">#000000</color>
+
+    <!-- Color del texto secundario -->
+    <color name="textColorSecondary">#A9A9A9</color>
+
+    <!-- Color del texto de los resultados -->
+    <color name="textColorResultados">#020202</color>
+
+    <!-- Color de fondo para el botón de búsqueda -->
+    <color name="buttonBackground">#000000</color>
+
+    <!-- Color del texto del botón de búsqueda -->
+    <color name="buttonTextColor">#FFFFFF</color>
+
+    <!-- Color de separador -->
+    <color name="separatorColor">#424242</color>
+
+    <!-- Colores de los libros en el CardView -->
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="cardShadow">#DDDDDD</color>
+
+    <!-- Color del enlace al libro -->
+    <color name="linkColor">#4763FD</color>
+
+    <!-- Color de los RadioButtons -->
+    <color name="radioButtonColor">#673AB7</color>
 </resources>
