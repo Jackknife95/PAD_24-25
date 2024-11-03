@@ -27,6 +27,7 @@ public class BooksResultListAdapter extends RecyclerView.Adapter<BooksResultList
         BookInfo book = mBooksData.get(position);
         holder.titleTextView.setText(book.title);
         holder.authorsTextView.setText(book.authors);
+        holder.infoLinkTextView.setText(book.infoLink);
     }
 
     @Override
@@ -43,11 +44,13 @@ public class BooksResultListAdapter extends RecyclerView.Adapter<BooksResultList
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         TextView authorsTextView;
+        TextView infoLinkTextView;
 
         ViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.tvTitle);
             authorsTextView = itemView.findViewById(R.id.tvAuthors);
+            infoLinkTextView = itemView.findViewById(R.id.tvInfoLink);
         }
     }
 }

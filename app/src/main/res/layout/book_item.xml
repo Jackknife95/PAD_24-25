@@ -29,7 +29,19 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text=""
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="@android:color/darker_gray"
+            android:paddingBottom="4dp"/>
+
+        <!-- Nuevo TextView para mostrar el infoLink -->
+        <TextView
+            android:id="@+id/tvInfoLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:text=""
+            android:autoLink="web"
+        android:paddingTop="4dp"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
