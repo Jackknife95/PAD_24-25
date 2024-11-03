@@ -8,4 +8,7 @@
     <string name="introducir_autor">Introduzca autor/es</string>
     <string name="botonBuscar">Buscar</string>
     <string name="explicacion">"Buscar libros, revistas o ambos "</string>
+    <string name="resultados">Resultados</string>
+    <string name="cargando">Cargando...</string>
+    <string name="no_resultados">No se han encontrado resultados</string>
 </resources>

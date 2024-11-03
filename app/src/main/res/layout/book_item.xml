@@ -13,6 +13,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- TextView para mostrar el título del libro o revista -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
@@ -23,6 +24,7 @@
             android:textColor="@android:color/black"
             android:paddingBottom="4dp"/>
 
+        <!-- TextView para mostrar el autor -->
         <TextView
             android:id="@+id/tvAuthors"
             android:layout_width="match_parent"
@@ -32,7 +34,7 @@
             android:textColor="@android:color/darker_gray"
             android:paddingBottom="4dp"/>
 
-        <!-- Nuevo TextView para mostrar el infoLink -->
+        <!-- TextView para mostrar el enlace al libro o revista -->
         <TextView
             android:id="@+id/tvInfoLink"
             android:layout_width="match_parent"

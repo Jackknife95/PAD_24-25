@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etAutor;
     private RadioButton rbLibro, rbRevista;
     private Button btnBuscar;
+    private TextView tvResultados;
     private BookLoaderCallbacks bookLoaderCallbacks;
     private BooksResultListAdapter adapter;
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         rbLibro = findViewById(R.id.rbLibro);
         rbRevista = findViewById(R.id.rbRevista);
         btnBuscar = findViewById(R.id.btnBuscar);
+        tvResultados = findViewById(R.id.tvResultados);
 
         // Configuración para mostrar o no el campo de autor (depende si es libro o revista)
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
@@ -75,16 +77,22 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(rbRevista.isChecked()){
             printType= "magazines";
-            autorString ="";
+            autorString =""; // Quitar el autor si se buscan solo revistas
+
         }
         else{
             printType = "all";
         }
-        // Se verifica si los campos de título y autor están vacíos
+
+        // Verificar si los campos de título y autor están vacíos
         if (tituloString.isEmpty() && autorString.isEmpty()) {
             Toast.makeText(this, "Introduce un título o autor para buscar", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        // Mostrar "Cargando..." al iniciar la búsqueda
+        tvResultados.setText("Cargando...");
+        tvResultados.setVisibility(View.VISIBLE);
 
         // Lanza el loader con los parámetros adecuados
         Bundle queryBundle = new Bundle();
@@ -98,10 +106,16 @@ public class MainActivity extends AppCompatActivity {
         if (adapter != null) {
             adapter.setBooksData(books);
             adapter.notifyDataSetChanged();
+
+            // Actualizar el texto del indicador según los resultados
+            if (books.isEmpty()){
+                tvResultados.setText("No se han encontrado resultados");
+            }
+            else {
+                tvResultados.setText("Resultados");
+            }
         } else {
             Log.d("MainActivity", "Adapter no está inicializado");
         }
     }
-
-
 }

@@ -6,4 +6,7 @@
     <string name="introducir_autor">Insert author</string>
     <string name="botonBuscar">Search</string>
     <string name="explicacion">Search books, magazines or both</string>
+    <string name="resultados">Results</string>
+    <string name="cargando">Loading...</string>
+    <string name="no_resultados">No results found</string>
 </resources>
