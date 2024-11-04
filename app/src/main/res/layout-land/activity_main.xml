@@ -57,8 +57,6 @@
 
     <!-- Campo de texto y autor en la misma fila para aprovechar el espacio horizontal -->
 
-    <!-- Botón para realizar la búsqueda -->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
@@ -101,10 +99,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Línea separadora debajo del botón de búsqueda -->
-
-    <!-- Texto de estado para mostrar "Resultados", "Cargando...", o "No se han encontrado resultados" -->
-
+    <!-- Botón para realizar la búsqueda -->
     <Button
         android:id="@+id/btnBuscar"
         android:layout_width="wrap_content"
@@ -145,7 +140,7 @@
     <!-- RecyclerView para mostrar los libros -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBooks"
-        android:layout_width="731dp"
+        android:layout_width="match_parent"
         android:layout_height="169dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -154,5 +149,29 @@
         app:layout_constraintTop_toBottomOf="@id/tvResultados"
         app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/book_item" />
+
+    <!-- Botones para cambiar idioma -->
+    <Button
+        android:id="@+id/btnEspañol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/buttonBackground"
+        android:text="@string/idioma_español"
+        android:textColor="@color/buttonTextColor"
+        app:layout_constraintEnd_toStartOf="@id/btnIngles"
+        app:layout_constraintTop_toBottomOf="@id/rvBooks" />
+
+    <Button
+        android:id="@+id/btnIngles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/buttonBackground"
+        android:text="@string/idioma_ingles"
+        android:textColor="@color/buttonTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvBooks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
