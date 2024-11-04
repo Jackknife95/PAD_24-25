@@ -31,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvResultados;
     private BookLoaderCallbacks bookLoaderCallbacks;
     private BooksResultListAdapter adapter;
+    private static final String ETIQUETA = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.v(ETIQUETA, "onCreate: Inicializando la actividad"); // Log Verbose
 
         // Inicialización de los elementos de la interfaz
         etTitulo = findViewById(R.id.etTitulo);
@@ -50,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.rbLibro || checkedId == R.id.rbAmbos) {
                 etAutor.setVisibility(View.VISIBLE);
+                Log.i(ETIQUETA, "Campo de autor visible"); // Log Info
             } else {
                 etAutor.setVisibility(View.GONE);
+                Log.i(ETIQUETA, "Campo de autor oculto"); // Log Info
             }
         });
 
@@ -79,30 +84,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchBooks(View view) {
+        Log.v(ETIQUETA, "searchBooks: Método invocado"); // Log Verbose
         String tituloString = etTitulo.getText().toString().trim();
         String autorString = etAutor.getText().toString().trim();
         String printType;
         if (rbLibro.isChecked()) {
             printType = "books";
+            Log.i(ETIQUETA, "Tipo de búsqueda: Libros"); // Log Info
         } else if (rbRevista.isChecked()) {
             printType = "magazines";
             autorString = ""; // Quitar el autor si se buscan solo revistas
+            Log.i(ETIQUETA, "Tipo de búsqueda: Revistas"); // Log Info
         } else {
             printType = "all";
+            Log.i(ETIQUETA, "Tipo de búsqueda: Ambos"); // Log Info
         }
 
         // Verificar si los campos de título y autor están vacíos
         if (tituloString.isEmpty() && autorString.isEmpty()) {
             Toast.makeText(this, "Introduce un título o autor para buscar", Toast.LENGTH_SHORT).show();
+            Log.w(ETIQUETA, "Campos vacíos: Se necesita un título o autor para buscar"); // Log Warning
             return;
         }
 
         // Mostrar "Cargando..." al iniciar la búsqueda
         tvResultados.setText(getString(R.string.cargando));
         tvResultados.setVisibility(View.VISIBLE);
+
+        Log.d(ETIQUETA, "Iniciando búsqueda para: " + tituloString + ", Autor: " + autorString); // Log Debug
+
         // Limpiamos la lista de libros
         Loader<List<BookInfo>> l = null;
-        // Reseteamos la lista (seguramente no se tenga que hacer de esta manera)
+        // Reseteamos la lista
         bookLoaderCallbacks.onLoaderReset(l);
         // Lanza el loader con los parámetros adecuados
 
@@ -110,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
         queryBundle.putString(BookLoaderCallbacks.EXTRA_TITULO, tituloString);
         queryBundle.putString(BookLoaderCallbacks.EXTRA_AUTOR, autorString);
         queryBundle.putString(BookLoaderCallbacks.EXTRA_PRINT_TYPE, printType);
+
+        Log.d(ETIQUETA, "Bundle de búsqueda creado: " + queryBundle); // Log Debug
+
         LoaderManager.getInstance(this).restartLoader(BOOK_LOADER_ID, queryBundle, bookLoaderCallbacks);
     }
 
@@ -122,12 +138,14 @@ public class MainActivity extends AppCompatActivity {
             if (books.isEmpty()) {
                 if (finalizado)
                     tvResultados.setText(getString(R.string.sin_resultados));
+                    Log.i(ETIQUETA, "No se encontraron resultados"); // Log Info
             } else {
                 if (finalizado)
                     tvResultados.setText(getString(R.string.resultados));
+                Log.i(ETIQUETA, "Resultados encontrados y actualizados en la lista"); // Log Info
             }
         } else {
-            Log.d("MainActivity", "Adapter no está inicializado");
+            Log.e(ETIQUETA, "Adapter no está inicializado"); // Log Error
         }
     }
 
