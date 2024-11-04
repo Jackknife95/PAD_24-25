@@ -32,16 +32,17 @@ public class BookLoaderCallbacks implements LoaderManager.LoaderCallbacks<List<B
 
     @Override
     public void onLoaderReset(Loader<List<BookInfo>> loader) {
-        mainActivity.updateBooksResultList(new ArrayList<>()); // Limpia la lista
+        mainActivity.updateBooksResultList(new ArrayList<>(), false); // Limpia la lista
     }
 
 
     @Override
     public void onLoadFinished(Loader<List<BookInfo>> loader, List<BookInfo> data) {
         if (data != null && !data.isEmpty()) {
-            mainActivity.updateBooksResultList(data);  // Envía la lista a MainActivity
+            Log.d("BookLoaderCallbacks", "Se han encontrado resultados");
         } else {
             Log.d("BookLoaderCallbacks", "No se encontraron resultados.");
         }
+        mainActivity.updateBooksResultList(data, true);
     }
 }

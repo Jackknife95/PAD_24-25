@@ -107,17 +107,19 @@ public class MainActivity extends AppCompatActivity {
         LoaderManager.getInstance(this).restartLoader(BOOK_LOADER_ID, queryBundle, bookLoaderCallbacks);
     }
 
-    public void updateBooksResultList(List<BookInfo> books) {
+    public void updateBooksResultList(List<BookInfo> books, boolean finalizado) {
         if (adapter != null) {
             adapter.setBooksData(books);
             adapter.notifyDataSetChanged();
 
             // Actualizar el texto del indicador según los resultados
             if (books.isEmpty()){
-                tvResultados.setText("No se han encontrado resultados");
+                if(finalizado)
+                    tvResultados.setText("No se han encontrado resultados");
             }
             else {
-                tvResultados.setText("Resultados");
+                if(finalizado)
+                    tvResultados.setText("Resultados");
             }
         } else {
             Log.d("MainActivity", "Adapter no está inicializado");
