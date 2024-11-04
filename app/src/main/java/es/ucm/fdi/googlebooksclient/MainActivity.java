@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -93,8 +94,12 @@ public class MainActivity extends AppCompatActivity {
         // Mostrar "Cargando..." al iniciar la búsqueda
         tvResultados.setText("Cargando...");
         tvResultados.setVisibility(View.VISIBLE);
-
+        //limpiamos la lista de libros
+        Loader<List<BookInfo>> l = null;
+        //reseteamos la lista (seguramente no se tenga que hacer de esta manera)
+        bookLoaderCallbacks.onLoaderReset(l);
         // Lanza el loader con los parámetros adecuados
+
         Bundle queryBundle = new Bundle();
         queryBundle.putString(BookLoaderCallbacks.EXTRA_TITULO, tituloString);
         queryBundle.putString(BookLoaderCallbacks.EXTRA_AUTOR, autorString);
