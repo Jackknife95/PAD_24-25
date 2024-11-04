@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Your App Name</string>
-    <string name="explicacion">App description</string>
-    <string name="libro">Book</string>
-    <string name="revista">Magazine</string>
+    <string name="app_name">Search App</string>
+    <string name="explicacion">Search books, magazines or both</string>
+    <string name="libro">Books</string>
+    <string name="revista">Magazines</string>
     <string name="ambos">Both</string>
     <string name="introducir_titulo">Enter title</string>
     <string name="introducir_autor">Enter author</string>
