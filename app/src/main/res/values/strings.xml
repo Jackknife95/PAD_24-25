@@ -1,14 +1,15 @@
 <resources>
-    <string name="app_name" translatable="false">GoogleBooksClient</string>
-    <string name="google_books_api_key" translatable="false">AIzaSyC5rify634w-w9N7kz8fhOImsM5t2foPDQ</string>
+    <string name="app_name">Tu Nombre de Aplicación</string>
+    <string name="explicacion">Descripción de la aplicación</string>
     <string name="libro">Libro</string>
     <string name="revista">Revista</string>
-    <string name="ambos">Libros y revistas</string>
-    <string name="introducir_titulo">Introduzca título</string>
-    <string name="introducir_autor">Introduzca autor/es</string>
+    <string name="ambos">Ambos</string>
+    <string name="introducir_titulo">Introduce el título</string>
+    <string name="introducir_autor">Introduce el autor</string>
     <string name="botonBuscar">Buscar</string>
-    <string name="explicacion">"Buscar libros, revistas o ambos "</string>
     <string name="resultados">Resultados</string>
+    <string name="idioma_español">Español</string>
+    <string name="idioma_ingles">Inglés</string>
     <string name="cargando">Cargando...</string>
-    <string name="no_resultados">No se han encontrado resultados</string>
+    <string name="sin_resultados">No se han encontrado resultados</string>
 </resources>

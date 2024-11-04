@@ -22,13 +22,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
+    <!-- LinearLayout para los botones de idioma -->
+    <LinearLayout
+        android:id="@+id/llIdioma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <!-- Botón para Español -->
+        <Button
+            android:id="@+id/btnEspañol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Español"
+            android:textColor="@color/textColorPrimary"
+            android:background="@color/buttonBackground"/>
+
+        <!-- Espaciado entre botones -->
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"/>
+
+        <!-- Botón para Inglés -->
+        <Button
+            android:id="@+id/btnIngles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:textColor="@color/textColorPrimary"
+            android:background="@color/buttonBackground"/>
+    </LinearLayout>
+
     <!-- RadioGroup para seleccionar entre libro o revista -->
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/llIdioma"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">

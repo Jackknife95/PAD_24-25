@@ -1,12 +1,15 @@
 <resources>
+    <string name="app_name">Your App Name</string>
+    <string name="explicacion">App description</string>
     <string name="libro">Book</string>
     <string name="revista">Magazine</string>
-    <string name="ambos">Books and magazines</string>
-    <string name="introducir_titulo">Insert title</string>
-    <string name="introducir_autor">Insert author</string>
+    <string name="ambos">Both</string>
+    <string name="introducir_titulo">Enter title</string>
+    <string name="introducir_autor">Enter author</string>
     <string name="botonBuscar">Search</string>
-    <string name="explicacion">Search books, magazines or both</string>
     <string name="resultados">Results</string>
+    <string name="idioma_español">Spanish</string>
+    <string name="idioma_ingles">English</string>
     <string name="cargando">Loading...</string>
-    <string name="no_resultados">No results found</string>
+    <string name="sin_resultados">No results found</string>
 </resources>
