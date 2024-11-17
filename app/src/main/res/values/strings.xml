@@ -1,15 +1,3 @@
 <resources>
-    <string name="app_name">Aplicación de búsqueda</string>
-    <string name="explicacion">Buscar libros, revistas o ambos</string>
-    <string name="libro">Libros</string>
-    <string name="revista">Revistas</string>
-    <string name="ambos">Ambos</string>
-    <string name="introducir_titulo">Introduce el título</string>
-    <string name="introducir_autor">Introduce el autor</string>
-    <string name="botonBuscar">Buscar</string>
-    <string name="resultados">Resultados</string>
-    <string name="idioma_español">Español</string>
-    <string name="idioma_ingles">Inglés</string>
-    <string name="cargando">Cargando...</string>
-    <string name="sin_resultados">No se han encontrado resultados</string>
+    <string name="app_name">Dices and Dragons</string>
 </resources>

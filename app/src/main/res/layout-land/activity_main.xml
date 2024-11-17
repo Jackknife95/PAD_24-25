@@ -1,177 +1,69 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
     tools:context=".MainActivity">
 
-    <!-- Título de la app o descripción -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/explicacion"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- RadioGroup para seleccionar entre libro o revista -->
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle">
-
-        <RadioButton
-            android:id="@+id/rbLibro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/libro"
-            android:textColor="@color/textColorPrimary" />
-
-        <RadioButton
-            android:id="@+id/rbRevista"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/revista"
-            android:textColor="@color/textColorPrimary" />
-
-        <RadioButton
-            android:id="@+id/rbAmbos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ambos"
-            android:textColor="@color/textColorPrimary" />
-    </RadioGroup>
-
-    <!-- Campo de texto y autor en la misma fila para aprovechar el espacio horizontal -->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <!-- Logo de Dices and Dragons a la izquierda -->
+    <ImageView
+        android:id="@+id/headerImage"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_height="match_parent"
+        android:src="@drawable/logo"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonContainer"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"/>
 
-        <!-- Campo de texto para ingresar el título -->
-        <EditText
-            android:id="@+id/etTitulo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:hint="@string/introducir_titulo"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/etAutor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Contenedor para los botones alineados a la derecha -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="#493D22"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/headerImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="16dp"
+        android:gravity="center">
 
-        <!-- Campo de texto para ingresar el autor (solo visible para libros) -->
-        <EditText
-            android:id="@+id/etAutor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:hint="@string/introducir_autor"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/etTitulo"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Botón para Tiradas de Dados -->
+    <Button
+        android:id="@+id/btnDiceRolls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tiradas de Dados"
+        android:textSize="20sp"
+        android:layout_marginBottom="24dp"
+        android:padding="16dp"/>
+
+    <!-- Botón para Selección de Partida -->
+    <Button
+        android:id="@+id/btnGameSession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selección de Partida"
+        android:textSize="20sp"
+        android:layout_marginBottom="24dp"
+        android:padding="16dp"/>
+
+    <!-- Botón para Creador de Armas -->
+    <Button
+        android:id="@+id/btnWeaponCreator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Creador de Armas"
+        android:textSize="20sp"
+        android:padding="16dp"/>
+</LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- Botón para realizar la búsqueda -->
-    <Button
-        android:id="@+id/btnBuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/buttonBackground"
-        android:text="@string/botonBuscar"
-        android:textColor="@color/buttonTextColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/separator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="92dp"
-        android:background="@color/separatorColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnBuscar" />
-
-    <TextView
-        android:id="@+id/tvResultados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/resultados"
-        android:textColor="@color/textColorResultados"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator" />
-
-    <!-- RecyclerView para mostrar los libros -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvBooks"
-        android:layout_width="match_parent"
-        android:layout_height="169dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvResultados"
-        app:layout_constraintVertical_bias="1.0"
-        tools:listitem="@layout/book_item" />
-
-    <!-- Botones para cambiar idioma -->
-    <Button
-        android:id="@+id/btnEspañol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/buttonBackground"
-        android:text="@string/idioma_español"
-        android:textColor="@color/buttonTextColor"
-        app:layout_constraintEnd_toStartOf="@id/btnIngles"
-        app:layout_constraintTop_toBottomOf="@id/rvBooks" />
-
-    <Button
-        android:id="@+id/btnIngles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/buttonBackground"
-        android:text="@string/idioma_ingles"
-        android:textColor="@color/buttonTextColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvBooks" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>

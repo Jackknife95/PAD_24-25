@@ -1,4 +1,4 @@
-package es.ucm.fdi.googlebooksclient;
+package es.ucm.fdi.proyecto.dicesanddragons;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("es.ucm.fdi.googlebooksclient", appContext.getPackageName());
+        assertEquals("es.ucm.fdi.proyecto.dicesanddragons", appContext.getPackageName());
     }
 }

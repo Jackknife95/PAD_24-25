@@ -1,4 +1,4 @@
-package es.ucm.fdi.googlebooksclient;
+package es.ucm.fdi.proyecto.dicesanddragons;
 
 import org.junit.Test;
 
