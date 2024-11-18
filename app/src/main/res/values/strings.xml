@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Dices and Dragons</string>
+    <string name="nombre_del_contador">Nombre del Contador</string>
+    <string name="boton_mas">+</string>
+    <string name="texto_inicial_counter">0</string>
+    <string name="boton_menos">-</string>
+    <string name="boton_eliminar">x</string>
+    <string name="agregar_contador">Añadir Contador</string>
 </resources>
