@@ -24,42 +24,55 @@
         android:id="@+id/buttonContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:background="#493D22"
-        app:layout_constraintTop_toBottomOf="@id/headerImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="#5B4C3A"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerImage">
 
         <!-- Botón para Tiradas de Dados -->
         <Button
             android:id="@+id/btnDiceRolls"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text="Tiradas de Dados"
-            android:textSize="20sp"
             android:layout_marginBottom="24dp"
-            android:padding="16dp"/>
+            android:backgroundTint="#ECDEB2"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
+            android:text="Tiradas de Dados"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <!-- Botón para Selección de Partida -->
         <Button
             android:id="@+id/btnGameSession"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text="Selección de Partida"
-            android:textSize="20sp"
             android:layout_marginBottom="24dp"
-            android:padding="16dp"/>
+            android:backgroundTint="#ECDEB2"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
+            android:text="Selección de Partida"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <!-- Botón para Creador de Armas -->
         <Button
             android:id="@+id/btnWeaponCreator"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:backgroundTint="#ECDEB2"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
             android:text="Creador de Armas"
-            android:textSize="20sp"
-            android:padding="16dp"/>
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

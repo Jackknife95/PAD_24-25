@@ -29,6 +29,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:background="#493D22"
+        android:backgroundTint="#5B4C3A"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/headerImage"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,9 +43,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tiradas de Dados"
-        android:textSize="20sp"
         android:layout_marginBottom="24dp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:backgroundTint="#ECDEB2"
+        android:fontFamily="@font/agbalumo"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!-- Botón para Selección de Partida -->
     <Button
@@ -52,9 +57,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Selección de Partida"
-        android:textSize="20sp"
         android:layout_marginBottom="24dp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:backgroundTint="#ECDEB2"
+        android:fontFamily="@font/agbalumo"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!-- Botón para Creador de Armas -->
     <Button
@@ -62,8 +71,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Creador de Armas"
-        android:textSize="20sp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:backgroundTint="#ECDEB2"
+        android:fontFamily="@font/agbalumo"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
