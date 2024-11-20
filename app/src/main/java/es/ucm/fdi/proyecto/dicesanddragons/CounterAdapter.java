@@ -12,11 +12,15 @@ import java.util.List;
 public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterViewHolder> {
 
     private final List<Counter> counters; // Lista de contadores
-    private final OnCounterListener listener; // Listener para eventos
+    private OnCounterListener listener; // Listener para eventos
 
     public CounterAdapter(List<Counter> counters, OnCounterListener listener) {
         this.counters = counters;
         this.listener = listener;
+    }
+
+    public CounterAdapter(List<Counter> counters) {
+        this.counters = counters;
     }
 
     @NonNull
@@ -91,5 +95,8 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
     // Interfaz para manejar eventos como eliminar contadores
     public interface OnCounterListener {
         void onDeleteCounter(int position); // Método para eliminar el contador
+    }
+    public void setOnCounterClickListener(OnCounterListener listener) {
+        this.listener = listener;
     }
 }

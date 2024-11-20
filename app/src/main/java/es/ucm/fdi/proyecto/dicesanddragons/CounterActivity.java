@@ -17,19 +17,21 @@ public class CounterActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         List<Counter> counterList = new ArrayList<>();
 
-        CounterAdapter adapter = new CounterAdapter(counterList, position -> {
-            // Eliminar el contador en la posición dada
-            counterList.remove(position);
 
-            //solucionar para que puedan ser borrados los contadores
-            //adapter.notifyItemRemoved(position);
+        CounterAdapter adapter = new CounterAdapter(counterList);
+
+// Configura el listener después de inicializar el adapter
+        adapter.setOnCounterClickListener(position -> {
+            counterList.remove(position);
+            adapter.notifyDataSetChanged();
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
 // Agregar contadores a la lista
-        counterList.add(new Counter(0, "Contador 1"));
-        counterList.add(new Counter(0,"Contador 2" ));
+        for (int i=1;i<=10;i++){
+            counterList.add(new Counter(i,"Contador "+i ));
+        }
         adapter.notifyDataSetChanged();
 
     }
