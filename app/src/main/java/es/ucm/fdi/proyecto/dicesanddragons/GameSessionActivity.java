@@ -3,16 +3,34 @@ package es.ucm.fdi.proyecto.dicesanddragons;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;
+
 public class GameSessionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_session_activity);
-        // Aquí se maneja la selección de partidas
 
+        /*RecyclerView recyclerView = findViewById(R.id.listaPartidas);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Crear lista de ejemplo de partidas
+        List<SavedGame> listaPartidas = cargarPartidas();
 
+        // Configurar el adaptador
+        SavedGamesAdapter adapter = new SavedGamesAdapter(this, listaPartidas);
+        recyclerView.setAdapter(adapter);*/
+    }
+
+    private List<SavedGame> cargarPartidas() {
+        // Ejemplo de datos
+        List<SavedGame> partidas = new ArrayList<>();
+        partidas.add(new SavedGame("Partida 1", "Héroe A"));
+        partidas.add(new SavedGame("Partida 2", "Héroe B"));
+        return partidas;
     }
 }
 
