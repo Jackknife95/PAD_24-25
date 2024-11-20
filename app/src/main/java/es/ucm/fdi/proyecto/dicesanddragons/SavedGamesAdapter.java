@@ -30,13 +30,14 @@ public class SavedGamesAdapter extends RecyclerView.Adapter<SavedGamesAdapter.Vi
     // Clase interna para ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView nombrePartida, nombrePersonaje;
-        Button seleccionarPartida;
+        Button seleccionarPartida, accederContadores;
 
         public ViewHolder(View view) {
             super(view);
             nombrePartida = view.findViewById(R.id.nombrePartida);
             nombrePersonaje = view.findViewById(R.id.nombrePersonaje);
             seleccionarPartida = view.findViewById(R.id.seleccionarPartida);
+            accederContadores = view.findViewById(R.id.contadores);
         }
     }
 
@@ -62,6 +63,15 @@ public class SavedGamesAdapter extends RecyclerView.Adapter<SavedGamesAdapter.Vi
 
             // Crear un Intent para redirigir al MainActivity
             Intent intent = new Intent(context, MainActivity.class);
+            context.startActivity(intent);
+        });
+
+        holder.accederContadores.setOnClickListener(v -> {
+            // Actualizar la sesión activa
+            SessionManager.getInstance().setCurrentSession(partida);
+
+            // Crear un Intent para redirigir al MainActivity
+            Intent intent = new Intent(context, CounterActivity.class);
             context.startActivity(intent);
         });
     }

@@ -30,11 +30,26 @@
             android:textSize="14sp"
             android:paddingBottom="4dp"/>
 
-        <Button
-            android:id="@+id/seleccionarPartida"
-            android:layout_width="364dp"
-            android:layout_height="58dp"
-            android:text="Seleccionar partida" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/contadores"
+                android:layout_width="175dp"
+                android:layout_margin="2dp"
+                android:layout_height="wrap_content"
+                android:text="Ver contadores" />
+
+            <Button
+                android:id="@+id/seleccionarPartida"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="Seleccionar partida" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
