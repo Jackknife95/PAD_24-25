@@ -1,5 +1,6 @@
 package es.ucm.fdi.proyecto.dicesanddragons.SavedGame;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import es.ucm.fdi.proyecto.dicesanddragons.Counter;
@@ -12,6 +13,7 @@ public class SavedGame {
     public SavedGame(String nombrePartida, String nombrePersonaje) {
         this.nombrePartida = nombrePartida;
         this.nombrePersonaje = nombrePersonaje;
+        contadores = new ArrayList<>();
     }
 
     public String getNombrePartida() {

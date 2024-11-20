@@ -1,13 +1,16 @@
 package es.ucm.fdi.proyecto.dicesanddragons;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import java.util.List;
 
 import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;
@@ -53,13 +56,13 @@ public class SavedGamesAdapter extends RecyclerView.Adapter<SavedGamesAdapter.Vi
         holder.nombrePartida.setText(partida.getNombrePartida());
         holder.nombrePersonaje.setText(partida.getNombrePersonaje());
 
-        // Configurar el botón para seleccionar la partida
         holder.seleccionarPartida.setOnClickListener(v -> {
             // Actualizar la sesión activa
             SessionManager.getInstance().setCurrentSession(partida);
 
-            // Mostrar un mensaje o realizar otra acción
-            Toast.makeText(context, "Partida seleccionada: " + partida.getNombrePartida(), Toast.LENGTH_SHORT).show();
+            // Crear un Intent para redirigir al MainActivity
+            Intent intent = new Intent(context, MainActivity.class);
+            context.startActivity(intent);
         });
     }
 

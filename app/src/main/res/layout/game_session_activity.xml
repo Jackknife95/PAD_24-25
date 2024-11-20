@@ -28,15 +28,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tvGameSession" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android.id="@+id/listaPartidas"
-        android:layout_width="375dp"
-        android:layout_height="592dp"
+        android:id="@+id/listaPartidas"
+        android:layout_width="414dp"
+        android:layout_height="586dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintVertical_bias="0.151"
-        tools:listitem="@layout/game_session_saved_game_card"/>
+        tools:listitem="@layout/game_session_saved_game_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

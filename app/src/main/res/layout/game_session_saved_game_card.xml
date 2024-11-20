@@ -32,10 +32,9 @@
 
         <Button
             android:id="@+id/seleccionarPartida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seleccionar partida"
-            android:layout_marginStart="100sp"/>
+            android:layout_width="364dp"
+            android:layout_height="58dp"
+            android:text="Seleccionar partida" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
