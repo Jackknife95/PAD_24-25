@@ -6,4 +6,5 @@
     <string name="boton_menos">-</string>
     <string name="boton_eliminar">x</string>
     <string name="agregar_contador">Añadir Contador</string>
+    <string name="contador_generico">Contador genérico</string>
 </resources>

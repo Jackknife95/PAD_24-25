@@ -1,5 +1,7 @@
 package es.ucm.fdi.proyecto.dicesanddragons;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,12 +43,16 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
 
         // Incrementar el valor
         holder.btnIncrement.setOnClickListener(v -> {
+            int nuevoValor = Integer.parseInt(holder.etCounterValue.getText().toString());
+            counter.setValue(nuevoValor);
             counter.increment();
             notifyItemChanged(position); // Actualizar el ítem
         });
 
         // Decrementar el valor
         holder.btnDecrement.setOnClickListener(v -> {
+            int nuevoValor = Integer.parseInt(holder.etCounterValue.getText().toString());
+            counter.setValue(nuevoValor);
             counter.decrement();
             notifyItemChanged(position); // Actualizar el ítem
         });
@@ -70,6 +76,32 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
                 }
             }
         });
+
+        holder.etCounterValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se necesita acción aquí
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Se actualiza el valor en tiempo real mientras el usuario escribe
+                String newValue = s.toString();
+                if (!newValue.isEmpty()) {
+                    try {
+                        counter.setValue(Integer.parseInt(newValue));
+                    } catch (NumberFormatException e) {
+                        // Manejar el caso de números inválidos
+                        counter.setValue(0);
+                    }
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                // No se necesita acción aquí
+            }
+        });
+
     }
 
     @Override

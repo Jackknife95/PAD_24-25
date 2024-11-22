@@ -9,6 +9,11 @@ public class Counter {
         this.name=n;
     }
 
+    public Counter(int val){
+        this.value=0;
+        this.name=null;
+    }
+
     public int getValue() {
         return value;
     }
