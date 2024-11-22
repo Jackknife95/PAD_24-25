@@ -1,5 +1,6 @@
 package es.ucm.fdi.proyecto.dicesanddragons;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +44,11 @@ public class GameCreatorActivity extends AppCompatActivity {
                     // Mostrar mensaje de éxito
                     Toast.makeText(GameCreatorActivity.this, "Partida creada: " + gameName, Toast.LENGTH_SHORT).show();
 
-                    // Finalizar la actividad y regresar a la anterior
+                    // Crear el Intent para ir al MainActivity
+                    Intent intent = new Intent(GameCreatorActivity.this, MainActivity.class);
+                    startActivity(intent);  // Iniciar MainActivity
+
+                    // Finalizar esta actividad para que no se quede en el stack de actividades
                     finish();
                 }
             }
