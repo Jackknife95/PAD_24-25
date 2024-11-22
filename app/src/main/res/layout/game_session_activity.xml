@@ -18,7 +18,7 @@
         android:layout_marginTop="16dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/creator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/creator"
         app:layout_constraintVertical_bias="0.151"
         tools:listitem="@layout/game_session_saved_game_card" />
 
