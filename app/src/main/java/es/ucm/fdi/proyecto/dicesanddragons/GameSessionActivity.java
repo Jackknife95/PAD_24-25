@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
 
 public class GameSessionActivity extends AppCompatActivity {
 

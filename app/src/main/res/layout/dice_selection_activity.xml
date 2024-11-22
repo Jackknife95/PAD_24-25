@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DiceRollActivity">
+
+    <!-- Título de la actividad -->
+    <TextView
+        android:id="@+id/tvDiceRoll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiradas de Dados"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Contenedor de botones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvDiceRoll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="16dp">
+
+        <!-- Botón: Tirada simple -->
+        <Button
+            android:id="@+id/lanzamientoSimple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada Simple" />
+
+        <!-- Texto: Tiradas especiales -->
+        <TextView
+            android:id="@+id/tvTiradasEspeciales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiradas Especiales"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp" />
+
+        <!-- Divisor -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginVertical="8dp" />
+
+        <!-- Botón: Tirada customizada -->
+        <Button
+            android:id="@+id/tiradaCustomizada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada Customizada" />
+
+        <!-- Botón: Tirada con ventaja -->
+        <Button
+            android:id="@+id/tiradaVentaja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada con Ventaja" />
+
+        <!-- Botón: Tirada con desventaja -->
+        <Button
+            android:id="@+id/tiradaDesventaja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada con Desventaja" />
+
+        <!-- Botón: Tirada de suma de dados -->
+        <Button
+            android:id="@+id/tiradaSumaDados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada de Suma de Dados" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
