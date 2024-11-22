@@ -1,0 +1,164 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeaponCreatorActivity">
+
+    <!-- Contenedor principal en modo horizontal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Columna izquierda: Vista previa y selección de armas -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingEnd="8dp">
+
+            <!-- Vista previa del arma seleccionada -->
+            <FrameLayout
+                android:id="@+id/weaponPreviewFrame"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/weaponPreviewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside" />
+            </FrameLayout>
+
+            <!-- Barra deslizante con armas disponibles -->
+            <HorizontalScrollView
+                android:id="@+id/weaponSelectionScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:id="@+id/weaponSelectionContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:gravity="center">
+
+                    <!-- Imágenes de armas -->
+                    <ImageView
+                        android:id="@+id/weaponImage1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/arco"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 1" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/espada"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 2" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/arma"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 3" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/daga"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 4" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/martillo"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 5" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/mazo"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 6" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- Columna derecha: Personalización -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingStart="8dp">
+
+            <!-- Modificación del color -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color del arma"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/colorPickerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Color"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Modificación del brillo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brillo del arma"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <SeekBar
+                android:id="@+id/brightnessModificationSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="200"
+                android:progress="100" />
+
+            <!-- Campo para nombre del diseño -->
+            <EditText
+                android:id="@+id/fileNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del diseño"
+                android:padding="16dp"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp" />
+
+            <!-- Botón para guardar -->
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar Diseño"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
