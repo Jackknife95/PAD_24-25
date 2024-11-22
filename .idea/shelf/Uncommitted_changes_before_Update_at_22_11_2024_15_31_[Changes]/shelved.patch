@@ -1,0 +1,359 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <!-- Permisos necesarios -->\r\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />\r\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.DicesAndDragons\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".CounterActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".GameSessionActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n\r\n        <activity android:name=\".WeaponCreatorActivity\" />\r\n\r\n        <meta-data\r\n            android:name=\"preloaded_fonts\"\r\n            android:resource=\"@array/preloaded_fonts\" />\r\n    </application>\r\n</manifest>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 1a5f3421517b8305da4cb8944bbc4e859e0aa258)
++++ b/app/src/main/AndroidManifest.xml	(date 1732284556074)
+@@ -42,6 +42,8 @@
+         </activity>
+ 
+         <activity android:name=".WeaponCreatorActivity" />
++        <activity android:name=".DiceRollActivity" />
++        <activity android:name=".DiceRegisterActivity" />
+ 
+         <meta-data
+             android:name="preloaded_fonts"
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/WeaponCreatorActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.content.ContentValues;\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.graphics.Bitmap;\r\nimport android.graphics.BitmapFactory;\r\nimport android.graphics.Color;\r\nimport android.graphics.PorterDuff;\r\nimport android.graphics.drawable.BitmapDrawable;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.provider.MediaStore;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.SeekBar;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.appcompat.app.AlertDialog;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport java.io.FileOutputStream;\r\nimport java.io.IOException;\r\nimport java.io.OutputStream;\r\n\r\npublic class WeaponCreatorActivity extends AppCompatActivity {\r\n\r\n    private ImageView weaponPreviewImage;\r\n    private SeekBar brightnessSeekBar;\r\n    private EditText fileNameEditText;\r\n    private Bitmap originalWeaponBitmap; // Para almacenar la imagen original seleccionada\r\n    private int currentColorFilter = Color.TRANSPARENT; // Filtro de color aplicado\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.weapon_creator_activity);\r\n\r\n        // Inicializar vistas\r\n        weaponPreviewImage = findViewById(R.id.weaponPreviewImage);\r\n        brightnessSeekBar = findViewById(R.id.brightnessModificationSeekBar);\r\n        fileNameEditText = findViewById(R.id.fileNameEditText);\r\n\r\n        // Configurar los listeners\r\n        setupWeaponSelectionListeners();\r\n        setupBrightnessListener();\r\n        setupColorPicker();\r\n\r\n        // Configurar el listener del botón de guardar\r\n        Button saveButton = findViewById(R.id.saveButton);\r\n        saveButton.setOnClickListener(v -> saveImage());\r\n    }\r\n\r\n    private void saveImage() {\r\n        // Obtener el nombre del archivo\r\n        String fileName = fileNameEditText.getText().toString().trim();\r\n        if (fileName.isEmpty()) {\r\n            Toast.makeText(this, \"Por favor, ingresa un nombre para la imagen\", Toast.LENGTH_SHORT).show();\r\n            return;\r\n        }\r\n\r\n        // Aplicar los filtros y crear la nueva imagen\r\n        Bitmap finalBitmap = applyFiltersToBitmap(originalWeaponBitmap);\r\n\r\n        // Guardar la imagen en la galería\r\n        saveImageToGallery(finalBitmap, fileName);\r\n    }\r\n\r\n    // Convertir la imagen de la vista en un Bitmap\r\n    private Bitmap getBitmapFromImageView(ImageView imageView) {\r\n        // Obtener la imagen que está mostrando el ImageView\r\n        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();\r\n        return drawable.getBitmap();\r\n    }\r\n\r\n    private Bitmap applyFiltersToBitmap(Bitmap originalBitmap) {\r\n        // Crear una copia de la imagen original para aplicar los filtros\r\n        Bitmap filteredBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);\r\n\r\n        int width = filteredBitmap.getWidth();\r\n        int height = filteredBitmap.getHeight();\r\n\r\n        // Iterar sobre cada píxel para aplicar el brillo y el filtro de color\r\n        for (int x = 0; x < width; x++) {\r\n            for (int y = 0; y < height; y++) {\r\n                int pixel = filteredBitmap.getPixel(x, y);\r\n\r\n                // Extraer los componentes RGB\r\n                int r = Color.red(pixel);\r\n                int g = Color.green(pixel);\r\n                int b = Color.blue(pixel);\r\n\r\n                // Aplicar el cambio de brillo\r\n                float brightnessFactor = (brightnessSeekBar.getProgress() - 50) / 50.0f; // Rango de -1 a 1\r\n                r = (int) (r * (1 + brightnessFactor));\r\n                g = (int) (g * (1 + brightnessFactor));\r\n                b = (int) (b * (1 + brightnessFactor));\r\n\r\n                // Aplicar filtro de color\r\n                if (currentColorFilter != Color.TRANSPARENT) {\r\n                    r = (r + Color.red(currentColorFilter)) / 2; // Mezcla del color original con el filtro\r\n                    g = (g + Color.green(currentColorFilter)) / 2;\r\n                    b = (b + Color.blue(currentColorFilter)) / 2;\r\n                }\r\n\r\n                // Asegurarse de que los valores estén dentro del rango de 0-255\r\n                r = Math.min(Math.max(r, 0), 255);\r\n                g = Math.min(Math.max(g, 0), 255);\r\n                b = Math.min(Math.max(b, 0), 255);\r\n\r\n                // Establecer el píxel con los cambios aplicados\r\n                filteredBitmap.setPixel(x, y, Color.rgb(r, g, b));\r\n            }\r\n        }\r\n        return filteredBitmap;\r\n    }\r\n\r\n    private void setupColorPicker() {\r\n        findViewById(R.id.colorPickerButton).setOnClickListener(v -> {\r\n            AlertDialog.Builder builder = new AlertDialog.Builder(this);\r\n            builder.setTitle(\"Selecciona un color\");\r\n            String[] colors = {\"Rojo\", \"Verde\", \"Azul\", \"Amarillo\", \"Blanco\"};\r\n            int[] colorValues = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.WHITE};\r\n\r\n            builder.setItems(colors, (dialog, which) -> {\r\n                // Obtener el color seleccionado\r\n                currentColorFilter = colorValues[which];\r\n\r\n                // Actualizar la vista previa con el filtro seleccionado\r\n                Bitmap previewBitmap = applyFiltersToBitmap(originalWeaponBitmap);\r\n                weaponPreviewImage.setImageBitmap(previewBitmap);\r\n            });\r\n            builder.show();\r\n        });\r\n    }\r\n\r\n\r\n\r\n    private void saveImageToGallery(Bitmap bitmap, String fileName) {\r\n        try {\r\n            // Guardar la imagen en el directorio de imágenes del dispositivo\r\n            ContentValues values = new ContentValues();\r\n            values.put(MediaStore.Images.Media.DISPLAY_NAME, fileName + \".png\");\r\n            values.put(MediaStore.Images.Media.MIME_TYPE, \"image/png\");\r\n            values.put(MediaStore.Images.Media.RELATIVE_PATH, \"Pictures/DicesAndDragons\"); // Crear carpeta específica\r\n\r\n            // Insertar los valores en el ContentResolver para obtener una URI donde se guardará la imagen\r\n            Uri imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);\r\n\r\n            // Si se ha creado la URI, guardamos la imagen\r\n            if (imageUri != null) {\r\n                OutputStream fos = getContentResolver().openOutputStream(imageUri);\r\n                if (fos != null) {\r\n                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos); // Guardamos como PNG\r\n                    fos.close();\r\n                    Toast.makeText(this, \"Imagen guardada correctamente\", Toast.LENGTH_SHORT).show();\r\n\r\n                    // Avisar al sistema para que lo reconozca en la galería\r\n                    sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageUri));\r\n                }\r\n            } else {\r\n                Toast.makeText(this, \"No se pudo guardar la imagen\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n            Toast.makeText(this, \"Error al guardar la imagen\", Toast.LENGTH_SHORT).show();\r\n        }\r\n    }\r\n\r\n    private void setupWeaponSelectionListeners() {\r\n        ImageView weaponImage1 = findViewById(R.id.weaponImage1);\r\n        ImageView weaponImage2 = findViewById(R.id.weaponImage2);\r\n        ImageView weaponImage3 = findViewById(R.id.weaponImage3);\r\n        ImageView weaponImage4 = findViewById(R.id.weaponImage4);\r\n        ImageView weaponImage5 = findViewById(R.id.weaponImage5);\r\n        ImageView weaponImage6 = findViewById(R.id.weaponImage6);\r\n\r\n        weaponImage1.setOnClickListener(v -> setWeaponPreview(R.drawable.arco));\r\n        weaponImage2.setOnClickListener(v -> setWeaponPreview(R.drawable.espada));\r\n        weaponImage3.setOnClickListener(v -> setWeaponPreview(R.drawable.arma));\r\n        weaponImage4.setOnClickListener(v -> setWeaponPreview(R.drawable.daga));\r\n        weaponImage5.setOnClickListener(v -> setWeaponPreview(R.drawable.martillo));\r\n        weaponImage6.setOnClickListener(v -> setWeaponPreview(R.drawable.mazo));\r\n    }\r\n\r\n    private void setWeaponPreview(int drawableId) {\r\n        originalWeaponBitmap = BitmapFactory.decodeResource(getResources(), drawableId);\r\n        weaponPreviewImage.setImageBitmap(originalWeaponBitmap);\r\n        Toast.makeText(this, \"Arma seleccionada\", Toast.LENGTH_SHORT).show();\r\n    }\r\n\r\n    private void setupBrightnessListener() {\r\n        brightnessSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {\r\n            @Override\r\n            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {\r\n                // No se necesita acción aquí ya que la modificación se aplica al generar la nueva imagen\r\n            }\r\n\r\n            @Override\r\n            public void onStartTrackingTouch(SeekBar seekBar) {\r\n                // No se necesita acción\r\n            }\r\n\r\n            @Override\r\n            public void onStopTrackingTouch(SeekBar seekBar) {\r\n                // No se necesita acción\r\n            }\r\n        });\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/WeaponCreatorActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/WeaponCreatorActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/WeaponCreatorActivity.java	(revision 1a5f3421517b8305da4cb8944bbc4e859e0aa258)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/WeaponCreatorActivity.java	(date 1732284488048)
+@@ -120,8 +120,8 @@
+         findViewById(R.id.colorPickerButton).setOnClickListener(v -> {
+             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+             builder.setTitle("Selecciona un color");
+-            String[] colors = {"Rojo", "Verde", "Azul", "Amarillo", "Blanco"};
+-            int[] colorValues = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.WHITE};
++            String[] colors = {"Rojo", "Verde", "Azul", "Amarillo"};
++            int[] colorValues = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW};
+ 
+             builder.setItems(colors, (dialog, which) -> {
+                 // Obtener el color seleccionado
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRollActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.os.Bundle;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\npublic class DiceRollActivity extends AppCompatActivity{\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.dice_roll_activity);\r\n        // Aquí se añaden las funcionalidades de tiradas de dados\r\n\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRollActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRollActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRollActivity.java	(revision 1a5f3421517b8305da4cb8944bbc4e859e0aa258)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRollActivity.java	(date 1732285229987)
+@@ -1,17 +1,46 @@
+ package es.ucm.fdi.proyecto.dicesanddragons;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
++import android.widget.Button;
++import android.widget.Toast;
++
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
++
+ public class DiceRollActivity extends AppCompatActivity{
+ 
++    private Button btnrolldice, btnviewlog;
++    private SessionManager sm = SessionManager.getInstance();
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.dice_roll_activity);
+         // Aquí se añaden las funcionalidades de tiradas de dados
+ 
++        btnrolldice = findViewById(R.id.rollDiceButton);
++        btnviewlog = findViewById(R.id.viewLogButton);
++
++        // Navegación a diferentes actividades
++        btnrolldice.setOnClickListener(v -> openDiceRollActivity());
++        btnviewlog.setOnClickListener(v -> openDiceRegister());
+ 
++    }
++
++    private void openDiceRollActivity() {
++       // Intent intent = new Intent(this, .class);
++       // startActivity(intent);
++    }
++
++    private void openDiceRegister() {
++        if (sm.getCurrentSession()!=null){
++            Intent intent = new Intent(this, DiceRegisterActivity.class);
++            startActivity(intent);
++        } else {
++            Toast.makeText(this, "Por favor, seleccione una partida", Toast.LENGTH_SHORT).show();
++        }
+ 
+     }
+ }
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	(revision 1a5f3421517b8305da4cb8944bbc4e859e0aa258)
++++ b/.idea/deploymentTargetSelector.xml	(date 1732281943732)
+@@ -4,6 +4,14 @@
+     <selectionStates>
+       <SelectionState runConfigName="app">
+         <option name="selectionMode" value="DROPDOWN" />
++        <DropdownSelection timestamp="2024-11-22T13:22:34.052633700Z">
++          <Target type="DEFAULT_BOOT">
++            <handle>
++              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\araca\.android\avd\Pixel_7_API_33.avd" />
++            </handle>
++          </Target>
++        </DropdownSelection>
++        <DialogSelection />
+       </SelectionState>
+     </selectionStates>
+   </component>
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"white\">#FFFFFF</color>\r\n    <color name=\"yellow\">#FFFF00</color>\r\n    <color name=\"fuchsia\">#FF00FF</color>\r\n    <color name=\"red\">#FF0000</color>\r\n    <color name=\"silver\">#C0C0C0</color>\r\n    <color name=\"gray\">#808080</color>\r\n    <color name=\"olive\">#808000</color>\r\n    <color name=\"purple\">#800080</color>\r\n    <color name=\"maroon\">#800000</color>\r\n    <color name=\"aqua\">#00FFFF</color>\r\n    <color name=\"lime\">#00FF00</color>\r\n    <color name=\"teal\">#008080</color>\r\n    <color name=\"green\">#008000</color>\r\n    <color name=\"blue\">#0000FF</color>\r\n    <color name=\"navy\">#000080</color>\r\n    <color name=\"black\">#000000</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision 1a5f3421517b8305da4cb8944bbc4e859e0aa258)
++++ b/app/src/main/res/values/colors.xml	(date 1732283354000)
+@@ -16,4 +16,6 @@
+     <color name="blue">#0000FF</color>
+     <color name="navy">#000080</color>
+     <color name="black">#000000</color>
++    <color name="purple_500">#6200EE</color>
++    <color name="purple_700">#3700B3</color>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/item_tirada.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item_tirada.xml b/app/src/main/res/layout/item_tirada.xml
+new file mode 100644
+--- /dev/null	(date 1732284605626)
++++ b/app/src/main/res/layout/item_tirada.xml	(date 1732284605626)
+@@ -0,0 +1,28 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:orientation="horizontal"
++    android:padding="8dp">
++
++    <!-- Número de tirada -->
++    <TextView
++        android:id="@+id/numeroTirada"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_weight="1"
++        android:text="Tirada #1"
++        android:textSize="16sp"
++        android:textColor="@android:color/black" />
++
++    <!-- Resultado de la tirada -->
++    <TextView
++        android:id="@+id/resultadoTirada"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="6"
++        android:textSize="16sp"
++        android:textColor="@android:color/black"
++        android:textStyle="bold" />
++</LinearLayout>
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java
+new file mode 100644
+--- /dev/null	(date 1732285229981)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java	(date 1732285229981)
+@@ -0,0 +1,15 @@
++package es.ucm.fdi.proyecto.dicesanddragons;
++
++import android.os.Bundle;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++public class DiceRegisterActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.dice_register_activity);
++
++    }
++}
+Index: app/src/main/res/layout/dice_register_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_register_activity.xml b/app/src/main/res/layout/dice_register_activity.xml
+new file mode 100644
+--- /dev/null	(date 1732284683643)
++++ b/app/src/main/res/layout/dice_register_activity.xml	(date 1732284683643)
+@@ -0,0 +1,52 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".DiceRegisterActivity">
++
++    <!-- Título de la partida -->
++    <TextView
++        android:id="@+id/tituloPartida"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Registro de tiradas"
++        android:textSize="20sp"
++        android:textColor="@android:color/black"
++        android:textStyle="bold"
++        android:gravity="center"
++        android:padding="16dp"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent" />
++
++    <!-- Lista de tiradas -->
++    <androidx.recyclerview.widget.RecyclerView
++        android:id="@+id/listaTiradas"
++        android:layout_width="0dp"
++        android:layout_height="0dp"
++        android:layout_margin="16dp"
++        app:layout_constraintTop_toBottomOf="@id/tituloPartida"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintBottom_toTopOf="@id/btnLimpiarRegistro"
++        tools:listitem="@layout/item_tirada" />
++
++    <!-- Botón para limpiar el registro -->
++    <Button
++        android:id="@+id/btnLimpiarRegistro"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Limpiar Registro"
++        android:textSize="16sp"
++        android:backgroundTint="@color/navy"
++        android:textColor="@android:color/white"
++        android:padding="12dp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginBottom="16dp" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/res/layout/dice_roll_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".DiceRollActivity\">\r\n\r\n    <!-- Aquí puedes agregar elementos para configurar y mostrar tiradas de dados -->\r\n    <TextView\r\n        android:id=\"@+id/tvDiceRoll\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Tiradas de Dados\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\"/>\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_roll_activity.xml b/app/src/main/res/layout/dice_roll_activity.xml
+--- a/app/src/main/res/layout/dice_roll_activity.xml	(revision 1a5f3421517b8305da4cb8944bbc4e859e0aa258)
++++ b/app/src/main/res/layout/dice_roll_activity.xml	(date 1732283255705)
+@@ -7,15 +7,51 @@
+     android:layout_height="match_parent"
+     tools:context=".DiceRollActivity">
+ 
+-    <!-- Aquí puedes agregar elementos para configurar y mostrar tiradas de dados -->
+-    <TextView
+-        android:id="@+id/tvDiceRoll"
+-        android:layout_width="wrap_content"
++    <!-- Imagen de cabecera -->
++    <ImageView
++        android:id="@+id/headerImage"
++        android:layout_width="0dp"
+         android:layout_height="wrap_content"
+-        android:text="Tiradas de Dados"
++        android:src="@drawable/fondodados"
++        android:scaleType="fitCenter"
++        android:adjustViewBounds="true"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginTop="16dp"/>
++        android:layout_marginBottom="0dp" />
++
++    <!-- Botón para ver registro de tiradas -->
++    <Button
++        android:id="@+id/viewLogButton"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Ver registro de tiradas"
++        android:textSize="16sp"
++        android:textStyle="bold"
++        android:textColor="@color/white"
++        android:background="@drawable/rounded_button"
++        app:layout_constraintTop_toBottomOf="@id/headerImage"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginTop="16dp"
++        android:layout_marginStart="32dp"
++        android:layout_marginEnd="32dp" />
++
++    <!-- Botón para tirar dados -->
++    <Button
++        android:id="@+id/rollDiceButton"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:text="Tirar dados"
++        android:textSize="16sp"
++        android:textStyle="bold"
++        android:textColor="@color/white"
++        android:background="@drawable/rounded_button"
++        app:layout_constraintTop_toBottomOf="@id/viewLogButton"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        android:layout_marginTop="16dp"
++        android:layout_marginStart="32dp"
++        android:layout_marginEnd="32dp" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/res/drawable/rounded_button.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/rounded_button.xml b/app/src/main/res/drawable/rounded_button.xml
+new file mode 100644
+--- /dev/null	(date 1732283314134)
++++ b/app/src/main/res/drawable/rounded_button.xml	(date 1732283314134)
+@@ -0,0 +1,16 @@
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item>
++        <shape android:shape="rectangle">
++            <corners android:radius="16dp" />
++            <gradient
++                android:angle="90"
++                android:startColor="@color/purple_500"
++                android:endColor="@color/purple_700" />
++            <padding
++                android:left="16dp"
++                android:top="8dp"
++                android:right="16dp"
++                android:bottom="8dp" />
++        </shape>
++    </item>
++</selector>

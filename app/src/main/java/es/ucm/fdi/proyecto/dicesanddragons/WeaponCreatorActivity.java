@@ -120,8 +120,8 @@ public class WeaponCreatorActivity extends AppCompatActivity {
         findViewById(R.id.colorPickerButton).setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Selecciona un color");
-            String[] colors = {"Rojo", "Verde", "Azul", "Amarillo", "Blanco"};
-            int[] colorValues = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.WHITE};
+            String[] colors = {"Rojo", "Verde", "Azul", "Amarillo"};
+            int[] colorValues = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW};
 
             builder.setItems(colors, (dialog, which) -> {
                 // Obtener el color seleccionado
