@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="Introduce el número de dados"
+        android:hint="Introduce el número de dados (máximo 50)"
         android:inputType="number"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/diceSpinner"

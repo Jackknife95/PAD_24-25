@@ -11,6 +11,11 @@
     <string name="deseas_borrar">"¿En verdad deseas borrar el contador: "</string>
     <string name="si">Si</string>
     <string name="no">No</string>
+    <string name="roll_button_text">Lanzar dados</string>
+    <string name="dice_image_description">Imagen de los dados</string>
+    <string name="result_text">Resultado:</string>
+    <string name="num_dice_hint">Introduce el número de dados (máximo 50)</string>
+    <string name="num_faces_hint">Introduce el número de caras (máximo 500)</string>
 
     <!-- Opciones para seleccionar el número de caras de los dados -->
     <string-array name="dice_options">
