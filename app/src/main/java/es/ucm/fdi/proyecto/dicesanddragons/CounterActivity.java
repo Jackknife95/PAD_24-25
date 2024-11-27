@@ -31,8 +31,8 @@ public class CounterActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 // Agregar contadores a la lista
-        int resourceId = getResources().getIdentifier("nombre_del_contador", "string", getPackageName());
-        String nombre =getString(resourceId);
+
+        String nombre =this.getString(R.string.nombre_del_contador);;
 
             counterList.add(new Counter(0,nombre ));
 
