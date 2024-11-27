@@ -63,13 +63,18 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
 
         // Eliminar el contador
         holder.btnDelete.setOnClickListener(v -> {
+
+                    counter.setName(holder.etCounterName.getText().toString());
                     // Crear el diálogo de confirmación
                     AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Confirmar borrado");
-                    builder.setMessage("¿Estás seguro de que deseas borrar esto?");
+
+
+
+                    builder.setTitle(v.getContext().getString(R.string.borrar_contador)+counter.getName());
+                    builder.setMessage(v.getContext().getString(R.string.deseas_borrar)+counter.getName()+"?");
 
                     // Botón "Sí"
-                    builder.setPositiveButton("Sí", (dialog, which) -> {
+                    builder.setPositiveButton(v.getContext().getString(R.string.si), (dialog, which) -> {
                         // Acción de borrado
                         listener.onDeleteCounter(position);
                         dialog.dismiss(); // Cerrar el diálogo
@@ -77,7 +82,7 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
                     });
 
                     // Botón "No"
-                    builder.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
+                    builder.setNegativeButton(v.getContext().getString(R.string.no), (dialog, which) -> dialog.dismiss());
 
                     // Mostrar el diálogo
                     builder.create().show();

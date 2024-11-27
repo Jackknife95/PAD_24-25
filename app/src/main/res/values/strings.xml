@@ -7,6 +7,10 @@
     <string name="boton_eliminar">x</string>
     <string name="agregar_contador">Añadir Contador</string>
     <string name="contador_generico">Contador genérico</string>
+    <string name="borrar_contador">"Borrar contador: "</string>
+    <string name="deseas_borrar">"¿En verdad deseas borrar el contador: "</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
 
     <!-- Opciones para seleccionar el número de caras de los dados -->
     <string-array name="dice_options">
