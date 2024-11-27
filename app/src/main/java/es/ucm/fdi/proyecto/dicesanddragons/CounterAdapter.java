@@ -43,6 +43,7 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
 
         // Incrementar el valor
         holder.btnIncrement.setOnClickListener(v -> {
+            counter.setName(holder.etCounterName.getText().toString());
             int nuevoValor = Integer.parseInt(holder.etCounterValue.getText().toString());
             counter.setValue(nuevoValor);
             counter.increment();
@@ -51,6 +52,8 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
 
         // Decrementar el valor
         holder.btnDecrement.setOnClickListener(v -> {
+
+            counter.setName(holder.etCounterName.getText().toString());
             int nuevoValor = Integer.parseInt(holder.etCounterValue.getText().toString());
             counter.setValue(nuevoValor);
             counter.decrement();
@@ -76,7 +79,7 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
                 }
             }
         });
-
+        /*
         holder.etCounterValue.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -101,7 +104,7 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
                 // No se necesita acción aquí
             }
         });
-
+        */
     }
 
     @Override
