@@ -75,7 +75,7 @@ public class DiceCustomicedRollActivity extends Activity {
 
             for (int i = 0; i < numDice; i++) {
                 int roll = random.nextInt(numFaces) + 1;
-                results.append(roll).append(" ");
+                results.append(roll).append("  ");
                 sum += roll;
             }
 

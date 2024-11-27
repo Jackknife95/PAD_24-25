@@ -122,7 +122,7 @@ public class DiceAdditionRollActivity extends Activity {
             // Lanzar los dados y calcular la suma
             for (int i = 0; i < numDice; i++) {
                 int roll = random.nextInt(maxValue) + 1;
-                results.append(roll).append(" ");
+                results.append(roll).append("  ");
                 sum += roll;
             }
 

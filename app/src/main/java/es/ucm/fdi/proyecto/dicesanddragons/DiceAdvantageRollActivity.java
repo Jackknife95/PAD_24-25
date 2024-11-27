@@ -53,7 +53,7 @@ public class DiceAdvantageRollActivity extends Activity {
 
         // Se establece el dado de 6 caras como selección por defecto
         diceSpinner.setSelection(2);  // Este es el índice para el dado de 6 caras
-        numDiceSpinner.setSelection(0);  // Establecemos el valor por defecto en 1 dado
+        numDiceSpinner.setSelection(0);  // Establecemos el valor por defecto en 2 dados
 
         // Cambiar la imagen del dado al seleccionar un dado del Spinner
         diceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

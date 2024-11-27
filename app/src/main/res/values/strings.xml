@@ -16,6 +16,12 @@
     <string name="result_text">Resultado:</string>
     <string name="num_dice_hint">Introduce el número de dados (máximo 50)</string>
     <string name="num_faces_hint">Introduce el número de caras (máximo 500)</string>
+    <string name="title_special_rolls">Tiradas especiales:</string>
+    <string name="advantage_button">Tiradas con ventaja</string>
+    <string name="disadvantage_button">Tiradas con desventaja</string>
+    <string name="addition_button">Suma de tiradas</string>
+    <string name="customized_button">Tiradas customizadas</string>
+
 
     <!-- Opciones para seleccionar el número de caras de los dados -->
     <string-array name="dice_options">
@@ -30,7 +36,6 @@
 
     <!-- Opciones para seleccionar el número de dados -->
     <string-array name="num_dice_options">
-        <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
