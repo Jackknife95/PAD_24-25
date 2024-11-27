@@ -1,5 +1,6 @@
 package es.ucm.fdi.proyecto.dicesanddragons;
 
+import android.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -61,7 +62,26 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
         });
 
         // Eliminar el contador
-        holder.btnDelete.setOnClickListener(v -> listener.onDeleteCounter(position));
+        holder.btnDelete.setOnClickListener(v -> {
+                    // Crear el diálogo de confirmación
+                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    builder.setTitle("Confirmar borrado");
+                    builder.setMessage("¿Estás seguro de que deseas borrar esto?");
+
+                    // Botón "Sí"
+                    builder.setPositiveButton("Sí", (dialog, which) -> {
+                        // Acción de borrado
+                        listener.onDeleteCounter(position);
+                        dialog.dismiss(); // Cerrar el diálogo
+
+                    });
+
+                    // Botón "No"
+                    builder.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
+
+                    // Mostrar el diálogo
+                    builder.create().show();
+        });
 
         // Cambiar el nombre del contador
         holder.etCounterName.setOnFocusChangeListener((v, hasFocus) -> {
