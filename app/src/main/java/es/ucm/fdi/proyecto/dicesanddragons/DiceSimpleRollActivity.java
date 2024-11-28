@@ -13,12 +13,17 @@ import android.app.Activity;
 
 import java.util.Random;
 
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
+
 public class DiceSimpleRollActivity extends Activity {
 
     private Spinner diceSpinner;
     private ImageView diceImage;
     private Button rollButton;
     private TextView resultText;
+    private SessionManager sm = SessionManager.getInstance();
+    SavedGame currentGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +101,8 @@ public class DiceSimpleRollActivity extends Activity {
         String selectedDice = diceSpinner.getSelectedItem().toString();
         int maxValue;
 
+        currentGame = sm.getCurrentSession();
+
         switch (selectedDice) {
             case "Dado de 2 caras":
                 maxValue = 2;
@@ -125,6 +132,8 @@ public class DiceSimpleRollActivity extends Activity {
         if (maxValue > 0) {
             Random random = new Random();
             int result = random.nextInt(maxValue) + 1;
+            currentGame.addTirada("Simple", selectedDice, result);
+            sm.setCurrentSession(currentGame);
             resultText.setText("Resultado: " + result);
         } else {
             resultText.setText("Por favor, selecciona un dado válido.");

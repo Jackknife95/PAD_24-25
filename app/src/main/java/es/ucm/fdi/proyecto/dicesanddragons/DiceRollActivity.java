@@ -30,8 +30,12 @@ public class DiceRollActivity extends AppCompatActivity{
     }
 
     private void openDiceRollActivity() {
-       // Intent intent = new Intent(this, .class);
-       // startActivity(intent);
+        if (sm.getCurrentSession()!=null){
+            Intent intent = new Intent(this, DiceSelectionActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Por favor, seleccione una partida", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void openDiceRegister() {

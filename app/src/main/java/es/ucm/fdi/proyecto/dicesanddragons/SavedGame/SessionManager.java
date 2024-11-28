@@ -20,4 +20,6 @@ public class SessionManager {
     public void setCurrentSession(SavedGame session) {
         this.currentSession = session;
     }
+
+
 }
