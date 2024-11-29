@@ -25,13 +25,13 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-
         <Button
-            android:id="@+id/btn_increment"
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_decrement"
+            android:layout_width="60dp"
             android:layout_height="48dp"
-            android:text="@string/boton_mas"
+            android:text="@string/boton_menos"
             android:gravity="center"/>
+
 
         <EditText
             android:id="@+id/tv_counter_value"
@@ -46,15 +46,19 @@
 
 
         <Button
-            android:id="@+id/btn_decrement"
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_increment"
+            android:layout_width="60dp"
             android:layout_height="48dp"
-            android:text="@string/boton_menos"
+            android:text="@string/boton_mas"
             android:gravity="center"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
 
         <Button
             android:id="@+id/btn_delete"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="@string/boton_eliminar"
             android:gravity="center"
