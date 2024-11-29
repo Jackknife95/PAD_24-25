@@ -14,8 +14,8 @@ import java.util.List;
 
 public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterViewHolder> {
 
-    private final List<Counter> counters; // Lista de contadores
-    private OnCounterListener listener; // Listener para eventos
+    private final List<Counter> counters;
+    private OnCounterListener listener;
 
     public CounterAdapter(List<Counter> counters, OnCounterListener listener) {
         this.counters = counters;
@@ -44,67 +44,67 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
 
         // Incrementar el valor
         holder.btnIncrement.setOnClickListener(v -> {
-            counter.setName(holder.etCounterName.getText().toString());
-            int nuevoValor = Integer.parseInt(holder.etCounterValue.getText().toString());
-            counter.setValue(nuevoValor);
             counter.increment();
-            notifyItemChanged(position); // Actualizar el ítem
+            holder.etCounterValue.setText(String.valueOf(counter.getValue()));
+            notifyItemChanged(position);
         });
 
         // Decrementar el valor
         holder.btnDecrement.setOnClickListener(v -> {
-
-            counter.setName(holder.etCounterName.getText().toString());
-            int nuevoValor = Integer.parseInt(holder.etCounterValue.getText().toString());
-            counter.setValue(nuevoValor);
             counter.decrement();
-            notifyItemChanged(position); // Actualizar el ítem
+            holder.etCounterValue.setText(String.valueOf(counter.getValue()));
+            notifyItemChanged(position);
         });
 
         // Eliminar el contador
         holder.btnDelete.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+            builder.setTitle(v.getContext().getString(R.string.borrar_contador) + counter.getName());
+            builder.setMessage(v.getContext().getString(R.string.deseas_borrar) + counter.getName() + "?");
 
-                    counter.setName(holder.etCounterName.getText().toString());
-                    // Crear el diálogo de confirmación
-                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+            builder.setPositiveButton(v.getContext().getString(R.string.si), (dialog, which) -> {
+                listener.onDeleteCounter(position);
+                dialog.dismiss();
+            });
 
-
-
-                    builder.setTitle(v.getContext().getString(R.string.borrar_contador)+counter.getName());
-                    builder.setMessage(v.getContext().getString(R.string.deseas_borrar)+counter.getName()+"?");
-
-                    // Botón "Sí"
-                    builder.setPositiveButton(v.getContext().getString(R.string.si), (dialog, which) -> {
-                        // Acción de borrado
-                        listener.onDeleteCounter(position);
-                        dialog.dismiss(); // Cerrar el diálogo
-
-                    });
-
-                    // Botón "No"
-                    builder.setNegativeButton(v.getContext().getString(R.string.no), (dialog, which) -> dialog.dismiss());
-
-                    // Mostrar el diálogo
-                    builder.create().show();
+            builder.setNegativeButton(v.getContext().getString(R.string.no), (dialog, which) -> dialog.dismiss());
+            builder.create().show();
         });
 
         // Cambiar el nombre del contador
-        holder.etCounterName.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                counter.setName(holder.etCounterName.getText().toString());
+        holder.etCounterName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                counter.setName(s.toString());
             }
         });
 
         // Cambiar manualmente el valor del contador
-        holder.etCounterValue.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                String newValue = holder.etCounterValue.getText().toString();
-                if (!newValue.isEmpty()) {
-                    counter.setValue(Integer.parseInt(newValue));
+        holder.etCounterValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().isEmpty()) {
+                    try {
+                        int value = Integer.parseInt(s.toString());
+                        counter.setValue(value);
+                    } catch (NumberFormatException e) {
+                        holder.etCounterValue.setError(holder.itemView.getContext().getString(R.string.invalid_number));
+                    }
                 }
             }
         });
-
     }
 
     @Override
@@ -127,10 +127,10 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
         }
     }
 
-    // Interfaz para manejar eventos como eliminar contadores
     public interface OnCounterListener {
-        void onDeleteCounter(int position); // Método para eliminar el contador
+        void onDeleteCounter(int position);
     }
+
     public void setOnCounterClickListener(OnCounterListener listener) {
         this.listener = listener;
     }

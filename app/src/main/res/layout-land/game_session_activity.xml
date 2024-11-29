@@ -29,14 +29,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaPartidas"
-        android:layout_width="414dp"
-        android:layout_height="586dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="728dp"
+        android:layout_height="277dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.695"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/creator"
-        app:layout_constraintVertical_bias="0.151"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/game_session_saved_game_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
