@@ -1,0 +1,67 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Nombre del Contador -->
+    <EditText
+        android:id="@+id/tv_counter_name"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/contador_generico"
+        android:text="@string/nombre_del_contador"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingBottom="4dp"
+        android:gravity="center"/>
+
+    <!-- Diseño del Contador -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btn_decrement"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/boton_menos"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:id="@+id/tv_counter_value"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:autofillHints="0"
+            android:hint="@string/texto_inicial_counter"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+
+        <Button
+            android:id="@+id/btn_increment"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/boton_mas"
+            android:gravity="center"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boton_eliminar"
+            android:gravity="center"
+            android:backgroundTint="@color/red"/>
+    </LinearLayout>
+</LinearLayout>
