@@ -14,6 +14,9 @@ import android.app.Activity;
 
 import java.util.Random;
 
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
+
 public class DiceAdditionRollActivity extends Activity {
 
     private Spinner diceSpinner;
@@ -21,6 +24,8 @@ public class DiceAdditionRollActivity extends Activity {
     private ImageView diceImage;
     private Button rollButton;
     private TextView resultText;
+    private SessionManager sm = SessionManager.getInstance();
+    SavedGame currentGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +102,7 @@ public class DiceAdditionRollActivity extends Activity {
     private void rollDice() {
         String selectedDice = diceSpinner.getSelectedItem().toString();
         int maxValue = getMaxValueForDice(selectedDice);
-
+        currentGame = sm.getCurrentSession();
         String numDiceString = numDiceInput.getText().toString().trim();
 
         // Verifica si se introdujo algún valor
@@ -125,6 +130,9 @@ public class DiceAdditionRollActivity extends Activity {
                 results.append(roll).append("  ");
                 sum += roll;
             }
+
+            currentGame.addTirada("Tirada de Suma de dados", selectedDice, sum);
+            sm.setCurrentSession(currentGame);
 
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (suma): " + sum);

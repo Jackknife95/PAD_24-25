@@ -16,6 +16,7 @@ public class SavedGame {
         this.nombrePartida = nombrePartida;
         this.nombrePersonaje = nombrePersonaje;
         contadores = new ArrayList<>();
+        tiradas = new ArrayList<>();
     }
 
     public String getNombrePartida() {

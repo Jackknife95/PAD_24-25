@@ -13,6 +13,9 @@ import android.app.Activity;
 
 import java.util.Random;
 
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
+
 public class DiceAdvantageRollActivity extends Activity {
 
     private Spinner diceSpinner;
@@ -20,6 +23,8 @@ public class DiceAdvantageRollActivity extends Activity {
     private ImageView diceImage;
     private Button rollButton;
     private TextView resultText;
+    private SessionManager sm = SessionManager.getInstance();
+    SavedGame currentGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +128,10 @@ public class DiceAdvantageRollActivity extends Activity {
                     highestRoll = roll;
                 }
             }
+
+            currentGame = sm.getCurrentSession();
+            currentGame.addTirada("Tirada con Ventaja", selectedDice, highestRoll);
+            sm.setCurrentSession(currentGame);
 
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (ventaja): " + highestRoll);
