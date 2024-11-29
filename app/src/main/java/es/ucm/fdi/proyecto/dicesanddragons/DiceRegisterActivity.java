@@ -27,9 +27,9 @@ public class DiceRegisterActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.listaTiradas);
         Button btnLimpiarRegistro = findViewById(R.id.btnLimpiarRegistro);
 
-        // Obtener el registro de tiradas desde el SessionManager o alguna fuente de datos
-        // Aquí asumo que tienes una clase que gestiona las tiradas (por ejemplo, SessionManager)
-        game = SessionManager.getInstance().getCurrentSession(); // Asumiendo que tienes un SessionManager para obtener las tiradas
+
+        SessionManager sm =SessionManager.getInstance();
+        game = sm.getCurrentSession(); // Asumiendo que tienes un SessionManager para obtener las tiradas
         tiradas=game.getTiradas();
         // Configurar el RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

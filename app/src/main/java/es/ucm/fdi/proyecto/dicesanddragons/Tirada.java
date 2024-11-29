@@ -5,18 +5,24 @@ import java.util.List;
 
 // Clase para representar una tirada
 public class Tirada {
-    private String nombreDado;
+    private String nombre;
+    private int numDados;
     private String numCaras;
     private int resultado;
 
-    public Tirada(String nombreDado,String numCaras, int resultado) {
-        this.nombreDado = nombreDado;
+    public Tirada(String nombre,int numDados, String numCaras, int resultado) {
+        this.nombre = nombre;
+        this.numDados=numDados;
         this.numCaras=numCaras;
         this.resultado = resultado;
     }
 
-    public String getNombreDado() {
-        return nombreDado;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getNumDados() {
+        return numDados;
     }
 
     public int getResultado() {
@@ -29,6 +35,6 @@ public class Tirada {
 
     @Override
     public String toString() {
-        return "Dado: " + nombreDado + ", Resultado: " + resultado;
+        return "Dado: " + nombre + ", Resultado: " + resultado;
     }
 }

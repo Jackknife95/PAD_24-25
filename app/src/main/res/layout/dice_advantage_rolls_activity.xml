@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#493D22">
 
     <!-- Spinner para seleccionar el número de dados -->
     <Spinner
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#ECDEB2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -22,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#ECDEB2"
         app:layout_constraintTop_toBottomOf="@id/numDiceSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -36,8 +39,7 @@
         android:contentDescription="@string/dice_image_description"
         app:layout_constraintTop_toBottomOf="@id/diceSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/rollButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Botón para lanzar los dados -->
     <Button
@@ -45,9 +47,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#ECDEB2"
+        android:textColor="#000000"
         android:text="@string/roll_button_text"
         android:textSize="20sp"
+        android:fontFamily="@font/agbalumo"
         app:layout_constraintTop_toBottomOf="@id/diceImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -61,6 +65,8 @@
         android:text="@string/result_text"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:fontFamily="@font/agbalumo"
+        android:textColor="#ECDEB2"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/rollButton"
         app:layout_constraintStart_toStartOf="parent"

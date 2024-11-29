@@ -131,7 +131,7 @@ public class DiceSimpleRollActivity extends Activity {
             Random random = new Random();
             int result = random.nextInt(maxValue) + 1;
             currentGame = sm.getCurrentSession();
-            currentGame.addTirada("Tirada Simple", selectedDice, result);
+            currentGame.addTirada("Tirada Simple",1, selectedDice, result);
             sm.setCurrentSession(currentGame);
             resultText.setText("Resultado: " + result);
         } else {

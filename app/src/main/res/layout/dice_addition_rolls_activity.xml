@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#493D22">
 
     <!-- Spinner para seleccionar el tipo de dado -->
     <Spinner
@@ -11,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#ECDEB2"
         android:textSize="18sp"
+        android:padding="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -23,8 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:hint="Introduce el número de dados (máximo 50)"
+        android:textColorHint="#5B4C3A"
         android:inputType="number"
         android:textSize="18sp"
+        android:backgroundTint="#ECDEB2"
+        android:padding="12dp"
+        android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@id/diceSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -35,7 +42,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="Imagen del dado"
+        android:src="@android:drawable/ic_menu_help"
         app:layout_constraintTop_toBottomOf="@id/numDiceInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -47,6 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Lanzar Dados"
+        android:backgroundTint="#ECDEB2"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/diceImage"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,6 +70,7 @@
         android:text="Resultado:"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="#ECDEB2"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/rollButton"
         app:layout_constraintStart_toStartOf="parent"

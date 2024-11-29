@@ -1,6 +1,5 @@
 package es.ucm.fdi.proyecto.dicesanddragons.SavedGame;
 
-import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class SavedGame {
         return tiradas;
     }
 
-    public void addTirada(String nombreDado, String caraDado, int resultado) {
+    public void addTirada(String nombreDado,String caraDado, int resultado) {
         this.tiradas.add(new Tirada(nombreDado, caraDado, resultado));
     }
 
@@ -44,13 +43,5 @@ public class SavedGame {
         this.contadores = contadores;
     }
 
-    public String toJson() {
-        Gson gson = new Gson();
-        return gson.toJson(this);
-    }
 
-    public static SavedGame fromJson(String json) {
-        Gson gson = new Gson();
-        return gson.fromJson(json, SavedGame.class);
-    }
 }

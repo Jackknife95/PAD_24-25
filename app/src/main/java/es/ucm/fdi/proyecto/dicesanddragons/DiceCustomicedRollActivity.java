@@ -85,7 +85,7 @@ public class DiceCustomicedRollActivity extends Activity {
             }
 
             currentGame = sm.getCurrentSession();
-            currentGame.addTirada("Tirada Customizada", String.valueOf(numFaces), sum);
+            currentGame.addTirada("Tirada Customizada",numDice, String.valueOf(numFaces), sum);
             sm.setCurrentSession(currentGame);
 
             resultText.setText(results.toString() + "\nResultado final (suma): " + sum);

@@ -29,7 +29,11 @@ public class TiradaAdapter extends RecyclerView.Adapter<TiradaAdapter.TiradaView
     @Override
     public void onBindViewHolder(@NonNull TiradaViewHolder holder, int position) {
         Tirada tirada = listaTiradas.get(position);
-        holder.nombreDado.setText("Dado: " + tirada.getNombreDado());
+
+        // Asignar valores a los campos
+        holder.tiradaNombre.setText("Tirada: " + tirada.getNombre());
+        holder.cantidadDados.setText("Cantidad de dados: " + tirada.getNumDados());
+        holder.numeroCaras.setText("Número de caras: " + tirada.getNumCaras());
         holder.resultado.setText("Resultado: " + tirada.getResultado());
     }
 
@@ -39,14 +43,19 @@ public class TiradaAdapter extends RecyclerView.Adapter<TiradaAdapter.TiradaView
     }
 
     public static class TiradaViewHolder extends RecyclerView.ViewHolder {
-        TextView nombreDado;
+        TextView tiradaNombre;
+        TextView cantidadDados;
+        TextView numeroCaras;
         TextView resultado;
 
         public TiradaViewHolder(View itemView) {
             super(itemView);
-            nombreDado = itemView.findViewById(R.id.tiradaNombreDado);
+
+            // Inicializar vistas
+            tiradaNombre = itemView.findViewById(R.id.tiradaNombre);
+            cantidadDados = itemView.findViewById(R.id.tiradaCantidadDados);
+            numeroCaras = itemView.findViewById(R.id.tiradaNumeroCaras);
             resultado = itemView.findViewById(R.id.tiradaResultado);
         }
     }
 }
-

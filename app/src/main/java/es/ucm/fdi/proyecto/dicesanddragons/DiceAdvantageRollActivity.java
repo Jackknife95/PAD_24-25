@@ -130,7 +130,7 @@ public class DiceAdvantageRollActivity extends Activity {
             }
 
             currentGame = sm.getCurrentSession();
-            currentGame.addTirada("Tirada con Ventaja", selectedDice, highestRoll);
+            currentGame.addTirada("Tirada con Ventaja",numDice, selectedDice, highestRoll);
             sm.setCurrentSession(currentGame);
 
             // Mostrar los resultados y el resultado final

@@ -130,7 +130,7 @@ public class DiceDisadvantageRollActivity extends Activity {
             }
 
             currentGame = sm.getCurrentSession();
-            currentGame.addTirada("Tirada con Desventaja", selectedDice, lowestRoll);
+            currentGame.addTirada("Tirada con Desventaja",numDice, selectedDice, lowestRoll);
             sm.setCurrentSession(currentGame);
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (desventaja): " + lowestRoll);
