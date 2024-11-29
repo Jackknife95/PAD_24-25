@@ -11,7 +11,7 @@
         android:id="@+id/tvGameSession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selección de Partida"
+        android:text="@string/seleccion_de_partida"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Crear partida"
+        android:text="@string/crear_partida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvGameSession" />

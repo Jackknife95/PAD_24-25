@@ -28,6 +28,10 @@
     <string name="monedas_oro">Monedas de oro</string>
     <string name="monedas_esmeralda">Monedas de esmeralda</string>
     <string name="monedas_platino">Monedas de platino</string>
+    <string name="seleccion_de_partida">Selección de Partida</string>
+    <string name="crear_partida">Crear partida</string>
+    <string name="ver_contadores">Ver contadores</string>
+    <string name="seleccionar">Seleccionar</string>
 
     <!-- Opciones para seleccionar el número de caras de los dados -->
     <string-array name="dice_options">
