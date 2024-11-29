@@ -32,6 +32,7 @@
     <string name="crear_partida">Crear partida</string>
     <string name="ver_contadores">Ver contadores</string>
     <string name="seleccionar">Seleccionar</string>
+    <string name="volver">Volver</string>
 
     <!-- Opciones para seleccionar el número de caras de los dados -->
     <string-array name="dice_options">

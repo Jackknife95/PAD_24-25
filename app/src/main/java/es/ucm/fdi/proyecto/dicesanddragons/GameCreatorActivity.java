@@ -16,6 +16,10 @@ public class GameCreatorActivity extends AppCompatActivity {
     private EditText gameNameEditText, characterNameEditText;
     private Button confirmGameButton;
 
+    private void guardarPartida(){
+        SessionManager.getInstance().guardarPartida(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,9 @@ public class GameCreatorActivity extends AppCompatActivity {
 
                     // Guardar la partida en el SessionManager
                     SessionManager.getInstance().setCurrentSession(newGame);
+
+                    //Guardamos la nueva partida
+                    guardarPartida();
 
                     // Mostrar mensaje de éxito
                     Toast.makeText(GameCreatorActivity.this, "Partida creada: " + gameName, Toast.LENGTH_SHORT).show();

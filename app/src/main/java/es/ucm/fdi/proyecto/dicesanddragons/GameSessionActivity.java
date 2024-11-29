@@ -24,14 +24,8 @@ public class GameSessionActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.listaPartidas);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Obtener la partida actual desde SessionManager
-        SavedGame currentSession = SessionManager.getInstance().getCurrentSession();
-
         // Crear lista de partidas para el adaptador
-        List<SavedGame> listaPartidas = new ArrayList<>();
-        if (currentSession != null) {
-            listaPartidas.add(currentSession);
-        }
+        List<SavedGame> listaPartidas = SessionManager.getInstance().listarPartidas(this);
 
         // Configurar el adaptador
         SavedGamesAdapter adapter = new SavedGamesAdapter(this, listaPartidas);
@@ -44,6 +38,14 @@ public class GameSessionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GameSessionActivity.this, GameCreatorActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Button volver = findViewById(R.id.volver);
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
