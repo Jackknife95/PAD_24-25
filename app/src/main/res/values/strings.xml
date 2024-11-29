@@ -21,7 +21,13 @@
     <string name="disadvantage_button">Tiradas con desventaja</string>
     <string name="addition_button">Suma de tiradas</string>
     <string name="customized_button">Tiradas customizadas</string>
+    <string name="invalid_number">Debes insertar un número</string>
 
+    <string name="monedas_cobre">Monedas de cobre </string>
+    <string name="monedas_plata">Monedas de plata</string>
+    <string name="monedas_oro">Monedas de oro</string>
+    <string name="monedas_esmeralda">Monedas de esmeralda</string>
+    <string name="monedas_platino">Monedas de platino</string>
 
     <!-- Opciones para seleccionar el número de caras de los dados -->
     <string-array name="dice_options">
