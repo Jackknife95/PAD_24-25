@@ -41,4 +41,8 @@ public class SavedGame {
     public void setContadores(List<Counter> contadores) {
         this.contadores = contadores;
     }
+
+    public void guardarPartida(){
+        
+    }
 }
