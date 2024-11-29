@@ -43,7 +43,5 @@ public class SavedGame {
         this.contadores = contadores;
     }
 
-    public void guardarPartida(){
-        
-    }
+
 }

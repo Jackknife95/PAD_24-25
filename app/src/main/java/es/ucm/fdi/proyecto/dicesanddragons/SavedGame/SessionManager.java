@@ -21,5 +21,7 @@ public class SessionManager {
         this.currentSession = session;
     }
 
+    public void guardarPartida(){
 
+    }
 }
