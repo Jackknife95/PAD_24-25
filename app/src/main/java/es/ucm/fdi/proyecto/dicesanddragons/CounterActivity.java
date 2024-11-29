@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
+
 public class CounterActivity extends AppCompatActivity {
     private List<Counter> counterList;
     private CounterAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class CounterActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             // Restaura los contadores guardados
             counterList = (List<Counter>) savedInstanceState.getSerializable("counter_list");
-        } else {
+        } else if(SessionManager.getInstance().getCurrentSession().getContadores().isEmpty()) {
             counterList = new ArrayList<>();
             String nombre = this.getString(R.string.monedas_cobre);
             counterList.add(new Counter(0, nombre));

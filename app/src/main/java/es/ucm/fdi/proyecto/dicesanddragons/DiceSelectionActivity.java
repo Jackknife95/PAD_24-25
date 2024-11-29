@@ -57,6 +57,7 @@ public class DiceSelectionActivity extends AppCompatActivity {
         tiradaSumaDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(DiceSelectionActivity.this, DiceAdditionRollActivity.class);
                 startActivity(intent);
             }
