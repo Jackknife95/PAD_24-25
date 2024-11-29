@@ -52,6 +52,7 @@ public class WeaponCreatorActivity extends AppCompatActivity {
         saveButton.setOnClickListener(v -> saveImage());
     }
 
+
     private void saveImage() {
         // Obtener el nombre del archivo
         String fileName = fileNameEditText.getText().toString().trim();
@@ -93,16 +94,9 @@ public class WeaponCreatorActivity extends AppCompatActivity {
 
                 // Aplicar el cambio de brillo
                 float brightnessFactor = (brightnessSeekBar.getProgress() - 50) / 50.0f; // Rango de -1 a 1
-                r = (int) (r * (1 + brightnessFactor));
-                g = (int) (g * (1 + brightnessFactor));
-                b = (int) (b * (1 + brightnessFactor));
-
-                // Aplicar filtro de color
-                if (currentColorFilter != Color.TRANSPARENT) {
-                    r = (r + Color.red(currentColorFilter)) / 2; // Mezcla del color original con el filtro
-                    g = (g + Color.green(currentColorFilter)) / 2;
-                    b = (b + Color.blue(currentColorFilter)) / 2;
-                }
+                r = (int) (r + 255 * brightnessFactor); // Cambiar la fórmula de brillo
+                g = (int) (g + 255 * brightnessFactor);
+                b = (int) (b + 255 * brightnessFactor);
 
                 // Asegurarse de que los valores estén dentro del rango de 0-255
                 r = Math.min(Math.max(r, 0), 255);
@@ -115,6 +109,7 @@ public class WeaponCreatorActivity extends AppCompatActivity {
         }
         return filteredBitmap;
     }
+
 
     private void setupColorPicker() {
         findViewById(R.id.colorPickerButton).setOnClickListener(v -> {

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#493D22"
+    tools:context=".DiceRollActivity">
+
+    <TextView
+        android:id="@+id/tvDiceRoll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiradas de Dados"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvDiceRoll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/lanzamientoSimple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada Simple"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:fontFamily="@font/agbalumo"
+            android:backgroundTint="#D2B48C"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvTiradasEspeciales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiradas Especiales"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFFFFF"
+            android:layout_marginVertical="8dp" />
+
+        <Button
+            android:id="@+id/tiradaCustomizada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada Customizada"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:backgroundTint="#D2B48C"
+            android:fontFamily="@font/agbalumo"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/tiradaVentaja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada con Ventaja"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:backgroundTint="#D2B48C"
+            android:fontFamily="@font/agbalumo"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/tiradaDesventaja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada con Desventaja"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:backgroundTint="#D2B48C"
+            android:fontFamily="@font/agbalumo"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/tiradaSumaDados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tirada de Suma de Dados"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:backgroundTint="#D2B48C"
+            android:fontFamily="@font/agbalumo"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

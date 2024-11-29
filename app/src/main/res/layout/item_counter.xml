@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="#493D22">
 
     <!-- Nombre del Contador -->
     <EditText
@@ -16,7 +17,9 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:paddingBottom="4dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/agbalumo"/>
 
     <!-- Diseño del Contador -->
     <LinearLayout
@@ -30,8 +33,11 @@
             android:layout_width="60dp"
             android:layout_height="48dp"
             android:text="@string/boton_menos"
-            android:gravity="center"/>
-
+            android:gravity="center"
+            android:textSize="18sp"
+            android:backgroundTint="#D2B48C"
+            android:textColor="#000000"
+            android:fontFamily="@font/agbalumo"/>
 
         <EditText
             android:id="@+id/tv_counter_value"
@@ -42,15 +48,20 @@
             android:hint="@string/texto_inicial_counter"
             android:inputType="number"
             android:textSize="18sp"
-            android:gravity="center"/>
-
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/agbalumo"/>
 
         <Button
             android:id="@+id/btn_increment"
             android:layout_width="60dp"
             android:layout_height="48dp"
             android:text="@string/boton_mas"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textSize="18sp"
+            android:backgroundTint="#D2B48C"
+            android:textColor="#000000"
+            android:fontFamily="@font/agbalumo"/>
 
         <Space
             android:layout_width="10dp"
@@ -62,6 +73,9 @@
             android:layout_height="wrap_content"
             android:text="@string/boton_eliminar"
             android:gravity="center"
-            android:backgroundTint="@color/red"/>
+            android:backgroundTint="@color/red"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/agbalumo"/>
     </LinearLayout>
 </LinearLayout>

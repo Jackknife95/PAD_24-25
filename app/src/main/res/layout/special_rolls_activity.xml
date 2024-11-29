@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#493D22">
 
-    android:padding="16dp">
-
-    <!-- Imagen de cabecera -->
     <ImageView
         android:id="@+id/headerImage"
         android:layout_width="393dp"
@@ -21,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Texto: "Tiradas especiales" -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -29,59 +27,65 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/title_special_rolls"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:backgroundTint="#D2B48C"
+        android:fontFamily="@font/agbalumo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerImage" />
 
-    <!-- Botón para acceder a la tirada con ventaja -->
     <Button
         android:id="@+id/advantageButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#ECDEB2"
+        android:backgroundTint="#D2B48C"
         android:text="@string/advantage_button"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/agbalumo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleText" />
 
-    <!-- Botón para acceder a la tirada con desventaja -->
     <Button
         android:id="@+id/disadvantageButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#ECDEB2"
+        android:backgroundTint="#D2B48C"
         android:text="@string/disadvantage_button"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/agbalumo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/advantageButton" />
 
-    <!-- Botón para acceder a la suma de tiradas -->
     <Button
         android:id="@+id/additionButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#ECDEB2"
+        android:backgroundTint="#D2B48C"
         android:text="@string/addition_button"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/agbalumo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/disadvantageButton" />
 
-    <!-- Botón para acceder a la tirada customizada -->
     <Button
         android:id="@+id/customicedButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#ECDEB2"
+        android:backgroundTint="#D2B48C"
         android:text="@string/customized_button"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/agbalumo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

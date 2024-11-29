@@ -8,18 +8,20 @@
     android:layout_height="match_parent"
     tools:context=".DiceRollActivity">
 
+    <!-- Imagen en el lado izquierdo -->
     <ImageView
         android:id="@+id/headerImage"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:src="@drawable/fondodados"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginStart="16dp" />
 
+    <!-- Botón Ver registro de tiradas en el lado derecho -->
     <Button
         android:id="@+id/viewLogButton"
         android:layout_width="0dp"
@@ -32,12 +34,12 @@
         android:fontFamily="@font/agbalumo"
         android:text="Ver registro de tiradas"
         android:textColor="#000000"
-        android:textColorLink="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerImage" />
+        app:layout_constraintStart_toEndOf="@id/headerImage"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Botón Tirar dados en el lado derecho -->
     <Button
         android:id="@+id/rollDiceButton"
         android:layout_width="0dp"
@@ -48,7 +50,7 @@
         android:fontFamily="@font/agbalumo"
         android:background="@drawable/rounded_button"
         app:layout_constraintTop_toBottomOf="@id/viewLogButton"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/headerImage"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="32dp"

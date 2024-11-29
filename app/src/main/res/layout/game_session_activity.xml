@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#493D22"
     tools:context=".GameSessionActivity">
 
     <TextView
@@ -15,7 +16,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/agbalumo"/>
 
     <Button
         android:id="@+id/creator"
@@ -25,7 +29,11 @@
         android:text="@string/crear_partida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGameSession" />
+        app:layout_constraintTop_toBottomOf="@+id/tvGameSession"
+        android:textSize="18sp"
+        android:backgroundTint="#D2B48C"
+        android:textColor="#000000"
+        android:fontFamily="@font/agbalumo"/>
 
     <Button
         android:id="@+id/volver"
@@ -36,7 +44,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGameSession" />
+        app:layout_constraintTop_toBottomOf="@+id/tvGameSession"
+        android:textSize="18sp"
+        android:backgroundTint="#D2B48C"
+        android:textColor="#000000"
+        android:fontFamily="@font/agbalumo"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaPartidas"

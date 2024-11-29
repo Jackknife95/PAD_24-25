@@ -31,8 +31,8 @@ public class SavedGame {
         return tiradas;
     }
 
-    public void addTirada(String nombreDado,String caraDado, int resultado) {
-        this.tiradas.add(new Tirada(nombreDado, caraDado, resultado));
+    public void addTirada(String nombreDado,int numDados,String caraDado, int resultado) {
+        this.tiradas.add(new Tirada(nombreDado,numDados, caraDado, resultado));
     }
 
     public List<Counter> getContadores() {
