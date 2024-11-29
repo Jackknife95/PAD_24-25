@@ -8,6 +8,9 @@ import android.widget.TextView;
 import android.app.Activity;
 import java.util.Random;
 
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;
+import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
+
 public class DiceCustomicedRollActivity extends Activity {
 
     private EditText numDiceInput;
@@ -15,6 +18,8 @@ public class DiceCustomicedRollActivity extends Activity {
     private ImageView diceImage;
     private Button rollButton;
     private TextView resultText;
+    private SessionManager sm = SessionManager.getInstance();
+    SavedGame currentGame;
 
     private static final int MAX_DICE = 50;    // Limite de dados
     private static final int MAX_FACES = 500;  // Limite de caras del dado
@@ -78,6 +83,10 @@ public class DiceCustomicedRollActivity extends Activity {
                 results.append(roll).append("  ");
                 sum += roll;
             }
+
+            currentGame = sm.getCurrentSession();
+            currentGame.addTirada("Tirada Customizada", String.valueOf(numFaces), sum);
+            sm.setCurrentSession(currentGame);
 
             resultText.setText(results.toString() + "\nResultado final (suma): " + sum);
 

@@ -101,8 +101,6 @@ public class DiceSimpleRollActivity extends Activity {
         String selectedDice = diceSpinner.getSelectedItem().toString();
         int maxValue;
 
-        currentGame = sm.getCurrentSession();
-
         switch (selectedDice) {
             case "Dado de 2 caras":
                 maxValue = 2;
@@ -132,7 +130,8 @@ public class DiceSimpleRollActivity extends Activity {
         if (maxValue > 0) {
             Random random = new Random();
             int result = random.nextInt(maxValue) + 1;
-            currentGame.addTirada("Simple", selectedDice, result);
+            currentGame = sm.getCurrentSession();
+            currentGame.addTirada("Tirada Simple", selectedDice, result);
             sm.setCurrentSession(currentGame);
             resultText.setText("Resultado: " + result);
         } else {
