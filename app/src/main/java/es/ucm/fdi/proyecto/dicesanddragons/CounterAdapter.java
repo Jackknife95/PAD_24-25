@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterViewHolder> {
 
-    private final List<Counter> counters;
+    private List<Counter> counters;
     private OnCounterListener listener;
 
     public CounterAdapter(List<Counter> counters, OnCounterListener listener) {
@@ -110,6 +110,10 @@ public class CounterAdapter extends RecyclerView.Adapter<CounterAdapter.CounterV
     @Override
     public int getItemCount() {
         return counters.size();
+    }
+
+    public void setCounterList(List<Counter> counterList) {
+        this.counters = counterList;
     }
 
     public static class CounterViewHolder extends RecyclerView.ViewHolder {
