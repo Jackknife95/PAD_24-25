@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nombre_del_contador">Nom du Compteur</string>
+    <string name="agregar_contador">Ajouter un Compteur</string>
+    <string name="contador_generico">Compteur générique</string>
+    <string name="borrar_contador">"Supprimer le compteur : "</string>
+    <string name="deseas_borrar">"Voulez-vous vraiment supprimer le compteur : "</string>
+    <string name="si">Oui</string>
+    <string name="no">Non</string>
+    <string name="roll_button_text">Lancer les dés</string>
+    <string name="dice_image_description">Image des dés</string>
+    <string name="result_text">Résultat :</string>
+    <string name="num_dice_hint">Entrez le nombre de dés (maximum 50)</string>
+    <string name="num_faces_hint">Entrez le nombre de faces (maximum 500)</string>
+    <string name="title_special_rolls">Lancers spéciaux :</string>
+    <string name="advantage_button">Lancer avec avantage</string>
+    <string name="disadvantage_button">Lancer avec désavantage</string>
+    <string name="addition_button">Somme des lancers</string>
+    <string name="customized_button">Lancers personnalisés</string>
+    <string name="invalid_number">Vous devez insérer un nombre entre 0 et 999999999</string>
+    <string name="monedas_cobre">Pièces de cuivre</string>
+    <string name="monedas_plata">Pièces d\'argent</string>
+    <string name="monedas_oro">Pièces d\'or</string>
+    <string name="monedas_esmeralda">Pièces d\'émeraude</string>
+    <string name="monedas_platino">Pièces de platine</string>
+    <string name="seleccion_de_partida">Sélection de Partie</string>
+    <string name="crear_partida">Créer une Partie</string>
+    <string name="ver_contadores">Voir les Compteurs</string>
+    <string name="seleccionar">Sélectionner</string>
+    <string name="volver">Retour</string>
+    <string name="crear_armas">créer des armes</string>
+</resources>

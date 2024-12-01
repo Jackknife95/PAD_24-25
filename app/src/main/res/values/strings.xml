@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Dices and Dragons</string>
+    <string name="app_name" translatable="false">Dices and Dragons</string>
     <string name="nombre_del_contador">Nombre del Contador</string>
-    <string name="boton_mas">+</string>
-    <string name="texto_inicial_counter">0</string>
-    <string name="boton_menos">-</string>
-    <string name="boton_eliminar">x</string>
+    <string name="boton_mas" translatable="false">+</string>
+    <string name="texto_inicial_counter" translatable="false">0</string>
+    <string name="boton_menos" translatable="false">-</string>
+    <string name="boton_eliminar" translatable="false">x</string>
     <string name="agregar_contador">Añadir Contador</string>
     <string name="contador_generico">Contador genérico</string>
     <string name="borrar_contador">"Borrar contador: "</string>
@@ -57,4 +57,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
+    <string name="crear_armas">Crear Armas</string>
+    <string name="tirada_dados">Tiradas de dados</string>
 </resources>
