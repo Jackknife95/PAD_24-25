@@ -133,6 +133,7 @@ public class DiceAdditionRollActivity extends Activity {
 
             currentGame.addTirada("Tirada de Suma de dados", numDice,selectedDice, sum);
             sm.setCurrentSession(currentGame);
+            sm.guardarPartida(this);
 
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (suma): " + sum);

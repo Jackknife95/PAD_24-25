@@ -39,7 +39,9 @@ public class DiceRegisterActivity extends AppCompatActivity {
         // Acción para limpiar el registro
         btnLimpiarRegistro.setOnClickListener(view -> {
             // Limpiar el registro
-            tiradas.clear();
+            game.removeTiradas();
+            sm.setCurrentSession(game);
+            sm.guardarPartida(this);
             tiradaAdapter.notifyDataSetChanged();
             // Aquí podrías llamar a un método en SessionManager para limpiar el registro de las tiradas
         });

@@ -132,6 +132,7 @@ public class DiceAdvantageRollActivity extends Activity {
             currentGame = sm.getCurrentSession();
             currentGame.addTirada("Tirada con Ventaja",numDice, selectedDice, highestRoll);
             sm.setCurrentSession(currentGame);
+            sm.guardarPartida(this);
 
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (ventaja): " + highestRoll);

@@ -133,6 +133,7 @@ public class DiceSimpleRollActivity extends Activity {
             currentGame = sm.getCurrentSession();
             currentGame.addTirada("Tirada Simple",1, selectedDice, result);
             sm.setCurrentSession(currentGame);
+            sm.guardarPartida(this);
             resultText.setText("Resultado: " + result);
         } else {
             resultText.setText("Por favor, selecciona un dado válido.");
