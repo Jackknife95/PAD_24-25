@@ -27,6 +27,7 @@
     <string name="crear_partida">Create campaing</string>
     <string name="ver_contadores">See counters</string>
     <string name="seleccionar">Select</string>
-    <string name="volver">Go back</string>
+    <string name="volver">Return</string>
     <string name="crear_armas">Create weapons</string>
+    <string name="tirada_dados">Dices rolls</string>
 </resources>

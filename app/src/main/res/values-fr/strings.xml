@@ -29,4 +29,5 @@
     <string name="seleccionar">Sélectionner</string>
     <string name="volver">Retour</string>
     <string name="crear_armas">créer des armes</string>
+    <string name="tirada_dados">coup de dés</string>
 </resources>
