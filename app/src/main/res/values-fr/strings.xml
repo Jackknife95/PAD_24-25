@@ -30,4 +30,18 @@
     <string name="volver">Retour</string>
     <string name="crear_armas">créer des armes</string>
     <string name="tirada_dados">coup de dés</string>
+
+    <string name="color_arma">Couleur de l\'arme</string>
+    <string name="seleccionar_color">Sélectionnez la couleur</string>
+    <string name="brillo_arma">Luminosité de l\'arme</string>
+    <string name="nombre_diseno_hint">Nom de conception d\'arme</string>
+    <string name="guardar_diseno">Enregistrer la conception</string>
+
+    <string name="registro_tirada">Afficher le journal d\'impression</string>
+    <string name="tirar_dados">Lancer les dés</string>
+
+    <string name="game_creator_title">Créez votre jeu</string>
+    <string name="game_name_hint">Nom du jeu</string>
+    <string name="character_name_hint">Nom du personnage</string>
+    <string name="confirm_game_button_text">Créer un jeu</string>
 </resources>

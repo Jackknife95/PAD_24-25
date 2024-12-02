@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Textos existentes -->
     <string name="nombre_del_contador">Counter name</string>
     <string name="agregar_contador">Add counter</string>
     <string name="contador_generico">Generic Counter</string>
@@ -30,4 +31,18 @@
     <string name="volver">Return</string>
     <string name="crear_armas">Create weapons</string>
     <string name="tirada_dados">Dices rolls</string>
+
+    <string name="color_arma">Weapon color</string>
+    <string name="seleccionar_color">Select Color</string>
+    <string name="brillo_arma">Weapon brightness</string>
+    <string name="nombre_diseno_hint">Weapon design name</string>
+    <string name="guardar_diseno">Save Design</string>
+
+    <string name="registro_tirada">View print run log</string>
+    <string name="tirar_dados">Roll dice</string>
+
+    <string name="game_creator_title">Create your game</string>
+    <string name="game_name_hint">Game name</string>
+    <string name="character_name_hint">Character name</string>
+    <string name="confirm_game_button_text">Create Game</string>
 </resources>
