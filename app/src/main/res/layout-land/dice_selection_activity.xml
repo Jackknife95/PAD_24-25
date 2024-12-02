@@ -42,23 +42,6 @@
             android:backgroundTint="#D2B48C"
             android:layout_marginBottom="8dp" />
 
-        <TextView
-            android:id="@+id/tvTiradasEspeciales"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tiradas Especiales"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#FFFFFF"
-            android:layout_marginVertical="8dp" />
-
         <Button
             android:id="@+id/tiradaCustomizada"
             android:layout_width="match_parent"
