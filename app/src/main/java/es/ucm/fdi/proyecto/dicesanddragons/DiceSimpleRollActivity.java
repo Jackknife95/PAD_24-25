@@ -2,6 +2,7 @@ package es.ucm.fdi.proyecto.dicesanddragons;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
 
 public class DiceSimpleRollActivity extends Activity {
 
+    private static final String TAG = "DiceSimpleRollActivity";
     private Spinner diceSpinner;
     private ImageView diceImage;
     private Button rollButton;
@@ -30,6 +32,7 @@ public class DiceSimpleRollActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dice_simple_rolls_activity);
+        Log.d(TAG, "Inicializando la actividad");
 
         // Inicialización de las vistas
         diceSpinner = findViewById(R.id.diceSpinner);
@@ -69,6 +72,7 @@ public class DiceSimpleRollActivity extends Activity {
 
     private void updateDiceImage() {
         String selectedDice = diceSpinner.getSelectedItem().toString();
+        Log.d(TAG, "Actualizando imagen del dado para: " + selectedDice);
 
         switch (selectedDice) {
             case "Dado de 2 caras":
@@ -132,12 +136,14 @@ public class DiceSimpleRollActivity extends Activity {
         if (maxValue > 0) {
             Random random = new Random();
             int result = random.nextInt(maxValue) + 1;
+            Log.i(TAG, "Resultado de la tirada: " + result);
             currentGame = sm.getCurrentSession();
             currentGame.addTirada("Tirada Simple",1, selectedDice, result);
             sm.setCurrentSession(currentGame);
             sm.guardarPartida(this);
             resultText.setText("Resultado: " + result);
         } else {
+            Log.w(TAG, "Selección de dado no válida: " + selectedDice);
             resultText.setText("Por favor, selecciona un dado válido.");
         }
     }

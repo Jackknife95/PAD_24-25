@@ -2,6 +2,7 @@ package es.ucm.fdi.proyecto.dicesanddragons;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
 
 public class DiceAdditionRollActivity extends Activity {
 
+    private static final String TAG = "DiceAdditionRollActivity";
     private Spinner diceSpinner;
     private EditText numDiceInput;
     private ImageView diceImage;
@@ -32,6 +34,7 @@ public class DiceAdditionRollActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dice_addition_rolls_activity);
+        Log.d(TAG, "Inicializando la actividad");
 
         // Inicialización de las vistas
         diceSpinner = findViewById(R.id.diceSpinner);
@@ -72,6 +75,7 @@ public class DiceAdditionRollActivity extends Activity {
 
     private void updateDiceImage() {
         String selectedDice = diceSpinner.getSelectedItem().toString();
+        Log.d(TAG, "Actualizando imagen para " + selectedDice);
 
         switch (selectedDice) {
             case "Dado de 2 caras":
@@ -109,6 +113,7 @@ public class DiceAdditionRollActivity extends Activity {
 
         // Verifica si se introdujo algún valor
         if (numDiceString.isEmpty()) {
+            Log.w(TAG, "Campo vacío para número de dados");
             resultText.setText("Por favor, introduce el número de dados.");
             return;
         }
@@ -117,6 +122,7 @@ public class DiceAdditionRollActivity extends Activity {
 
         // Verifica si el número de dados excede el límite permitido
         if (numDice > 50) {
+            Log.e(TAG, "Se intentó de lanzar más de 50 dados");
             resultText.setText("Por favor, selecciona 50 dados o menos.");
             return;
         }
@@ -132,7 +138,7 @@ public class DiceAdditionRollActivity extends Activity {
                 results.append(roll).append("  ");
                 sum += roll;
             }
-
+            Log.i(TAG, "Resultado final: " + sum);
             currentGame.addTirada("Tirada de Suma de dados", numDice,selectedDice, sum);
             sm.setCurrentSession(currentGame);
             sm.guardarPartida(this);
@@ -140,6 +146,7 @@ public class DiceAdditionRollActivity extends Activity {
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (suma): " + sum);
         } else {
+            Log.w(TAG, "Selección inválida de dado o número de dados");
             resultText.setText("Por favor, selecciona un dado y un número válido de dados.");
         }
     }

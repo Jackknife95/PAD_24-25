@@ -2,6 +2,7 @@ package es.ucm.fdi.proyecto.dicesanddragons;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
 
 public class DiceAdvantageRollActivity extends Activity {
 
+    private static final String TAG = "DiceAdvantageRollActivity";
     private Spinner diceSpinner;
     private Spinner numDiceSpinner;
     private ImageView diceImage;
@@ -31,6 +33,7 @@ public class DiceAdvantageRollActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dice_advantage_rolls_activity);
+        Log.d(TAG, "Inicializando la actividad");
 
         // Inicialización de las vistas
         diceSpinner = findViewById(R.id.diceSpinner);
@@ -93,6 +96,7 @@ public class DiceAdvantageRollActivity extends Activity {
 
     private void updateDiceImage() {
         String selectedDice = diceSpinner.getSelectedItem().toString();
+        Log.d(TAG, "Actualizando imagen para " + selectedDice);
 
         switch (selectedDice) {
             case "Dado de 2 caras":
@@ -142,7 +146,7 @@ public class DiceAdvantageRollActivity extends Activity {
                     highestRoll = roll;
                 }
             }
-
+            Log.i(TAG, "Resultado final con ventaja: " + highestRoll);
             currentGame = sm.getCurrentSession();
             currentGame.addTirada("Tirada con Ventaja",numDice, selectedDice, highestRoll);
             sm.setCurrentSession(currentGame);
@@ -151,6 +155,7 @@ public class DiceAdvantageRollActivity extends Activity {
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (ventaja): " + highestRoll);
         } else {
+            Log.w(TAG, "Selección inválida de dado o número de dados");
             resultText.setText("Por favor, selecciona un dado y un número válido de dados.");
         }
     }

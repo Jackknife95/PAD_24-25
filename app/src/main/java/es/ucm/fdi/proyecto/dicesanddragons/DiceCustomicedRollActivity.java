@@ -1,6 +1,7 @@
 package es.ucm.fdi.proyecto.dicesanddragons;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
 
 public class DiceCustomicedRollActivity extends Activity {
 
+    private static final String TAG = "DiceCustomicedRollActivity";
     private EditText numDiceInput;
     private EditText numFacesInput;
     private ImageView diceImage;
@@ -28,6 +30,7 @@ public class DiceCustomicedRollActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dice_customiced_rolls_activity);
+        Log.d(TAG, "Inicializando la actividad");
 
         // Inicialización de las vistas
         numDiceInput = findViewById(R.id.numDiceInput);
@@ -58,17 +61,20 @@ public class DiceCustomicedRollActivity extends Activity {
 
             // Validar el número de dados
             if (numDice > MAX_DICE) {
+                Log.w(TAG, "El número de dados excede el límite");
                 resultText.setText("Por favor, selecciona 50 dados o menos.");
                 return;
             }
 
             // Validar el número de caras (no debe ser mayor que MAX_FACES)
             if (numFaces < 2) {
+                Log.w(TAG, "Número de caras inválido");
                 resultText.setText("El dado debe tener al menos 2 caras.");
                 return;
             }
 
             if (numFaces > MAX_FACES) {
+                Log.w(TAG, "Número de caras inválido");
                 resultText.setText("El número de caras no puede ser mayor a " + MAX_FACES +".");
                 return;
             }
@@ -83,7 +89,7 @@ public class DiceCustomicedRollActivity extends Activity {
                 results.append(roll).append("  ");
                 sum += roll;
             }
-
+            Log.i(TAG, "Resultado final (suma): " + sum);
             currentGame = sm.getCurrentSession();
             currentGame.addTirada("Tirada Customizada",numDice, String.valueOf(numFaces), sum);
             sm.setCurrentSession(currentGame);

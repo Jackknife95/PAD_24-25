@@ -16,6 +16,7 @@ import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
 public class CounterActivity extends AppCompatActivity {
     private List<Counter> counterList= new ArrayList<>();
     private CounterAdapter adapter;
+    private static final String TAG = "CounterActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class CounterActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             counterList = (List<Counter>) savedInstanceState.getSerializable("counter_list");
             if (counterList == null) {
+                Log.d(TAG, "No se encontraron contadores, se crea lista vacía");
                 counterList = new ArrayList<>();
             }
         } else if (SessionManager.getInstance().getCurrentSession().getContadores().isEmpty()) {
@@ -38,8 +40,10 @@ public class CounterActivity extends AppCompatActivity {
             counterList.add(new Counter(0, getString(R.string.monedas_oro)));
             counterList.add(new Counter(0, getString(R.string.monedas_esmeralda)));
             counterList.add(new Counter(0, getString(R.string.monedas_platino)));
+            Log.d(TAG, "Contadores inicializados con valores predeterminados");
         } else {
             counterList.addAll(SessionManager.getInstance().getCurrentSession().getContadores());
+            Log.d(TAG, "Contadores restaurados desde la sesión actual");
         }
 
         // Configura el adaptador

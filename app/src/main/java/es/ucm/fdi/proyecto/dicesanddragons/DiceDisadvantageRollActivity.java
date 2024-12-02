@@ -2,6 +2,7 @@ package es.ucm.fdi.proyecto.dicesanddragons;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ import es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;
 
 public class DiceDisadvantageRollActivity extends Activity {
 
+    private static final String TAG= "DiceDisadvantageRollActivity";
     private Spinner diceSpinner;
     private Spinner numDiceSpinner;
     private ImageView diceImage;
@@ -31,6 +33,7 @@ public class DiceDisadvantageRollActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dice_disadvantage_rolls_activity);
+        Log.d(TAG, "Inicializando la actividad");
 
         // Inicialización de las vistas
         diceSpinner = findViewById(R.id.diceSpinner);
@@ -142,7 +145,7 @@ public class DiceDisadvantageRollActivity extends Activity {
                     lowestRoll = roll;
                 }
             }
-
+            Log.i(TAG, "Resultado final (desventaja): " + lowestRoll);
             currentGame = sm.getCurrentSession();
             currentGame.addTirada("Tirada con Desventaja",numDice, selectedDice, lowestRoll);
             sm.setCurrentSession(currentGame);
@@ -151,6 +154,7 @@ public class DiceDisadvantageRollActivity extends Activity {
             // Mostrar los resultados y el resultado final
             resultText.setText(results.toString() + "\nResultado final (desventaja): " + lowestRoll);
         } else {
+            Log.w(TAG, "Selección inválida de dado o número de dados");
             resultText.setText("Por favor, selecciona un dado y un número válido de dados.");
         }
     }
