@@ -44,6 +44,26 @@
                 android:textSize="18sp"
                 android:fontFamily="@font/agbalumo" />
 
+            <!-- Imagen del dado debajo del botón -->
+            <ImageView
+                android:id="@+id/diceImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Imagen del dado"
+                android:src="@android:drawable/ic_menu_help"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Columna derecha: Resultado -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingStart="8dp">
+
             <!-- Campo para el resultado -->
             <TextView
                 android:id="@+id/resultText"
@@ -55,25 +75,6 @@
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:gravity="center" />
-
-        </LinearLayout>
-
-        <!-- Columna derecha: Imagen del dado -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:paddingStart="8dp">
-
-            <!-- Imagen del dado seleccionado -->
-            <ImageView
-                android:id="@+id/diceImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="Imagen del dado"
-                android:src="@android:drawable/ic_menu_help" />
 
         </LinearLayout>
 

@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- Columna izquierda: Entrada y selección -->
+        <!-- Columna izquierda: Entrada, selección y botón -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -50,6 +50,24 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/agbalumo" />
 
+            <!-- Imagen del dado en tamaño pequeño -->
+            <ImageView
+                android:id="@+id/diceImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/dice_image_description"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <!-- Columna derecha: Resultado -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingStart="8dp">
+
             <!-- Texto para mostrar el resultado -->
             <TextView
                 android:id="@+id/resultText"
@@ -62,24 +80,6 @@
                 android:fontFamily="@font/agbalumo"
                 android:textColor="#ECDEB2"
                 android:gravity="center" />
-        </LinearLayout>
-
-        <!-- Columna derecha: Imagen del dado -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:paddingStart="8dp">
-
-            <!-- Imagen del dado seleccionado -->
-            <ImageView
-                android:id="@+id/diceImage"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="@string/dice_image_description" />
         </LinearLayout>
 
     </LinearLayout>

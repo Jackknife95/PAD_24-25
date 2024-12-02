@@ -55,6 +55,14 @@
                 android:backgroundTint="#ECDEB2"
                 android:textColor="#000000"
                 android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/diceImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@android:drawable/ic_menu_help" />
         </LinearLayout>
 
         <!-- Columna derecha: Imagen del dado y resultado -->
@@ -64,14 +72,6 @@
             android:orientation="vertical"
             android:layout_weight="1"
             android:paddingStart="8dp">
-
-            <!-- Imagen del dado seleccionado -->
-            <ImageView
-                android:id="@+id/diceImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginBottom="16dp"
-                android:src="@android:drawable/ic_menu_help" />
 
             <!-- Texto para mostrar el resultado -->
             <TextView
