@@ -25,33 +25,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Contenedor horizontal para lista y botón -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Lista de tiradas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaTiradas"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="horizontal"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintTop_toBottomOf="@id/tituloPartida"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnLimpiarRegistro">
-
-        <!-- Lista de tiradas: Ocupa la mitad izquierda -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaTiradas"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="8dp"
-            tools:listitem="@layout/item_tirada" />
-
-        <!-- Espacio vacío entre la lista y el botón -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-    </LinearLayout>
+        app:layout_constraintBottom_toTopOf="@id/btnLimpiarRegistro"
+        tools:listitem="@layout/item_tirada" />
 
     <!-- Botón para limpiar el registro -->
     <Button
