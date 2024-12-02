@@ -19,41 +19,45 @@
             android:id="@+id/tiradaNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/agbalumo"
+            android:gravity="center"
             android:text="Tirada: Ataque"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:fontFamily="@font/agbalumo"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <!-- Cantidad de dados -->
         <TextView
             android:id="@+id/tiradaCantidadDados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/agbalumo"
+            android:gravity="center"
             android:text="Cantidad de dados: 2"
-            android:textSize="14sp"
             android:textColor="#FFFFFF"
-            android:fontFamily="@font/agbalumo"/>
+            android:textSize="14sp" />
 
         <!-- Número de caras -->
         <TextView
             android:id="@+id/tiradaNumeroCaras"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/agbalumo"
+            android:gravity="center"
             android:text="Número de caras: 20"
-            android:textSize="14sp"
             android:textColor="#FFFFFF"
-            android:fontFamily="@font/agbalumo"/>
+            android:textSize="14sp" />
 
         <!-- Resultado -->
         <TextView
             android:id="@+id/tiradaResultado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/agbalumo"
+            android:gravity="center"
             android:text="Resultado: 15"
-            android:textSize="14sp"
             android:textColor="#FFFFFF"
-            android:fontFamily="@font/agbalumo"/>
+            android:textSize="14sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
