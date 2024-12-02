@@ -1,5 +1,6 @@
 package es.ucm.fdi.proyecto.dicesanddragons;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -60,10 +61,23 @@ public class DiceAdvantageRollActivity extends Activity {
         diceSpinner.setSelection(2);  // Este es el índice para el dado de 6 caras
         numDiceSpinner.setSelection(0);  // Establecemos el valor por defecto en 2 dados
 
+        numDiceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) view).setTextColor(Color.WHITE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // No hace nada
+            }
+        });
+
         // Cambiar la imagen del dado al seleccionar un dado del Spinner
         diceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) view).setTextColor(Color.WHITE);
                 updateDiceImage();
             }
 

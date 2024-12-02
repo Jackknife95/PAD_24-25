@@ -76,39 +76,54 @@ public class WeaponCreatorActivity extends AppCompatActivity {
     }
 
     private Bitmap applyFiltersToBitmap(Bitmap originalBitmap) {
-        // Crear una copia de la imagen original para aplicar los filtros
+        if (originalBitmap == null) return null;
+
         Bitmap filteredBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
 
         int width = filteredBitmap.getWidth();
         int height = filteredBitmap.getHeight();
 
-        // Iterar sobre cada píxel para aplicar el brillo y el filtro de color
+        // Obtener el brillo actual de la barra
+        int brightnessProgress = brightnessSeekBar.getProgress();
+        float brightnessFactor = (brightnessProgress - 100) / 100.0f; // Rango de -1 a 1
+
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 int pixel = filteredBitmap.getPixel(x, y);
 
-                // Extraer los componentes RGB
+                // Extraer componentes RGB
                 int r = Color.red(pixel);
                 int g = Color.green(pixel);
                 int b = Color.blue(pixel);
 
-                // Aplicar el cambio de brillo
-                float brightnessFactor = (brightnessSeekBar.getProgress() - 50) / 50.0f; // Rango de -1 a 1
-                r = (int) (r + 255 * brightnessFactor); // Cambiar la fórmula de brillo
-                g = (int) (g + 255 * brightnessFactor);
-                b = (int) (b + 255 * brightnessFactor);
+                // Ajustar el brillo
+                r = (int) (r + r * brightnessFactor);
+                g = (int) (g + g * brightnessFactor);
+                b = (int) (b + b * brightnessFactor);
 
-                // Asegurarse de que los valores estén dentro del rango de 0-255
+                // Aplicar el filtro de color seleccionado
+                if (currentColorFilter != Color.TRANSPARENT) {
+                    int filterR = Color.red(currentColorFilter);
+                    int filterG = Color.green(currentColorFilter);
+                    int filterB = Color.blue(currentColorFilter);
+
+                    r = (r + filterR) / 2;
+                    g = (g + filterG) / 2;
+                    b = (b + filterB) / 2;
+                }
+
+                // Limitar los valores a 0-255
                 r = Math.min(Math.max(r, 0), 255);
                 g = Math.min(Math.max(g, 0), 255);
                 b = Math.min(Math.max(b, 0), 255);
 
-                // Establecer el píxel con los cambios aplicados
                 filteredBitmap.setPixel(x, y, Color.rgb(r, g, b));
             }
         }
+
         return filteredBitmap;
     }
+
 
 
     private void setupColorPicker() {
@@ -189,7 +204,9 @@ public class WeaponCreatorActivity extends AppCompatActivity {
         brightnessSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                // No se necesita acción aquí ya que la modificación se aplica al generar la nueva imagen
+                // Aplicar el brillo dinámicamente en función del progreso de la barra
+                Bitmap previewBitmap = applyBrightnessToBitmap(originalWeaponBitmap, progress);
+                weaponPreviewImage.setImageBitmap(previewBitmap);
             }
 
             @Override
@@ -202,5 +219,45 @@ public class WeaponCreatorActivity extends AppCompatActivity {
                 // No se necesita acción
             }
         });
+    }
+
+    private Bitmap applyBrightnessToBitmap(Bitmap originalBitmap, int progress) {
+        if (originalBitmap == null) return null;
+
+        // Crear una copia del bitmap original
+        Bitmap adjustedBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
+
+        int width = adjustedBitmap.getWidth();
+        int height = adjustedBitmap.getHeight();
+
+        // Calcular el factor de brillo
+        float brightnessFactor = (progress - 100) / 100.0f; // Rango de -1 a 1
+
+        // Aplicar el ajuste de brillo a cada píxel
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                int pixel = adjustedBitmap.getPixel(x, y);
+
+                // Extraer los componentes RGB
+                int r = Color.red(pixel);
+                int g = Color.green(pixel);
+                int b = Color.blue(pixel);
+
+                // Modificar el brillo
+                r = (int) (r + r * brightnessFactor);
+                g = (int) (g + g * brightnessFactor);
+                b = (int) (b + b * brightnessFactor);
+
+                // Limitar los valores a 0-255
+                r = Math.min(Math.max(r, 0), 255);
+                g = Math.min(Math.max(g, 0), 255);
+                b = Math.min(Math.max(b, 0), 255);
+
+                // Asignar el nuevo color al píxel
+                adjustedBitmap.setPixel(x, y, Color.rgb(r, g, b));
+            }
+        }
+
+        return adjustedBitmap;
     }
 }

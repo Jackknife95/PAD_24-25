@@ -57,6 +57,22 @@
         <item>9</item>
         <item>10</item>
     </string-array>
+
     <string name="crear_armas">Crear Armas</string>
     <string name="tirada_dados">Tiradas de dados</string>
+
+    <string name="color_arma">Color del arma</string>
+    <string name="brillo_arma">Brillo del arma</string>
+    <string name="seleccionar_color">Seleccionar Color</string>
+    <string name="nombre_diseno_hint">Nombre del diseño</string>
+    <string name="guardar_diseno">Guardar Diseño</string>
+
+    <string name="registro_tirada">Ver registro de tiradas</string>
+    <string name="tirar_dados">Tirar Dados</string>
+
+    <string name="game_creator_title">Crea tu partida</string>
+    <string name="game_name_hint">Nombre de la partida</string>
+    <string name="character_name_hint">Nombre del personaje</string>
+    <string name="confirm_game_button_text">Crear Partida</string>
+
 </resources>

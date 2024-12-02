@@ -1,5 +1,6 @@
 package es.ucm.fdi.proyecto.dicesanddragons;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -55,6 +56,7 @@ public class DiceAdditionRollActivity extends Activity {
         diceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) view).setTextColor(Color.WHITE);
                 updateDiceImage();
             }
 
