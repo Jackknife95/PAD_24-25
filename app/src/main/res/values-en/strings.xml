@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Textos existentes -->
+    <string name="nombre_del_contador">Counter name</string>
+    <string name="agregar_contador">Add counter</string>
+    <string name="contador_generico">Generic Counter</string>
+    <string name="borrar_contador">"Delete counter: "</string>
+    <string name="deseas_borrar">"Do you really want to delete the counter: "</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+    <string name="roll_button_text">Roll dices</string>
+    <string name="dice_image_description">Dices image</string>
+    <string name="result_text">"Result: "</string>
+    <string name="num_dice_hint">Insert the number of dices(max. 50)</string>
+    <string name="num_faces_hint">Insert the number of faces( max. 500)</string>
+    <string name="title_special_rolls">Special rolls</string>
+    <string name="advantage_button">Advantage rolls</string>
+    <string name="disadvantage_button">Disadvantage rolls</string>
+    <string name="addition_button">Sum of rolls</string>
+    <string name="customized_button">Custom rolls</string>
+    <string name="invalid_number">You may enter a number between 0 and 999999999</string>
+    <string name="monedas_cobre">Copper coins</string>
+    <string name="monedas_plata">Silver coins</string>
+    <string name="monedas_oro">Gold coins</string>
+    <string name="monedas_esmeralda">Emerald coins</string>
+    <string name="monedas_platino">Platinum coins</string>
+    <string name="seleccion_de_partida">Campaing selector</string>
+    <string name="crear_partida">Create campaing</string>
+    <string name="ver_contadores">See counters</string>
+    <string name="seleccionar">Select</string>
+    <string name="volver">Return</string>
+    <string name="crear_armas">Create weapons</string>
+    <string name="tirada_dados">Dices rolls</string>
+
+    <string name="color_arma">Weapon color</string>
+    <string name="seleccionar_color">Select Color</string>
+    <string name="brillo_arma">Weapon brightness</string>
+    <string name="nombre_diseno_hint">Weapon design name</string>
+    <string name="guardar_diseno">Save Design</string>
+
+    <string name="registro_tirada">View print run log</string>
+    <string name="tirar_dados">Roll dice</string>
+
+    <string name="game_creator_title">Create your game</string>
+    <string name="game_name_hint">Game name</string>
+    <string name="character_name_hint">Character name</string>
+    <string name="confirm_game_button_text">Create Game</string>
+</resources>

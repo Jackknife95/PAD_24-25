@@ -1,0 +1,62 @@
+package es.ucm.fdi.proyecto.dicesanddragons.SavedGame;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import es.ucm.fdi.proyecto.dicesanddragons.Counter;
+import es.ucm.fdi.proyecto.dicesanddragons.Tirada;
+
+public class SavedGame {
+    private String nombrePartida;
+    private String nombrePersonaje;
+    private List<Counter> contadores;
+    private List<Tirada> tiradas;
+
+    public SavedGame(String nombrePartida, String nombrePersonaje) {
+        this.nombrePartida = nombrePartida;
+        this.nombrePersonaje = nombrePersonaje;
+        contadores = new ArrayList<>();
+        tiradas = new ArrayList<>();
+    }
+
+    public String getNombrePartida() {
+        return nombrePartida;
+    }
+
+    public String getNombrePersonaje() {
+        return nombrePersonaje;
+    }
+
+    public List<Tirada> getTiradas() {
+        return tiradas;
+    }
+
+    public void addTirada(String nombreDado,int numDados,String caraDado, int resultado) {
+        this.tiradas.add(new Tirada(nombreDado,numDados, caraDado, resultado));
+    }
+
+    public void removeTiradas(){
+        tiradas.clear();
+    }
+
+    public List<Counter> getContadores() {
+        return contadores;
+    }
+
+    public void setContadores(List<Counter> contadores) {
+        this.contadores = contadores;
+    }
+
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+    public static SavedGame fromJson(String json) {
+        Gson gson = new Gson();
+        return gson.fromJson(json, SavedGame.class);
+    }
+
+}

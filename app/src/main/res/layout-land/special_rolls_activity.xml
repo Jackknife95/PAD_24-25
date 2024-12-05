@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#493D22">
+
+    <!-- Imagen ocupando toda la parte izquierda -->
+    <ImageView
+        android:id="@+id/headerImage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondodados"
+        app:layout_constraintEnd_toStartOf="@id/buttonsLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Layout para los botones a la derecha -->
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/headerImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/title_special_rolls"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:backgroundTint="#D2B48C"
+            android:fontFamily="@font/agbalumo"/>
+
+        <!-- Botón de Ventaja -->
+        <Button
+            android:id="@+id/advantageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D2B48C"
+            android:text="@string/advantage_button"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/agbalumo"/>
+
+        <!-- Botón de Desventaja -->
+        <Button
+            android:id="@+id/disadvantageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D2B48C"
+            android:text="@string/disadvantage_button"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/agbalumo"/>
+
+        <!-- Botón de Adición -->
+        <Button
+            android:id="@+id/additionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D2B48C"
+            android:text="@string/addition_button"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/agbalumo"/>
+
+        <!-- Botón de Personalizado -->
+        <Button
+            android:id="@+id/customicedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D2B48C"
+            android:text="@string/customized_button"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/agbalumo"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

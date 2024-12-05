@@ -1,0 +1,91 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#493D22">
+
+    <!-- Contenedor principal en modo horizontal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Columna izquierda: Entrada y selección -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingEnd="8dp">
+
+            <!-- Spinner para seleccionar el tipo de dado -->
+            <Spinner
+                android:id="@+id/diceSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#ECDEB2"
+                android:textSize="18sp"
+                android:padding="8dp" />
+
+            <!-- Campo para ingresar el número de dados -->
+            <EditText
+                android:id="@+id/numDiceInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Introduce el número de dados (máximo 50)"
+                android:textColorHint="#5B4C3A"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:backgroundTint="#ECDEB2"
+                android:padding="12dp"
+                android:textColor="#000000" />
+
+            <!-- Botón para lanzar los dados -->
+            <Button
+                android:id="@+id/rollButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Lanzar Dados"
+                android:backgroundTint="#ECDEB2"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/diceImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@android:drawable/ic_menu_help" />
+        </LinearLayout>
+
+        <!-- Columna derecha: Imagen del dado y resultado -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingStart="8dp">
+
+            <!-- Texto para mostrar el resultado -->
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Resultado:"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#ECDEB2"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

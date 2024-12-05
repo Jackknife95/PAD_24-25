@@ -1,0 +1,92 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Logo de Dices and Dragons -->
+    <ImageView
+        android:id="@+id/headerImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="0dp"/>
+
+    <!-- Contenedor para los botones con fondo negro -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#493D22"
+        android:backgroundTint="#5B4C3A"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerImage">
+
+        <!-- Botón para Tiradas de Dados -->
+        <Button
+            android:id="@+id/btnDiceRolls"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:backgroundTint="#ECDEB2"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
+            android:text="@string/tirada_dados"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Botón para Selección de Partida -->
+        <Button
+            android:id="@+id/btnGameSession"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:backgroundTint="#ECDEB2"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
+            android:text="@string/seleccion_de_partida"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Botón para Creador de Armas -->
+        <Button
+            android:id="@+id/btnWeaponCreator"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:backgroundTint="#ECDEB2"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
+            android:text="@string/crear_armas"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCounters"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:backgroundTint="#ECDEB2"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
+            android:text="@string/ver_contadores"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

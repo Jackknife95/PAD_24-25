@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name" translatable="false">Dices and Dragons</string>
+    <string name="nombre_del_contador">Nombre del Contador</string>
+    <string name="boton_mas" translatable="false">+</string>
+    <string name="texto_inicial_counter" translatable="false">0</string>
+    <string name="boton_menos" translatable="false">-</string>
+    <string name="boton_eliminar" translatable="false">x</string>
+    <string name="agregar_contador">Añadir Contador</string>
+    <string name="contador_generico">Contador genérico</string>
+    <string name="borrar_contador">"Borrar contador: "</string>
+    <string name="deseas_borrar">"¿En verdad deseas borrar el contador: "</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="roll_button_text">Lanzar dados</string>
+    <string name="dice_image_description">Imagen de los dados</string>
+    <string name="result_text">Resultado:</string>
+    <string name="num_dice_hint">Introduce el número de dados (máximo 50)</string>
+    <string name="num_faces_hint">Introduce el número de caras (máximo 500)</string>
+    <string name="title_special_rolls">Tiradas especiales:</string>
+    <string name="advantage_button">Tiradas con ventaja</string>
+    <string name="disadvantage_button">Tiradas con desventaja</string>
+    <string name="addition_button">Suma de tiradas</string>
+    <string name="customized_button">Tiradas customizadas</string>
+    <string name="invalid_number">Debes insertar un número entre 0 y 999999999</string>
+
+    <string name="monedas_cobre">Monedas de cobre </string>
+    <string name="monedas_plata">Monedas de plata</string>
+    <string name="monedas_oro">Monedas de oro</string>
+    <string name="monedas_esmeralda">Monedas de esmeralda</string>
+    <string name="monedas_platino">Monedas de platino</string>
+    <string name="seleccion_de_partida">Selección de Partida</string>
+    <string name="crear_partida">Crear partida</string>
+    <string name="ver_contadores">Ver contadores</string>
+    <string name="seleccionar">Seleccionar</string>
+    <string name="volver">Volver</string>
+
+    <!-- Opciones para seleccionar el número de caras de los dados -->
+    <string-array name="dice_options">
+        <item>Dado de 2 caras</item>
+        <item>Dado de 4 caras</item>
+        <item>Dado de 6 caras</item>
+        <item>Dado de 10 caras</item>
+        <item>Dado de 12 caras</item>
+        <item>Dado de 20 caras</item>
+        <item>Dado de 100 caras</item>
+    </string-array>
+
+    <!-- Opciones para seleccionar el número de dados -->
+    <string-array name="num_dice_options">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string name="crear_armas">Crear Armas</string>
+    <string name="tirada_dados">Tiradas de dados</string>
+
+    <string name="color_arma">Color del arma</string>
+    <string name="brillo_arma">Brillo del arma</string>
+    <string name="seleccionar_color">Seleccionar Color</string>
+    <string name="nombre_diseno_hint">Nombre del diseño</string>
+    <string name="guardar_diseno">Guardar Diseño</string>
+
+    <string name="registro_tirada">Ver registro de tiradas</string>
+    <string name="tirar_dados">Tirar Dados</string>
+
+    <string name="game_creator_title">Crea tu partida</string>
+    <string name="game_name_hint">Nombre de la partida</string>
+    <string name="character_name_hint">Nombre del personaje</string>
+    <string name="confirm_game_button_text">Crear Partida</string>
+
+</resources>

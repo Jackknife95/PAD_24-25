@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#493D22"
+    tools:context=".DiceRegisterActivity">
+
+    <!-- Título de la partida -->
+    <TextView
+        android:id="@+id/tituloPartida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registro de tiradas"
+        android:textSize="22sp"
+        android:textColor="#ECDEB2"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:fontFamily="@font/agbalumo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Lista de tiradas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaTiradas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tituloPartida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnLimpiarRegistro"
+        tools:listitem="@layout/item_tirada" />
+
+    <!-- Botón para limpiar el registro -->
+    <Button
+        android:id="@+id/btnLimpiarRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limpiar Registro"
+        android:textSize="18sp"
+        android:backgroundTint="#ECDEB2"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:fontFamily="@font/agbalumo"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

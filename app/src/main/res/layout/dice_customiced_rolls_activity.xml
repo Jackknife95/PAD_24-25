@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#493D22"
+    tools:context=".DiceCustomicedRollActivity">
+
+    <!-- Campo de entrada para el número de dados -->
+    <EditText
+        android:id="@+id/numDiceInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/num_dice_hint"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_input"
+        android:textColor="#ECDEB2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo de entrada para el número de caras -->
+    <EditText
+        android:id="@+id/numFacesInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/num_faces_hint"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_input"
+        android:textColor="#ECDEB2"
+        app:layout_constraintTop_toBottomOf="@id/numDiceInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón para lanzar los dados -->
+    <Button
+        android:id="@+id/rollButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#ECDEB2"
+        android:text="@string/roll_button_text"
+        android:textSize="20sp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/numFacesInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Imagen estática del dado -->
+    <ImageView
+        android:id="@+id/dicesImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/dados"
+        android:contentDescription="@string/dice_image_description"
+        app:layout_constraintTop_toBottomOf="@id/rollButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Texto para mostrar el resultado -->
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/result_text"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#ECDEB2"
+        app:layout_constraintTop_toBottomOf="@id/dicesImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

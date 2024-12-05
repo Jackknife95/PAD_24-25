@@ -1,0 +1,1015 @@
+Index: app/src/main/res/layout/dice_selection_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".DiceRollActivity\">\r\n\r\n    <!-- Título de la actividad -->\r\n    <TextView\r\n        android:id=\"@+id/tvDiceRoll\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Tiradas de Dados\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\"/>\r\n\r\n    <!-- Contenedor de botones -->\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"vertical\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/tvDiceRoll\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:padding=\"16dp\">\r\n\r\n        <!-- Botón: Tirada simple -->\r\n        <Button\r\n            android:id=\"@+id/lanzamientoSimple\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Tirada Simple\" />\r\n\r\n        <!-- Texto: Tiradas especiales -->\r\n        <TextView\r\n            android:id=\"@+id/tvTiradasEspeciales\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Tiradas Especiales\"\r\n            android:textSize=\"18sp\"\r\n            android:textStyle=\"bold\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginTop=\"16dp\" />\r\n\r\n        <!-- Divisor -->\r\n        <View\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"1dp\"\r\n            android:background=\"#CCCCCC\"\r\n            android:layout_marginVertical=\"8dp\" />\r\n\r\n        <!-- Botón: Tirada customizada -->\r\n        <Button\r\n            android:id=\"@+id/tiradaCustomizada\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Tirada Customizada\" />\r\n\r\n        <!-- Botón: Tirada con ventaja -->\r\n        <Button\r\n            android:id=\"@+id/tiradaVentaja\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Tirada con Ventaja\" />\r\n\r\n        <!-- Botón: Tirada con desventaja -->\r\n        <Button\r\n            android:id=\"@+id/tiradaDesventaja\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Tirada con Desventaja\" />\r\n\r\n        <!-- Botón: Tirada de suma de dados -->\r\n        <Button\r\n            android:id=\"@+id/tiradaSumaDados\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Tirada de Suma de Dados\" />\r\n\r\n    </LinearLayout>\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_selection_activity.xml b/app/src/main/res/layout/dice_selection_activity.xml
+--- a/app/src/main/res/layout/dice_selection_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_selection_activity.xml	(date 1732891715985)
+@@ -5,9 +5,9 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
++    android:background="#493D22"
+     tools:context=".DiceRollActivity">
+ 
+-    <!-- Título de la actividad -->
+     <TextView
+         android:id="@+id/tvDiceRoll"
+         android:layout_width="wrap_content"
+@@ -15,12 +15,12 @@
+         android:text="Tiradas de Dados"
+         android:textSize="24sp"
+         android:textStyle="bold"
++        android:textColor="#FFFFFF"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_marginTop="16dp"/>
+ 
+-    <!-- Contenedor de botones -->
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+@@ -31,14 +31,17 @@
+         android:layout_marginTop="16dp"
+         android:padding="16dp">
+ 
+-        <!-- Botón: Tirada simple -->
+         <Button
+             android:id="@+id/lanzamientoSimple"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="Tirada Simple" />
++            android:text="Tirada Simple"
++            android:textColor="#000000"
++            android:textSize="18sp"
++            android:fontFamily="@font/agbalumo"
++            android:backgroundTint="#D2B48C"
++            android:layout_marginBottom="8dp" />
+ 
+-        <!-- Texto: Tiradas especiales -->
+         <TextView
+             android:id="@+id/tvTiradasEspeciales"
+             android:layout_width="wrap_content"
+@@ -46,43 +49,59 @@
+             android:text="Tiradas Especiales"
+             android:textSize="18sp"
+             android:textStyle="bold"
++            android:textColor="#FFFFFF"
+             android:layout_gravity="center"
+             android:layout_marginTop="16dp" />
+ 
+-        <!-- Divisor -->
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+-            android:background="#CCCCCC"
++            android:background="#FFFFFF"
+             android:layout_marginVertical="8dp" />
+ 
+-        <!-- Botón: Tirada customizada -->
+         <Button
+             android:id="@+id/tiradaCustomizada"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="Tirada Customizada" />
++            android:text="Tirada Customizada"
++            android:textColor="#000000"
++            android:textSize="18sp"
++            android:backgroundTint="#D2B48C"
++            android:fontFamily="@font/agbalumo"
++            android:layout_marginBottom="8dp" />
+ 
+-        <!-- Botón: Tirada con ventaja -->
+         <Button
+             android:id="@+id/tiradaVentaja"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="Tirada con Ventaja" />
++            android:text="Tirada con Ventaja"
++            android:textColor="#000000"
++            android:textSize="18sp"
++            android:backgroundTint="#D2B48C"
++            android:fontFamily="@font/agbalumo"
++            android:layout_marginBottom="8dp" />
+ 
+-        <!-- Botón: Tirada con desventaja -->
+         <Button
+             android:id="@+id/tiradaDesventaja"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="Tirada con Desventaja" />
++            android:text="Tirada con Desventaja"
++            android:textColor="#000000"
++            android:textSize="18sp"
++            android:backgroundTint="#D2B48C"
++            android:fontFamily="@font/agbalumo"
++            android:layout_marginBottom="8dp" />
+ 
+-        <!-- Botón: Tirada de suma de dados -->
+         <Button
+             android:id="@+id/tiradaSumaDados"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="Tirada de Suma de Dados" />
++            android:text="Tirada de Suma de Dados"
++            android:textColor="#000000"
++            android:textSize="18sp"
++            android:backgroundTint="#D2B48C"
++            android:fontFamily="@font/agbalumo"
++            android:layout_marginBottom="8dp" />
+ 
+     </LinearLayout>
+ 
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdvantageRollActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.Button;\r\nimport android.widget.ImageView;\r\nimport android.widget.Spinner;\r\nimport android.widget.TextView;\r\n\r\nimport android.app.Activity;\r\n\r\nimport java.util.Random;\r\n\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;\r\n\r\npublic class DiceAdvantageRollActivity extends Activity {\r\n\r\n    private Spinner diceSpinner;\r\n    private Spinner numDiceSpinner;\r\n    private ImageView diceImage;\r\n    private Button rollButton;\r\n    private TextView resultText;\r\n    private SessionManager sm = SessionManager.getInstance();\r\n    SavedGame currentGame;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.dice_advantage_rolls_activity);\r\n\r\n        // Inicialización de las vistas\r\n        diceSpinner = findViewById(R.id.diceSpinner);\r\n        numDiceSpinner = findViewById(R.id.numDiceSpinner);\r\n        diceImage = findViewById(R.id.diceImage);\r\n        rollButton = findViewById(R.id.rollButton);\r\n        resultText = findViewById(R.id.resultText);\r\n\r\n        // Configuración del Spinner para el número de caras\r\n        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(\r\n                this,\r\n                R.array.dice_options,\r\n                android.R.layout.simple_spinner_item\r\n        );\r\n        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n        diceSpinner.setAdapter(adapter);\r\n\r\n        // Configuración del Spinner para el número de dados\r\n        ArrayAdapter<CharSequence> numDiceAdapter = ArrayAdapter.createFromResource(\r\n                this,\r\n                R.array.num_dice_options,\r\n                android.R.layout.simple_spinner_item\r\n        );\r\n        numDiceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n        numDiceSpinner.setAdapter(numDiceAdapter);\r\n\r\n        // Se establece el dado de 6 caras como selección por defecto\r\n        diceSpinner.setSelection(2);  // Este es el índice para el dado de 6 caras\r\n        numDiceSpinner.setSelection(0);  // Establecemos el valor por defecto en 2 dados\r\n\r\n        // Cambiar la imagen del dado al seleccionar un dado del Spinner\r\n        diceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {\r\n            @Override\r\n            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {\r\n                updateDiceImage();\r\n            }\r\n\r\n            @Override\r\n            public void onNothingSelected(AdapterView<?> parent) {\r\n                // No hace nada\r\n            }\r\n        });\r\n\r\n        // Acción del botón de tirar\r\n        rollButton.setOnClickListener(v -> rollDiceWithAdvantage());\r\n    }\r\n\r\n    private void updateDiceImage() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                diceImage.setImageResource(R.drawable.d2);\r\n                break;\r\n            case \"Dado de 4 caras\":\r\n                diceImage.setImageResource(R.drawable.d4);\r\n                break;\r\n            case \"Dado de 6 caras\":\r\n                diceImage.setImageResource(R.drawable.d6);\r\n                break;\r\n            case \"Dado de 10 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 12 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 20 caras\":\r\n                diceImage.setImageResource(R.drawable.d20);\r\n                break;\r\n            case \"Dado de 100 caras\":\r\n                diceImage.setImageResource(R.drawable.d100);\r\n                break;\r\n            default:\r\n                diceImage.setImageResource(android.R.color.transparent); // Imagen por defecto\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void rollDiceWithAdvantage() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n        int maxValue = getMaxValueForDice(selectedDice);\r\n\r\n        String numDiceString = numDiceSpinner.getSelectedItem().toString();\r\n        int numDice = Integer.parseInt(numDiceString);\r\n\r\n        if (maxValue > 0 && numDice > 0) {\r\n            Random random = new Random();\r\n            int highestRoll = 0;\r\n            StringBuilder results = new StringBuilder(\"Resultados: \");\r\n\r\n            // Lanzar los dados y obtener los resultados\r\n            for (int i = 0; i < numDice; i++) {\r\n                int roll = random.nextInt(maxValue) + 1;\r\n                results.append(roll).append(\"  \");\r\n                if (roll > highestRoll) {\r\n                    highestRoll = roll;\r\n                }\r\n            }\r\n\r\n            currentGame = sm.getCurrentSession();\r\n            currentGame.addTirada(\"Tirada con Ventaja\", selectedDice, highestRoll);\r\n            sm.setCurrentSession(currentGame);\r\n\r\n            // Mostrar los resultados y el resultado final\r\n            resultText.setText(results.toString() + \"\\nResultado final (ventaja): \" + highestRoll);\r\n        } else {\r\n            resultText.setText(\"Por favor, selecciona un dado y un número válido de dados.\");\r\n        }\r\n    }\r\n\r\n    private int getMaxValueForDice(String selectedDice) {\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                return 2;\r\n            case \"Dado de 4 caras\":\r\n                return 4;\r\n            case \"Dado de 6 caras\":\r\n                return 6;\r\n            case \"Dado de 10 caras\":\r\n                return 10;\r\n            case \"Dado de 12 caras\":\r\n                return 12;\r\n            case \"Dado de 20 caras\":\r\n                return 20;\r\n            case \"Dado de 100 caras\":\r\n                return 100;\r\n            default:\r\n                return 0;\r\n        }\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdvantageRollActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdvantageRollActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdvantageRollActivity.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdvantageRollActivity.java	(date 1732889144729)
+@@ -130,7 +130,7 @@
+             }
+ 
+             currentGame = sm.getCurrentSession();
+-            currentGame.addTirada("Tirada con Ventaja", selectedDice, highestRoll);
++            currentGame.addTirada("Tirada con Ventaja",numDice, selectedDice, highestRoll);
+             sm.setCurrentSession(currentGame);
+ 
+             // Mostrar los resultados y el resultado final
+Index: app/src/main/res/layout/dice_roll_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".DiceRollActivity\">\r\n\r\n    <!-- Imagen de cabecera -->\r\n    <ImageView\r\n        android:id=\"@+id/headerImage\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:src=\"@drawable/fondodados\"\r\n        android:scaleType=\"fitCenter\"\r\n        android:adjustViewBounds=\"true\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginBottom=\"0dp\" />\r\n\r\n    <!-- Botón para ver registro de tiradas -->\r\n    <Button\r\n        android:id=\"@+id/viewLogButton\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Ver registro de tiradas\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textColor=\"@color/white\"\r\n        android:background=\"@drawable/rounded_button\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/headerImage\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginStart=\"32dp\"\r\n        android:layout_marginEnd=\"32dp\" />\r\n\r\n    <!-- Botón para tirar dados -->\r\n    <Button\r\n        android:id=\"@+id/rollDiceButton\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Tirar dados\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textColor=\"@color/white\"\r\n        android:background=\"@drawable/rounded_button\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/viewLogButton\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginStart=\"32dp\"\r\n        android:layout_marginEnd=\"32dp\" />\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_roll_activity.xml b/app/src/main/res/layout/dice_roll_activity.xml
+--- a/app/src/main/res/layout/dice_roll_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_roll_activity.xml	(date 1732891008470)
+@@ -4,10 +4,10 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
++    android:background="#493D22"
+     android:layout_height="match_parent"
+     tools:context=".DiceRollActivity">
+ 
+-    <!-- Imagen de cabecera -->
+     <ImageView
+         android:id="@+id/headerImage"
+         android:layout_width="0dp"
+@@ -20,7 +20,6 @@
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_marginBottom="0dp" />
+ 
+-    <!-- Botón para ver registro de tiradas -->
+     <Button
+         android:id="@+id/viewLogButton"
+         android:layout_width="0dp"
+@@ -28,16 +27,16 @@
+         android:text="Ver registro de tiradas"
+         android:textSize="16sp"
+         android:textStyle="bold"
+-        android:textColor="@color/white"
++        android:textColor="#000000"
+         android:background="@drawable/rounded_button"
+         app:layout_constraintTop_toBottomOf="@id/headerImage"
+         app:layout_constraintStart_toStartOf="parent"
++        android:backgroundTint="#ECDEB2"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_marginTop="16dp"
+         android:layout_marginStart="32dp"
+         android:layout_marginEnd="32dp" />
+ 
+-    <!-- Botón para tirar dados -->
+     <Button
+         android:id="@+id/rollDiceButton"
+         android:layout_width="0dp"
+@@ -45,7 +44,8 @@
+         android:text="Tirar dados"
+         android:textSize="16sp"
+         android:textStyle="bold"
+-        android:textColor="@color/white"
++        android:backgroundTint="#ECDEB2"
++        android:textColor="#000000"
+         android:background="@drawable/rounded_button"
+         app:layout_constraintTop_toBottomOf="@id/viewLogButton"
+         app:layout_constraintStart_toStartOf="parent"
+@@ -54,5 +54,4 @@
+         android:layout_marginStart="32dp"
+         android:layout_marginEnd="32dp" />
+ 
+-
+ </androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/res/layout/game_creator_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:padding=\"16dp\">\r\n\r\n    <!-- Título -->\r\n    <TextView\r\n        android:id=\"@+id/gameCreatorTitle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Crea tu partida\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:textColor=\"@android:color/black\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Campo de texto para el nombre de la partida -->\r\n    <EditText\r\n        android:id=\"@+id/gameNameEditText\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"Nombre de la partida\"\r\n        android:inputType=\"text\"\r\n        android:padding=\"12dp\"\r\n        android:background=\"@drawable/rounded_edittext\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/gameCreatorTitle\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\" /> <!-- Cambio aquí -->\r\n\r\n    <!-- Campo de texto para el nombre del personaje -->\r\n    <EditText\r\n        android:id=\"@+id/characterNameEditText\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"Nombre del personaje\"\r\n        android:inputType=\"text\"\r\n        android:padding=\"12dp\"\r\n        android:background=\"@drawable/rounded_edittext\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/gameNameEditText\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\" /> <!-- Cambio aquí -->\r\n\r\n    <!-- Botón para confirmar -->\r\n    <Button\r\n        android:id=\"@+id/confirmGameButton\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Crear Partida\"\r\n        android:textSize=\"18sp\"\r\n        android:backgroundTint=\"@color/teal_200\"\r\n        android:textColor=\"@android:color/white\"\r\n        android:layout_marginTop=\"24dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/characterNameEditText\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/game_creator_activity.xml b/app/src/main/res/layout/game_creator_activity.xml
+--- a/app/src/main/res/layout/game_creator_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/game_creator_activity.xml	(date 1732891817025)
+@@ -4,9 +4,9 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:padding="16dp">
++    android:padding="16dp"
++    android:background="#493D22">
+ 
+-    <!-- Título -->
+     <TextView
+         android:id="@+id/gameCreatorTitle"
+         android:layout_width="wrap_content"
+@@ -15,12 +15,11 @@
+         android:textSize="24sp"
+         android:textStyle="bold"
+         android:layout_marginBottom="16dp"
+-        android:textColor="@android:color/black"
++        android:textColor="@android:color/white"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+ 
+-    <!-- Campo de texto para el nombre de la partida -->
+     <EditText
+         android:id="@+id/gameNameEditText"
+         android:layout_width="0dp"
+@@ -32,9 +31,8 @@
+         app:layout_constraintTop_toBottomOf="@id/gameCreatorTitle"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginTop="16dp" /> <!-- Cambio aquí -->
++        android:layout_marginTop="16dp" />
+ 
+-    <!-- Campo de texto para el nombre del personaje -->
+     <EditText
+         android:id="@+id/characterNameEditText"
+         android:layout_width="0dp"
+@@ -46,17 +44,17 @@
+         app:layout_constraintTop_toBottomOf="@id/gameNameEditText"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginTop="16dp" /> <!-- Cambio aquí -->
++        android:layout_marginTop="16dp" />
+ 
+-    <!-- Botón para confirmar -->
+     <Button
+         android:id="@+id/confirmGameButton"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:text="Crear Partida"
+         android:textSize="18sp"
+-        android:backgroundTint="@color/teal_200"
+-        android:textColor="@android:color/white"
++        android:backgroundTint="#D2B48C"
++        android:textColor="#000000"
++        android:fontFamily="@font/agbalumo"
+         android:layout_marginTop="24dp"
+         app:layout_constraintTop_toBottomOf="@id/characterNameEditText"
+         app:layout_constraintStart_toStartOf="parent"
+Index: app/src/main/res/drawable/rounded_button.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><selector xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <item>\r\n        <shape android:shape=\"rectangle\">\r\n            <corners android:radius=\"16dp\" />\r\n            <gradient\r\n                android:angle=\"90\"\r\n                android:startColor=\"@color/purple_500\"\r\n                android:endColor=\"@color/purple_700\" />\r\n            <padding\r\n                android:left=\"16dp\"\r\n                android:top=\"8dp\"\r\n                android:right=\"16dp\"\r\n                android:bottom=\"8dp\" />\r\n        </shape>\r\n    </item>\r\n</selector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/rounded_button.xml b/app/src/main/res/drawable/rounded_button.xml
+--- a/app/src/main/res/drawable/rounded_button.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/drawable/rounded_button.xml	(date 1732890486632)
+@@ -4,8 +4,8 @@
+             <corners android:radius="16dp" />
+             <gradient
+                 android:angle="90"
+-                android:startColor="@color/purple_500"
+-                android:endColor="@color/purple_700" />
++                android:startColor="#ECDEB2"
++                android:endColor="#ECDEB2" />
+             <padding
+                 android:left="16dp"
+                 android:top="8dp"
+Index: app/src/main/res/layout/dice_register_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".DiceRegisterActivity\">\r\n\r\n    <!-- Título de la partida -->\r\n    <TextView\r\n        android:id=\"@+id/tituloPartida\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Registro de tiradas\"\r\n        android:textSize=\"20sp\"\r\n        android:textColor=\"@android:color/black\"\r\n        android:textStyle=\"bold\"\r\n        android:gravity=\"center\"\r\n        android:padding=\"16dp\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Lista de tiradas -->\r\n    <androidx.recyclerview.widget.RecyclerView\r\n        android:id=\"@+id/listaTiradas\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"0dp\"\r\n        android:layout_margin=\"16dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/tituloPartida\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintBottom_toTopOf=\"@id/btnLimpiarRegistro\"\r\n        tools:listitem=\"@layout/item_tirada\" />\r\n\r\n    <!-- Botón para limpiar el registro -->\r\n    <Button\r\n        android:id=\"@+id/btnLimpiarRegistro\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Limpiar Registro\"\r\n        android:textSize=\"16sp\"\r\n        android:backgroundTint=\"@color/blue\"\r\n        android:textColor=\"@android:color/white\"\r\n        android:padding=\"12dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginBottom=\"16dp\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_register_activity.xml b/app/src/main/res/layout/dice_register_activity.xml
+--- a/app/src/main/res/layout/dice_register_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_register_activity.xml	(date 1732889797427)
+@@ -5,6 +5,8 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
++    android:padding="16dp"
++    android:background="#493D22"
+     tools:context=".DiceRegisterActivity">
+ 
+     <!-- Título de la partida -->
+@@ -13,11 +15,12 @@
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:text="Registro de tiradas"
+-        android:textSize="20sp"
+-        android:textColor="@android:color/black"
++        android:textSize="22sp"
++        android:textColor="#ECDEB2"
+         android:textStyle="bold"
+         android:gravity="center"
+         android:padding="16dp"
++        android:fontFamily="@font/agbalumo"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -27,7 +30,8 @@
+         android:id="@+id/listaTiradas"
+         android:layout_width="0dp"
+         android:layout_height="0dp"
+-        android:layout_margin="16dp"
++        android:layout_marginTop="16dp"
++        android:layout_marginBottom="16dp"
+         app:layout_constraintTop_toBottomOf="@id/tituloPartida"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+@@ -40,13 +44,15 @@
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Limpiar Registro"
+-        android:textSize="16sp"
+-        android:backgroundTint="@color/blue"
+-        android:textColor="@android:color/white"
++        android:textSize="18sp"
++        android:backgroundTint="#ECDEB2"
++        android:textColor="#000000"
++        android:textStyle="bold"
++        android:fontFamily="@font/agbalumo"
++        android:layout_marginBottom="16dp"
+         android:padding="12dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginBottom="16dp" />
++        app:layout_constraintEnd_toEndOf="parent" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/res/layout/dice_simple_rolls_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:padding=\"16dp\">\r\n\r\n    <!-- Spinner para seleccionar el dado -->\r\n    <Spinner\r\n        android:id=\"@+id/diceSpinner\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:textSize=\"18sp\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Imagen del dado seleccionado -->\r\n    <ImageView\r\n        android:id=\"@+id/diceImage\"\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"300dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceSpinner\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintBottom_toTopOf=\"@id/rollButton\"\r\n        android:contentDescription=\"Imagen del dado\" />\r\n\r\n    <!-- Botón para lanzar el dado -->\r\n    <Button\r\n        android:id=\"@+id/rollButton\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:backgroundTint=\"#FF9800\"\r\n        android:text=\"Lanzar Dado\"\r\n        android:textSize=\"20sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceImage\" />\r\n\r\n    <!-- Texto para mostrar el resultado -->\r\n    <TextView\r\n        android:id=\"@+id/resultText\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:text=\"Resultado: \"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        android:gravity=\"center\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/rollButton\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_simple_rolls_activity.xml b/app/src/main/res/layout/dice_simple_rolls_activity.xml
+--- a/app/src/main/res/layout/dice_simple_rolls_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_simple_rolls_activity.xml	(date 1732891715994)
+@@ -4,20 +4,20 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:padding="16dp">
++    android:padding="16dp"
++    android:background="#493D22">
+ 
+-    <!-- Spinner para seleccionar el dado -->
+     <Spinner
+         android:id="@+id/diceSpinner"
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:layout_marginBottom="16dp"
+         android:textSize="18sp"
++        android:backgroundTint="#D2B48C"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+ 
+-    <!-- Imagen del dado seleccionado -->
+     <ImageView
+         android:id="@+id/diceImage"
+         android:layout_width="300dp"
+@@ -30,20 +30,20 @@
+         app:layout_constraintBottom_toTopOf="@id/rollButton"
+         android:contentDescription="Imagen del dado" />
+ 
+-    <!-- Botón para lanzar el dado -->
+     <Button
+         android:id="@+id/rollButton"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="24dp"
+-        android:backgroundTint="#FF9800"
++        android:backgroundTint="#D2B48C"
+         android:text="Lanzar Dado"
+-        android:textSize="20sp"
++        android:textColor="#000000"
++        android:textSize="18sp"
++        android:fontFamily="@font/agbalumo"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/diceImage" />
+ 
+-    <!-- Texto para mostrar el resultado -->
+     <TextView
+         android:id="@+id/resultText"
+         android:layout_width="match_parent"
+@@ -52,6 +52,7 @@
+         android:text="Resultado: "
+         android:textSize="24sp"
+         android:textStyle="bold"
++        android:textColor="#FFFFFF"
+         android:gravity="center"
+         app:layout_constraintTop_toBottomOf="@id/rollButton"
+         app:layout_constraintStart_toStartOf="parent"
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/Tirada.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\n// Clase para representar una tirada\r\npublic class Tirada {\r\n    private String nombreDado;\r\n    private String numCaras;\r\n    private int resultado;\r\n\r\n    public Tirada(String nombreDado,String numCaras, int resultado) {\r\n        this.nombreDado = nombreDado;\r\n        this.numCaras=numCaras;\r\n        this.resultado = resultado;\r\n    }\r\n\r\n    public String getNombreDado() {\r\n        return nombreDado;\r\n    }\r\n\r\n    public int getResultado() {\r\n        return resultado;\r\n    }\r\n\r\n    public String getNumCaras() {\r\n        return numCaras;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"Dado: \" + nombreDado + \", Resultado: \" + resultado;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/Tirada.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/Tirada.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/Tirada.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/Tirada.java	(date 1732889144712)
+@@ -5,18 +5,24 @@
+ 
+ // Clase para representar una tirada
+ public class Tirada {
+-    private String nombreDado;
++    private String nombre;
++    private int numDados;
+     private String numCaras;
+     private int resultado;
+ 
+-    public Tirada(String nombreDado,String numCaras, int resultado) {
+-        this.nombreDado = nombreDado;
++    public Tirada(String nombre,int numDados, String numCaras, int resultado) {
++        this.nombre = nombre;
++        this.numDados=numDados;
+         this.numCaras=numCaras;
+         this.resultado = resultado;
+     }
+ 
+-    public String getNombreDado() {
+-        return nombreDado;
++    public String getNombre() {
++        return nombre;
++    }
++
++    public int getNumDados() {
++        return numDados;
+     }
+ 
+     public int getResultado() {
+@@ -29,6 +35,6 @@
+ 
+     @Override
+     public String toString() {
+-        return "Dado: " + nombreDado + ", Resultado: " + resultado;
++        return "Dado: " + nombre + ", Resultado: " + resultado;
+     }
+ }
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceDisadvantageRollActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.Button;\r\nimport android.widget.ImageView;\r\nimport android.widget.Spinner;\r\nimport android.widget.TextView;\r\n\r\nimport android.app.Activity;\r\n\r\nimport java.util.Random;\r\n\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;\r\n\r\npublic class DiceDisadvantageRollActivity extends Activity {\r\n\r\n    private Spinner diceSpinner;\r\n    private Spinner numDiceSpinner;\r\n    private ImageView diceImage;\r\n    private Button rollButton;\r\n    private TextView resultText;\r\n    private SessionManager sm = SessionManager.getInstance();\r\n    SavedGame currentGame;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.dice_disadvantage_rolls_activity);\r\n\r\n        // Inicialización de las vistas\r\n        diceSpinner = findViewById(R.id.diceSpinner);\r\n        numDiceSpinner = findViewById(R.id.numDiceSpinner);\r\n        diceImage = findViewById(R.id.diceImage);\r\n        rollButton = findViewById(R.id.rollButton);\r\n        resultText = findViewById(R.id.resultText);\r\n\r\n        // Configuración del Spinner para el número de caras\r\n        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(\r\n                this,\r\n                R.array.dice_options,\r\n                android.R.layout.simple_spinner_item\r\n        );\r\n        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n        diceSpinner.setAdapter(adapter);\r\n\r\n        // Configuración del Spinner para el número de dados\r\n        ArrayAdapter<CharSequence> numDiceAdapter = ArrayAdapter.createFromResource(\r\n                this,\r\n                R.array.num_dice_options,\r\n                android.R.layout.simple_spinner_item\r\n        );\r\n        numDiceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n        numDiceSpinner.setAdapter(numDiceAdapter);\r\n\r\n        // Se establece el dado de 6 caras como selección por defecto\r\n        diceSpinner.setSelection(2);  // Este es el índice para el dado de 6 caras\r\n        numDiceSpinner.setSelection(0);  // Establecemos el valor por defecto en 1 dado\r\n\r\n        // Cambiar la imagen del dado al seleccionar un dado del Spinner\r\n        diceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {\r\n            @Override\r\n            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {\r\n                updateDiceImage();\r\n            }\r\n\r\n            @Override\r\n            public void onNothingSelected(AdapterView<?> parent) {\r\n                // No hace nada\r\n            }\r\n        });\r\n\r\n        // Acción del botón de tirar\r\n        rollButton.setOnClickListener(v -> rollDiceWithDisadvantage());\r\n    }\r\n\r\n    private void updateDiceImage() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                diceImage.setImageResource(R.drawable.d2);\r\n                break;\r\n            case \"Dado de 4 caras\":\r\n                diceImage.setImageResource(R.drawable.d4);\r\n                break;\r\n            case \"Dado de 6 caras\":\r\n                diceImage.setImageResource(R.drawable.d6);\r\n                break;\r\n            case \"Dado de 10 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 12 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 20 caras\":\r\n                diceImage.setImageResource(R.drawable.d20);\r\n                break;\r\n            case \"Dado de 100 caras\":\r\n                diceImage.setImageResource(R.drawable.d100);\r\n                break;\r\n            default:\r\n                diceImage.setImageResource(android.R.color.transparent); // Imagen por defecto\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void rollDiceWithDisadvantage() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n        int maxValue = getMaxValueForDice(selectedDice);\r\n\r\n        String numDiceString = numDiceSpinner.getSelectedItem().toString();\r\n        int numDice = Integer.parseInt(numDiceString);\r\n\r\n        if (maxValue > 0 && numDice > 0) {\r\n            Random random = new Random();\r\n            int lowestRoll = maxValue;\r\n            StringBuilder results = new StringBuilder(\"Resultados: \");\r\n\r\n            // Lanzar los dados y obtener los resultados\r\n            for (int i = 0; i < numDice; i++) {\r\n                int roll = random.nextInt(maxValue) + 1;\r\n                results.append(roll).append(\"  \");\r\n                if (roll < lowestRoll) {\r\n                    lowestRoll = roll;\r\n                }\r\n            }\r\n\r\n            currentGame = sm.getCurrentSession();\r\n            currentGame.addTirada(\"Tirada con Desventaja\", selectedDice, lowestRoll);\r\n            sm.setCurrentSession(currentGame);\r\n            // Mostrar los resultados y el resultado final\r\n            resultText.setText(results.toString() + \"\\nResultado final (desventaja): \" + lowestRoll);\r\n        } else {\r\n            resultText.setText(\"Por favor, selecciona un dado y un número válido de dados.\");\r\n        }\r\n    }\r\n\r\n    private int getMaxValueForDice(String selectedDice) {\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                return 2;\r\n            case \"Dado de 4 caras\":\r\n                return 4;\r\n            case \"Dado de 6 caras\":\r\n                return 6;\r\n            case \"Dado de 10 caras\":\r\n                return 10;\r\n            case \"Dado de 12 caras\":\r\n                return 12;\r\n            case \"Dado de 20 caras\":\r\n                return 20;\r\n            case \"Dado de 100 caras\":\r\n                return 100;\r\n            default:\r\n                return 0;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceDisadvantageRollActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceDisadvantageRollActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceDisadvantageRollActivity.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceDisadvantageRollActivity.java	(date 1732889144694)
+@@ -130,7 +130,7 @@
+             }
+ 
+             currentGame = sm.getCurrentSession();
+-            currentGame.addTirada("Tirada con Desventaja", selectedDice, lowestRoll);
++            currentGame.addTirada("Tirada con Desventaja",numDice, selectedDice, lowestRoll);
+             sm.setCurrentSession(currentGame);
+             // Mostrar los resultados y el resultado final
+             resultText.setText(results.toString() + "\nResultado final (desventaja): " + lowestRoll);
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceSimpleRollActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.Button;\r\nimport android.widget.ImageView;\r\nimport android.widget.Spinner;\r\nimport android.widget.TextView;\r\n\r\nimport android.app.Activity;\r\n\r\nimport java.util.Random;\r\n\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;\r\n\r\npublic class DiceSimpleRollActivity extends Activity {\r\n\r\n    private Spinner diceSpinner;\r\n    private ImageView diceImage;\r\n    private Button rollButton;\r\n    private TextView resultText;\r\n    private SessionManager sm = SessionManager.getInstance();\r\n    SavedGame currentGame;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.dice_simple_rolls_activity);\r\n\r\n        // Inicialización de las vistas\r\n        diceSpinner = findViewById(R.id.diceSpinner);\r\n        diceImage = findViewById(R.id.diceImage);\r\n        rollButton = findViewById(R.id.rollButton);\r\n        resultText = findViewById(R.id.resultText);\r\n\r\n        // Configuración del Spinner\r\n        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(\r\n                this,\r\n                R.array.dice_options,\r\n                android.R.layout.simple_spinner_item\r\n        );\r\n        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n        diceSpinner.setAdapter(adapter);\r\n\r\n        // Se establece el dado de 6 caras como selección por defecto\r\n        diceSpinner.setSelection(2);\r\n\r\n        // Cambiar la imagen del dado al seleccionar un dado del Spinner\r\n        diceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {\r\n            @Override\r\n            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {\r\n                updateDiceImage();\r\n            }\r\n\r\n            @Override\r\n            public void onNothingSelected(AdapterView<?> parent) {\r\n                // No hace nada\r\n            }\r\n        });\r\n\r\n        // Acción del botón de tirar\r\n        rollButton.setOnClickListener(v -> rollDice());\r\n    }\r\n\r\n    private void updateDiceImage() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                diceImage.setImageResource(R.drawable.d2);\r\n                break;\r\n            case \"Dado de 4 caras\":\r\n                diceImage.setImageResource(R.drawable.d4);\r\n                break;\r\n            case \"Dado de 6 caras\":\r\n                diceImage.setImageResource(R.drawable.d6);\r\n                break;\r\n            case \"Dado de 10 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 12 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 20 caras\":\r\n                diceImage.setImageResource(R.drawable.d20);\r\n                break;\r\n            case \"Dado de 100 caras\":\r\n                diceImage.setImageResource(R.drawable.d100);\r\n                break;\r\n            default:\r\n                diceImage.setImageResource(android.R.color.transparent); // Imagen por defecto\r\n                break;\r\n        }\r\n    }\r\n\r\n\r\n    private void rollDice() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n        int maxValue;\r\n\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                maxValue = 2;\r\n                break;\r\n            case \"Dado de 4 caras\":\r\n                maxValue = 4;\r\n                break;\r\n            case \"Dado de 6 caras\":\r\n                maxValue = 6;\r\n                break;\r\n            case \"Dado de 10 caras\":\r\n                maxValue = 10;\r\n                break;\r\n            case \"Dado de 12 caras\":\r\n                maxValue = 12;\r\n                break;\r\n            case \"Dado de 20 caras\":\r\n                maxValue = 20;\r\n                break;\r\n            case \"Dado de 100 caras\":\r\n                maxValue = 100;\r\n                break;\r\n            default:\r\n                maxValue = 0; // Valor por defecto\r\n        }\r\n\r\n        if (maxValue > 0) {\r\n            Random random = new Random();\r\n            int result = random.nextInt(maxValue) + 1;\r\n            currentGame = sm.getCurrentSession();\r\n            currentGame.addTirada(\"Tirada Simple\", selectedDice, result);\r\n            sm.setCurrentSession(currentGame);\r\n            resultText.setText(\"Resultado: \" + result);\r\n        } else {\r\n            resultText.setText(\"Por favor, selecciona un dado válido.\");\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceSimpleRollActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceSimpleRollActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceSimpleRollActivity.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceSimpleRollActivity.java	(date 1732889144699)
+@@ -131,7 +131,7 @@
+             Random random = new Random();
+             int result = random.nextInt(maxValue) + 1;
+             currentGame = sm.getCurrentSession();
+-            currentGame.addTirada("Tirada Simple", selectedDice, result);
++            currentGame.addTirada("Tirada Simple",1, selectedDice, result);
+             sm.setCurrentSession(currentGame);
+             resultText.setText("Resultado: " + result);
+         } else {
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdditionRollActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.Spinner;\r\nimport android.widget.TextView;\r\n\r\nimport android.app.Activity;\r\n\r\nimport java.util.Random;\r\n\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;\r\n\r\npublic class DiceAdditionRollActivity extends Activity {\r\n\r\n    private Spinner diceSpinner;\r\n    private EditText numDiceInput;\r\n    private ImageView diceImage;\r\n    private Button rollButton;\r\n    private TextView resultText;\r\n    private SessionManager sm = SessionManager.getInstance();\r\n    SavedGame currentGame;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.dice_addition_rolls_activity);\r\n\r\n        // Inicialización de las vistas\r\n        diceSpinner = findViewById(R.id.diceSpinner);\r\n        numDiceInput = findViewById(R.id.numDiceInput);\r\n        diceImage = findViewById(R.id.diceImage);\r\n        rollButton = findViewById(R.id.rollButton);\r\n        resultText = findViewById(R.id.resultText);\r\n\r\n        // Configuración del Spinner para el tipo de dado\r\n        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(\r\n                this,\r\n                R.array.dice_options,\r\n                android.R.layout.simple_spinner_item\r\n        );\r\n        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n        diceSpinner.setAdapter(adapter);\r\n\r\n        // Seleccionar por defecto un dado de 6 caras\r\n        diceSpinner.setSelection(2);  // Este es el índice para el dado de 6 caras\r\n\r\n        // Cambiar la imagen del dado al seleccionar un tipo de dado\r\n        diceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {\r\n            @Override\r\n            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {\r\n                updateDiceImage();\r\n            }\r\n\r\n            @Override\r\n            public void onNothingSelected(AdapterView<?> parent) {\r\n                // No hace nada\r\n            }\r\n        });\r\n\r\n        // Acción del botón de lanzar dados\r\n        rollButton.setOnClickListener(v -> rollDice());\r\n    }\r\n\r\n    private void updateDiceImage() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                diceImage.setImageResource(R.drawable.d2);\r\n                break;\r\n            case \"Dado de 4 caras\":\r\n                diceImage.setImageResource(R.drawable.d4);\r\n                break;\r\n            case \"Dado de 6 caras\":\r\n                diceImage.setImageResource(R.drawable.d6);\r\n                break;\r\n            case \"Dado de 10 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 12 caras\":\r\n                diceImage.setImageResource(R.drawable.d12);\r\n                break;\r\n            case \"Dado de 20 caras\":\r\n                diceImage.setImageResource(R.drawable.d20);\r\n                break;\r\n            case \"Dado de 100 caras\":\r\n                diceImage.setImageResource(R.drawable.d100);\r\n                break;\r\n            default:\r\n                diceImage.setImageResource(android.R.color.transparent); // Imagen por defecto\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void rollDice() {\r\n        String selectedDice = diceSpinner.getSelectedItem().toString();\r\n        int maxValue = getMaxValueForDice(selectedDice);\r\n        currentGame = sm.getCurrentSession();\r\n        String numDiceString = numDiceInput.getText().toString().trim();\r\n\r\n        // Verifica si se introdujo algún valor\r\n        if (numDiceString.isEmpty()) {\r\n            resultText.setText(\"Por favor, introduce el número de dados.\");\r\n            return;\r\n        }\r\n\r\n        int numDice = Integer.parseInt(numDiceString);\r\n\r\n        // Verifica si el número de dados excede el límite permitido\r\n        if (numDice > 50) {\r\n            resultText.setText(\"Por favor, selecciona 50 dados o menos.\");\r\n            return;\r\n        }\r\n\r\n        if (maxValue > 0 && numDice > 0) {\r\n            Random random = new Random();\r\n            int sum = 0;\r\n            StringBuilder results = new StringBuilder(\"Resultados: \");\r\n\r\n            // Lanzar los dados y calcular la suma\r\n            for (int i = 0; i < numDice; i++) {\r\n                int roll = random.nextInt(maxValue) + 1;\r\n                results.append(roll).append(\"  \");\r\n                sum += roll;\r\n            }\r\n\r\n            currentGame.addTirada(\"Tirada de Suma de dados\", selectedDice, sum);\r\n            sm.setCurrentSession(currentGame);\r\n\r\n            // Mostrar los resultados y el resultado final\r\n            resultText.setText(results.toString() + \"\\nResultado final (suma): \" + sum);\r\n        } else {\r\n            resultText.setText(\"Por favor, selecciona un dado y un número válido de dados.\");\r\n        }\r\n    }\r\n\r\n\r\n    private int getMaxValueForDice(String selectedDice) {\r\n        switch (selectedDice) {\r\n            case \"Dado de 2 caras\":\r\n                return 2;\r\n            case \"Dado de 4 caras\":\r\n                return 4;\r\n            case \"Dado de 6 caras\":\r\n                return 6;\r\n            case \"Dado de 10 caras\":\r\n                return 10;\r\n            case \"Dado de 12 caras\":\r\n                return 12;\r\n            case \"Dado de 20 caras\":\r\n                return 20;\r\n            case \"Dado de 100 caras\":\r\n                return 100;\r\n            default:\r\n                return 0;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdditionRollActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdditionRollActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdditionRollActivity.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceAdditionRollActivity.java	(date 1732889144722)
+@@ -131,7 +131,7 @@
+                 sum += roll;
+             }
+ 
+-            currentGame.addTirada("Tirada de Suma de dados", selectedDice, sum);
++            currentGame.addTirada("Tirada de Suma de dados", numDice,selectedDice, sum);
+             sm.setCurrentSession(currentGame);
+ 
+             // Mostrar los resultados y el resultado final
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceCustomicedRollActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.os.Bundle;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.app.Activity;\r\nimport java.util.Random;\r\n\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;\r\n\r\npublic class DiceCustomicedRollActivity extends Activity {\r\n\r\n    private EditText numDiceInput;\r\n    private EditText numFacesInput;\r\n    private ImageView diceImage;\r\n    private Button rollButton;\r\n    private TextView resultText;\r\n    private SessionManager sm = SessionManager.getInstance();\r\n    SavedGame currentGame;\r\n\r\n    private static final int MAX_DICE = 50;    // Limite de dados\r\n    private static final int MAX_FACES = 500;  // Limite de caras del dado\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.dice_customiced_rolls_activity);\r\n\r\n        // Inicialización de las vistas\r\n        numDiceInput = findViewById(R.id.numDiceInput);\r\n        numFacesInput = findViewById(R.id.numFacesInput);\r\n        diceImage = findViewById(R.id.dicesImage);\r\n        rollButton = findViewById(R.id.rollButton);\r\n        resultText = findViewById(R.id.resultText);\r\n\r\n        // Usar una imagen para el dado\r\n        diceImage.setImageResource(R.drawable.dados);\r\n\r\n        // Acción del botón de tirar\r\n        rollButton.setOnClickListener(v -> rollCustomDice());\r\n    }\r\n\r\n    private void rollCustomDice() {\r\n        String numDiceString = numDiceInput.getText().toString().trim();\r\n        String numFacesString = numFacesInput.getText().toString().trim();\r\n\r\n        if (numDiceString.isEmpty() || numFacesString.isEmpty()) {\r\n            resultText.setText(\"Por favor, introduce el número de dados y caras.\");\r\n            return;\r\n        }\r\n\r\n        try {\r\n            int numDice = Integer.parseInt(numDiceString);\r\n            int numFaces = Integer.parseInt(numFacesString);\r\n\r\n            // Validar el número de dados\r\n            if (numDice > MAX_DICE) {\r\n                resultText.setText(\"Por favor, selecciona 50 dados o menos.\");\r\n                return;\r\n            }\r\n\r\n            // Validar el número de caras (no debe ser mayor que MAX_FACES)\r\n            if (numFaces < 2) {\r\n                resultText.setText(\"El dado debe tener al menos 2 caras.\");\r\n                return;\r\n            }\r\n\r\n            if (numFaces > MAX_FACES) {\r\n                resultText.setText(\"El número de caras no puede ser mayor a \" + MAX_FACES +\".\");\r\n                return;\r\n            }\r\n\r\n            // Lógica de lanzamiento de dados\r\n            Random random = new Random();\r\n            int sum = 0;\r\n            StringBuilder results = new StringBuilder(\"Resultados: \");\r\n\r\n            for (int i = 0; i < numDice; i++) {\r\n                int roll = random.nextInt(numFaces) + 1;\r\n                results.append(roll).append(\"  \");\r\n                sum += roll;\r\n            }\r\n\r\n            currentGame = sm.getCurrentSession();\r\n            currentGame.addTirada(\"Tirada Customizada\", String.valueOf(numFaces), sum);\r\n            sm.setCurrentSession(currentGame);\r\n\r\n            resultText.setText(results.toString() + \"\\nResultado final (suma): \" + sum);\r\n\r\n        } catch (NumberFormatException e) {\r\n            resultText.setText(\"Por favor, introduce valores numéricos válidos.\");\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceCustomicedRollActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceCustomicedRollActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceCustomicedRollActivity.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceCustomicedRollActivity.java	(date 1732889144726)
+@@ -85,7 +85,7 @@
+             }
+ 
+             currentGame = sm.getCurrentSession();
+-            currentGame.addTirada("Tirada Customizada", String.valueOf(numFaces), sum);
++            currentGame.addTirada("Tirada Customizada",numDice, String.valueOf(numFaces), sum);
+             sm.setCurrentSession(currentGame);
+ 
+             resultText.setText(results.toString() + "\nResultado final (suma): " + sum);
+Index: app/src/main/res/layout/dice_customiced_rolls_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:padding=\"16dp\"\r\n    tools:context=\".DiceCustomicedRollActivity\">\r\n\r\n    <!-- Campo de entrada para el número de dados -->\r\n    <EditText\r\n        android:id=\"@+id/numDiceInput\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"@string/num_dice_hint\"\r\n        android:inputType=\"number\"\r\n        android:textSize=\"18sp\"\r\n        android:minHeight=\"48dp\"\r\n        android:padding=\"12dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Campo de entrada para el número de caras -->\r\n    <EditText\r\n        android:id=\"@+id/numFacesInput\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"@string/num_faces_hint\"\r\n        android:inputType=\"number\"\r\n        android:textSize=\"18sp\"\r\n        android:minHeight=\"48dp\"\r\n        android:padding=\"12dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/numDiceInput\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Botón para lanzar los dados -->\r\n    <Button\r\n        android:id=\"@+id/rollButton\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:backgroundTint=\"#FF9800\"\r\n        android:text=\"@string/roll_button_text\"\r\n        android:textSize=\"20sp\"\r\n        android:minHeight=\"48dp\"\r\n        android:padding=\"12dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/numFacesInput\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Imagen estática del dado -->\r\n    <ImageView\r\n        android:id=\"@+id/dicesImage\"\r\n        android:layout_width=\"150dp\"\r\n        android:layout_height=\"150dp\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:src=\"@drawable/dados\"\r\n        android:contentDescription=\"@string/dice_image_description\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/rollButton\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Texto para mostrar el resultado -->\r\n    <TextView\r\n        android:id=\"@+id/resultText\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:text=\"@string/result_text\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        android:gravity=\"center\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/dicesImage\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_customiced_rolls_activity.xml b/app/src/main/res/layout/dice_customiced_rolls_activity.xml
+--- a/app/src/main/res/layout/dice_customiced_rolls_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_customiced_rolls_activity.xml	(date 1732890182367)
+@@ -6,6 +6,7 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:padding="16dp"
++    android:background="#493D22"
+     tools:context=".DiceCustomicedRollActivity">
+ 
+     <!-- Campo de entrada para el número de dados -->
+@@ -19,6 +20,8 @@
+         android:minHeight="48dp"
+         android:padding="12dp"
+         android:layout_marginBottom="16dp"
++        android:background="@drawable/rounded_input"
++        android:textColor="#ECDEB2"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -34,6 +37,8 @@
+         android:minHeight="48dp"
+         android:padding="12dp"
+         android:layout_marginBottom="16dp"
++        android:background="@drawable/rounded_input"
++        android:textColor="#ECDEB2"
+         app:layout_constraintTop_toBottomOf="@id/numDiceInput"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -44,11 +49,12 @@
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="24dp"
+-        android:backgroundTint="#FF9800"
++        android:backgroundTint="#ECDEB2"
+         android:text="@string/roll_button_text"
+         android:textSize="20sp"
+         android:minHeight="48dp"
+         android:padding="12dp"
++        android:textColor="#000000"
+         app:layout_constraintTop_toBottomOf="@id/numFacesInput"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -75,8 +81,9 @@
+         android:textSize="24sp"
+         android:textStyle="bold"
+         android:gravity="center"
++        android:textColor="#ECDEB2"
+         app:layout_constraintTop_toBottomOf="@id/dicesImage"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/TiradaAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.TextView;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport java.util.List;\r\n\r\npublic class TiradaAdapter extends RecyclerView.Adapter<TiradaAdapter.TiradaViewHolder> {\r\n\r\n    private List<Tirada> listaTiradas;\r\n\r\n    public TiradaAdapter(List<Tirada> listaTiradas) {\r\n        this.listaTiradas = listaTiradas;\r\n    }\r\n\r\n    @NonNull\r\n    @Override\r\n    public TiradaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\r\n        View itemView = LayoutInflater.from(parent.getContext())\r\n                .inflate(R.layout.item_tirada, parent, false);\r\n        return new TiradaViewHolder(itemView);\r\n    }\r\n\r\n    @Override\r\n    public void onBindViewHolder(@NonNull TiradaViewHolder holder, int position) {\r\n        Tirada tirada = listaTiradas.get(position);\r\n        holder.nombreDado.setText(\"Dado: \" + tirada.getNombreDado());\r\n        holder.resultado.setText(\"Resultado: \" + tirada.getResultado());\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return listaTiradas.size();\r\n    }\r\n\r\n    public static class TiradaViewHolder extends RecyclerView.ViewHolder {\r\n        TextView nombreDado;\r\n        TextView resultado;\r\n\r\n        public TiradaViewHolder(View itemView) {\r\n            super(itemView);\r\n            nombreDado = itemView.findViewById(R.id.tiradaNombreDado);\r\n            resultado = itemView.findViewById(R.id.tiradaResultado);\r\n        }\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/TiradaAdapter.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/TiradaAdapter.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/TiradaAdapter.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/TiradaAdapter.java	(date 1732889144732)
+@@ -29,7 +29,11 @@
+     @Override
+     public void onBindViewHolder(@NonNull TiradaViewHolder holder, int position) {
+         Tirada tirada = listaTiradas.get(position);
+-        holder.nombreDado.setText("Dado: " + tirada.getNombreDado());
++
++        // Asignar valores a los campos
++        holder.tiradaNombre.setText("Tirada: " + tirada.getNombre());
++        holder.cantidadDados.setText("Cantidad de dados: " + tirada.getNumDados());
++        holder.numeroCaras.setText("Número de caras: " + tirada.getNumCaras());
+         holder.resultado.setText("Resultado: " + tirada.getResultado());
+     }
+ 
+@@ -39,14 +43,19 @@
+     }
+ 
+     public static class TiradaViewHolder extends RecyclerView.ViewHolder {
+-        TextView nombreDado;
++        TextView tiradaNombre;
++        TextView cantidadDados;
++        TextView numeroCaras;
+         TextView resultado;
+ 
+         public TiradaViewHolder(View itemView) {
+             super(itemView);
+-            nombreDado = itemView.findViewById(R.id.tiradaNombreDado);
++
++            // Inicializar vistas
++            tiradaNombre = itemView.findViewById(R.id.tiradaNombre);
++            cantidadDados = itemView.findViewById(R.id.tiradaCantidadDados);
++            numeroCaras = itemView.findViewById(R.id.tiradaNumeroCaras);
+             resultado = itemView.findViewById(R.id.tiradaResultado);
+         }
+     }
+ }
+-
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons;\r\n\r\nimport android.os.Bundle;\r\nimport android.widget.Button;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport java.util.List;\r\n\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SavedGame;\r\nimport es.ucm.fdi.proyecto.dicesanddragons.SavedGame.SessionManager;\r\n\r\npublic class DiceRegisterActivity extends AppCompatActivity {\r\n\r\n    private RecyclerView recyclerView;\r\n    private TiradaAdapter tiradaAdapter;\r\n    private SavedGame game;\r\n    private List<Tirada> tiradas;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.dice_register_activity);\r\n\r\n        recyclerView = findViewById(R.id.listaTiradas);\r\n        Button btnLimpiarRegistro = findViewById(R.id.btnLimpiarRegistro);\r\n\r\n        // Obtener el registro de tiradas desde el SessionManager o alguna fuente de datos\r\n        // Aquí asumo que tienes una clase que gestiona las tiradas (por ejemplo, SessionManager)\r\n        game = SessionManager.getInstance().getCurrentSession(); // Asumiendo que tienes un SessionManager para obtener las tiradas\r\n        tiradas=game.getTiradas();\r\n        // Configurar el RecyclerView\r\n        recyclerView.setLayoutManager(new LinearLayoutManager(this));\r\n        tiradaAdapter = new TiradaAdapter(tiradas);\r\n        recyclerView.setAdapter(tiradaAdapter);\r\n\r\n        // Acción para limpiar el registro\r\n        btnLimpiarRegistro.setOnClickListener(view -> {\r\n            // Limpiar el registro\r\n            tiradas.clear();\r\n            tiradaAdapter.notifyDataSetChanged();\r\n            // Aquí podrías llamar a un método en SessionManager para limpiar el registro de las tiradas\r\n        });\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/DiceRegisterActivity.java	(date 1732889144684)
+@@ -27,9 +27,9 @@
+         recyclerView = findViewById(R.id.listaTiradas);
+         Button btnLimpiarRegistro = findViewById(R.id.btnLimpiarRegistro);
+ 
+-        // Obtener el registro de tiradas desde el SessionManager o alguna fuente de datos
+-        // Aquí asumo que tienes una clase que gestiona las tiradas (por ejemplo, SessionManager)
+-        game = SessionManager.getInstance().getCurrentSession(); // Asumiendo que tienes un SessionManager para obtener las tiradas
++
++        SessionManager sm =SessionManager.getInstance();
++        game = sm.getCurrentSession(); // Asumiendo que tienes un SessionManager para obtener las tiradas
+         tiradas=game.getTiradas();
+         // Configurar el RecyclerView
+         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+Index: app/src/main/res/drawable/rounded_input.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/rounded_input.xml b/app/src/main/res/drawable/rounded_input.xml
+new file mode 100644
+--- /dev/null	(date 1732890016308)
++++ b/app/src/main/res/drawable/rounded_input.xml	(date 1732890016308)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++    <solid android:color="#FFFFFF"/>
++    <corners android:radius="16dp"/>
++    <stroke android:color="#CCCCCC" android:width="1dp"/>
++</shape>
+Index: app/src/main/res/layout/dice_addition_rolls_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:padding=\"16dp\">\r\n\r\n    <!-- Spinner para seleccionar el tipo de dado -->\r\n    <Spinner\r\n        android:id=\"@+id/diceSpinner\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:textSize=\"18sp\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Campo para ingresar el número de dados -->\r\n    <EditText\r\n        android:id=\"@+id/numDiceInput\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:hint=\"Introduce el número de dados (máximo 50)\"\r\n        android:inputType=\"number\"\r\n        android:textSize=\"18sp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceSpinner\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Imagen del dado seleccionado -->\r\n    <ImageView\r\n        android:id=\"@+id/diceImage\"\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"200dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:contentDescription=\"Imagen del dado\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/numDiceInput\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Botón para lanzar los dados -->\r\n    <Button\r\n        android:id=\"@+id/rollButton\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:text=\"Lanzar Dados\"\r\n        android:textSize=\"20sp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceImage\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Texto para mostrar el resultado -->\r\n    <TextView\r\n        android:id=\"@+id/resultText\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:text=\"Resultado:\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        android:gravity=\"center\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/rollButton\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_addition_rolls_activity.xml b/app/src/main/res/layout/dice_addition_rolls_activity.xml
+--- a/app/src/main/res/layout/dice_addition_rolls_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_addition_rolls_activity.xml	(date 1732889144690)
+@@ -3,7 +3,8 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:padding="16dp">
++    android:padding="16dp"
++    android:background="#493D22">
+ 
+     <!-- Spinner para seleccionar el tipo de dado -->
+     <Spinner
+@@ -11,7 +12,9 @@
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:layout_marginBottom="16dp"
++        android:backgroundTint="#ECDEB2"
+         android:textSize="18sp"
++        android:padding="8dp"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -23,8 +26,12 @@
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="16dp"
+         android:hint="Introduce el número de dados (máximo 50)"
++        android:textColorHint="#5B4C3A"
+         android:inputType="number"
+         android:textSize="18sp"
++        android:backgroundTint="#ECDEB2"
++        android:padding="12dp"
++        android:textColor="#000000"
+         app:layout_constraintTop_toBottomOf="@id/diceSpinner"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -35,7 +42,7 @@
+         android:layout_width="200dp"
+         android:layout_height="200dp"
+         android:layout_marginBottom="16dp"
+-        android:contentDescription="Imagen del dado"
++        android:src="@android:drawable/ic_menu_help"
+         app:layout_constraintTop_toBottomOf="@id/numDiceInput"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -47,6 +54,8 @@
+         android:layout_height="wrap_content"
+         android:layout_marginTop="16dp"
+         android:text="Lanzar Dados"
++        android:backgroundTint="#ECDEB2"
++        android:textColor="#000000"
+         android:textSize="20sp"
+         app:layout_constraintTop_toBottomOf="@id/diceImage"
+         app:layout_constraintStart_toStartOf="parent"
+@@ -61,6 +70,7 @@
+         android:text="Resultado:"
+         android:textSize="24sp"
+         android:textStyle="bold"
++        android:textColor="#ECDEB2"
+         android:gravity="center"
+         app:layout_constraintTop_toBottomOf="@id/rollButton"
+         app:layout_constraintStart_toStartOf="parent"
+Index: app/src/main/res/layout/item_tirada.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_marginBottom=\"8dp\"\r\n    android:radius=\"8dp\"\r\n    android:backgroundTint=\"@color/white\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"vertical\"\r\n        android:padding=\"16dp\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/tiradaNombreDado\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Dado: d20\"\r\n            android:textSize=\"16sp\"\r\n            android:textColor=\"@android:color/black\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/tiradaResultado\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Resultado: 15\"\r\n            android:textSize=\"14sp\"\r\n            android:textColor=\"@android:color/black\" />\r\n\r\n    </LinearLayout>\r\n</androidx.cardview.widget.CardView>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item_tirada.xml b/app/src/main/res/layout/item_tirada.xml
+--- a/app/src/main/res/layout/item_tirada.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/item_tirada.xml	(date 1732889144718)
+@@ -13,14 +13,35 @@
+         android:orientation="vertical"
+         android:padding="16dp">
+ 
++        <!-- Nombre de la tirada -->
+         <TextView
+-            android:id="@+id/tiradaNombreDado"
++            android:id="@+id/tiradaNombre"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="Dado: d20"
++            android:text="Tirada: Ataque"
+             android:textSize="16sp"
++            android:textStyle="bold"
++            android:textColor="@android:color/black" />
++
++        <!-- Cantidad de dados -->
++        <TextView
++            android:id="@+id/tiradaCantidadDados"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Cantidad de dados: 2"
++            android:textSize="14sp"
++            android:textColor="@android:color/black" />
++
++        <!-- Número de caras -->
++        <TextView
++            android:id="@+id/tiradaNumeroCaras"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Número de caras: 20"
++            android:textSize="14sp"
+             android:textColor="@android:color/black" />
+ 
++        <!-- Resultado -->
+         <TextView
+             android:id="@+id/tiradaResultado"
+             android:layout_width="match_parent"
+Index: app/src/main/res/layout/dice_advantage_rolls_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:padding=\"16dp\">\r\n\r\n    <!-- Spinner para seleccionar el número de dados -->\r\n    <Spinner\r\n        android:id=\"@+id/numDiceSpinner\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Spinner para seleccionar el dado -->\r\n    <Spinner\r\n        android:id=\"@+id/diceSpinner\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/numDiceSpinner\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Imagen del dado seleccionado -->\r\n    <ImageView\r\n        android:id=\"@+id/diceImage\"\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"300dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:contentDescription=\"@string/dice_image_description\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceSpinner\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintBottom_toTopOf=\"@id/rollButton\" />\r\n\r\n    <!-- Botón para lanzar los dados -->\r\n    <Button\r\n        android:id=\"@+id/rollButton\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:backgroundTint=\"#FF9800\"\r\n        android:text=\"@string/roll_button_text\"\r\n        android:textSize=\"20sp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceImage\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Texto para mostrar el resultado -->\r\n    <TextView\r\n        android:id=\"@+id/resultText\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:text=\"@string/result_text\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        android:gravity=\"center\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/rollButton\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_advantage_rolls_activity.xml b/app/src/main/res/layout/dice_advantage_rolls_activity.xml
+--- a/app/src/main/res/layout/dice_advantage_rolls_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_advantage_rolls_activity.xml	(date 1732889144702)
+@@ -4,7 +4,8 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:padding="16dp">
++    android:padding="16dp"
++    android:background="#493D22">
+ 
+     <!-- Spinner para seleccionar el número de dados -->
+     <Spinner
+@@ -12,6 +13,7 @@
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:layout_marginBottom="16dp"
++        android:backgroundTint="#ECDEB2"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -22,6 +24,7 @@
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:layout_marginBottom="16dp"
++        android:backgroundTint="#ECDEB2"
+         app:layout_constraintTop_toBottomOf="@id/numDiceSpinner"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -36,8 +39,7 @@
+         android:contentDescription="@string/dice_image_description"
+         app:layout_constraintTop_toBottomOf="@id/diceSpinner"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintBottom_toTopOf="@id/rollButton" />
++        app:layout_constraintEnd_toEndOf="parent" />
+ 
+     <!-- Botón para lanzar los dados -->
+     <Button
+@@ -45,9 +47,11 @@
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="24dp"
+-        android:backgroundTint="#FF9800"
++        android:backgroundTint="#ECDEB2"
++        android:textColor="#000000"
+         android:text="@string/roll_button_text"
+         android:textSize="20sp"
++        android:fontFamily="@font/agbalumo"
+         app:layout_constraintTop_toBottomOf="@id/diceImage"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+@@ -61,9 +65,11 @@
+         android:text="@string/result_text"
+         android:textSize="24sp"
+         android:textStyle="bold"
++        android:fontFamily="@font/agbalumo"
++        android:textColor="#ECDEB2"
+         android:gravity="center"
+         app:layout_constraintTop_toBottomOf="@id/rollButton"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/res/layout/dice_disadvantage_rolls_activity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:padding=\"16dp\">\r\n\r\n    <!-- Spinner para seleccionar el número de dados -->\r\n    <Spinner\r\n        android:id=\"@+id/numDiceSpinner\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:textSize=\"18sp\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Spinner para seleccionar el dado -->\r\n    <Spinner\r\n        android:id=\"@+id/diceSpinner\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:textSize=\"18sp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/numDiceSpinner\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Imagen del dado seleccionado -->\r\n    <ImageView\r\n        android:id=\"@+id/diceImage\"\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"300dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceSpinner\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintBottom_toTopOf=\"@id/rollButton\"\r\n        android:contentDescription=\"Imagen del dado\" />\r\n\r\n    <!-- Botón para lanzar los dados -->\r\n    <Button\r\n        android:id=\"@+id/rollButton\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:backgroundTint=\"#FF9800\"\r\n        android:text=\"Lanzar Dados\"\r\n        android:textSize=\"20sp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/diceImage\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n    <!-- Texto para mostrar el resultado -->\r\n    <TextView\r\n        android:id=\"@+id/resultText\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:text=\"Resultado: \"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        android:gravity=\"center\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/rollButton\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/dice_disadvantage_rolls_activity.xml b/app/src/main/res/layout/dice_disadvantage_rolls_activity.xml
+--- a/app/src/main/res/layout/dice_disadvantage_rolls_activity.xml	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/res/layout/dice_disadvantage_rolls_activity.xml	(date 1732889478833)
+@@ -4,7 +4,8 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:padding="16dp">
++    android:padding="16dp"
++    android:background="#493D22">
+ 
+     <!-- Spinner para seleccionar el número de dados -->
+     <Spinner
+@@ -12,10 +13,12 @@
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:layout_marginBottom="16dp"
+-        android:textSize="18sp"
++        android:backgroundTint="#ECDEB2"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent" />
++        app:layout_constraintEnd_toEndOf="parent"
++        android:textColor="#493D22"
++        android:fontFamily="@font/agbalumo"/>
+ 
+     <!-- Spinner para seleccionar el dado -->
+     <Spinner
+@@ -23,10 +26,12 @@
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:layout_marginBottom="16dp"
+-        android:textSize="18sp"
++        android:backgroundTint="#ECDEB2"
+         app:layout_constraintTop_toBottomOf="@id/numDiceSpinner"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent" />
++        app:layout_constraintEnd_toEndOf="parent"
++        android:textColor="#493D22"
++        android:fontFamily="@font/agbalumo"/>
+ 
+     <!-- Imagen del dado seleccionado -->
+     <ImageView
+@@ -35,11 +40,11 @@
+         android:layout_height="300dp"
+         android:layout_marginTop="16dp"
+         android:layout_marginBottom="16dp"
++        android:contentDescription="@string/dice_image_description"
+         app:layout_constraintTop_toBottomOf="@id/diceSpinner"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintBottom_toTopOf="@id/rollButton"
+-        android:contentDescription="Imagen del dado" />
++        android:layout_gravity="center"/>
+ 
+     <!-- Botón para lanzar los dados -->
+     <Button
+@@ -47,12 +52,15 @@
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="24dp"
+-        android:backgroundTint="#FF9800"
+-        android:text="Lanzar Dados"
++        android:backgroundTint="#ECDEB2"
++        android:textColor="#000000"
++        android:text="@string/roll_button_text"
+         android:textSize="20sp"
++        android:fontFamily="@font/agbalumo"
++        android:elevation="4dp"
+         app:layout_constraintTop_toBottomOf="@id/diceImage"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent" />
++        app:layout_constraintEnd_toEndOf="parent"/>
+ 
+     <!-- Texto para mostrar el resultado -->
+     <TextView
+@@ -60,12 +68,13 @@
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="24dp"
+-        android:text="Resultado: "
++        android:text="@string/result_text"
+         android:textSize="24sp"
+         android:textStyle="bold"
++        android:fontFamily="@font/agbalumo"
++        android:textColor="#ECDEB2"
+         android:gravity="center"
+         app:layout_constraintTop_toBottomOf="@id/rollButton"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+-
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/SavedGame/SavedGame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ucm.fdi.proyecto.dicesanddragons.SavedGame;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\nimport es.ucm.fdi.proyecto.dicesanddragons.Counter;\r\nimport es.ucm.fdi.proyecto.dicesanddragons.Tirada;\r\n\r\npublic class SavedGame {\r\n    private String nombrePartida;\r\n    private String nombrePersonaje;\r\n    private List<Counter> contadores;\r\n    private List<Tirada> tiradas;\r\n\r\n    public SavedGame(String nombrePartida, String nombrePersonaje) {\r\n        this.nombrePartida = nombrePartida;\r\n        this.nombrePersonaje = nombrePersonaje;\r\n        contadores = new ArrayList<>();\r\n        tiradas = new ArrayList<>();\r\n    }\r\n\r\n    public String getNombrePartida() {\r\n        return nombrePartida;\r\n    }\r\n\r\n    public String getNombrePersonaje() {\r\n        return nombrePersonaje;\r\n    }\r\n\r\n    public List<Tirada> getTiradas() {\r\n        return tiradas;\r\n    }\r\n\r\n    public void addTirada(String nombreDado,String caraDado, int resultado) {\r\n        this.tiradas.add(new Tirada(nombreDado, caraDado, resultado));\r\n    }\r\n\r\n    public List<Counter> getContadores() {\r\n        return contadores;\r\n    }\r\n\r\n    public void setContadores(List<Counter> contadores) {\r\n        this.contadores = contadores;\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/SavedGame/SavedGame.java b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/SavedGame/SavedGame.java
+--- a/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/SavedGame/SavedGame.java	(revision 9fd1cd13d131b5feee32055ea2febfa5b23bd9ca)
++++ b/app/src/main/java/es/ucm/fdi/proyecto/dicesanddragons/SavedGame/SavedGame.java	(date 1732889144707)
+@@ -31,8 +31,8 @@
+         return tiradas;
+     }
+ 
+-    public void addTirada(String nombreDado,String caraDado, int resultado) {
+-        this.tiradas.add(new Tirada(nombreDado, caraDado, resultado));
++    public void addTirada(String nombreDado,int numDados,String caraDado, int resultado) {
++        this.tiradas.add(new Tirada(nombreDado,numDados, caraDado, resultado));
+     }
+ 
+     public List<Counter> getContadores() {

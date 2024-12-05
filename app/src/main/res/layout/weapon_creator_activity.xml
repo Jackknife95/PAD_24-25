@@ -1,0 +1,178 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#493D22"
+    tools:context=".WeaponCreatorActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <HorizontalScrollView
+                android:id="@+id/weaponSelectionScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:id="@+id/weaponSelectionContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/weaponImage1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/arco"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 1" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/espada"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 2" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/arma"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 3" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/daga"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 4" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/martillo"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 5" />
+
+                    <ImageView
+                        android:id="@+id/weaponImage6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/mazo"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Arma 6" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <FrameLayout
+                android:id="@+id/weaponPreviewFrame"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/weaponPreviewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/weaponModificationContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:padding="16dp">
+
+                <!-- Modificación del brillo -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/brillo_arma"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/agbalumo" />
+
+                <SeekBar
+                    android:id="@+id/brightnessModificationSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="200"
+                    android:progress="100" />
+
+                <!-- Modificación del color -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/color_arma"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/agbalumo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/colorPickerButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/seleccionar_color"
+                        android:textSize="18sp"
+                        android:backgroundTint="#D2B48C"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/agbalumo"
+                        android:layout_marginTop="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/fileNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nombre_diseno_hint"
+                android:padding="16dp"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/agbalumo" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/guardar_diseno"
+                android:textSize="18sp"
+                android:backgroundTint="#D2B48C"
+                android:textColor="#000000"
+                android:fontFamily="@font/agbalumo"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
